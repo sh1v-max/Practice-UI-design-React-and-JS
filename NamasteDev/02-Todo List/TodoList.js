@@ -40,13 +40,16 @@ function TodoList() {
   return (
     <div>
       {/* write code here */}
-      <input
-        type="text"
-        placeholder="Enter todo"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      ></input>
-      <button onClick={() => addTodoItem()}>Add</button>
+      <div className="input-row">
+        <input
+          type="text"
+          placeholder="Enter todo"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        <button onClick={addTodoItem}>Add</button>
+      </div>
+
       <ul>
         {todoList.map((t) => (
           <li key={t.id}>
