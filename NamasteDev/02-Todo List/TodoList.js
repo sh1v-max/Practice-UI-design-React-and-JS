@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 function TodoList() {
   const [input, setInput] = useState()
 
-  const [todoList, setTdoList] = useState([])
+  const [todoList, setTodoList] = useState([])
 
   const addTodoItem = () => {
     if (input.trim() === '') return
