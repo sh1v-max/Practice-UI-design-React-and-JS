@@ -21,7 +21,7 @@ const ToastContainer = () => {
     setToasts(newToasts)
     timesRef.current[id] = setTimeout(() => {
       handleClose(id)
-    }, 3000)
+    }, 6000)
   }
 
   return (
