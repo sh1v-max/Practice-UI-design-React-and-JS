@@ -4,7 +4,8 @@ const ToastContainer = () => {
   // const [show, setShow] = useState()
   const [toasts, setToasts] = useState([])
   const timesRef = useRef({})
-  console.log(timesRef)
+  // console.log(timesRef)
+  
   const handleClose = (id) => {
     clearInterval(timesRef.current[id])
     delete timesRef.current[id]
@@ -15,6 +16,7 @@ const ToastContainer = () => {
       return filteredArray
     })
   }
+  
   const handleAdd = (message, type) => {
     const id = new Date().getTime() // Unique ID for each toast
     const newToasts = [...toasts, { id, message, type }]
