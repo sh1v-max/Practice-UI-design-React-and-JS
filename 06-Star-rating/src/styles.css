@@ -1,4 +1,39 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+span {
+  font-size: 4rem;
+  cursor: pointer;
+  margin: 0px;
+  transition: transform 0.2s ease;
+}
+
+.star {
+  /* font-size: 3rem; */
+  cursor: pointer;
+  transition: color 0.2s ease;
+  margin: 0 4px;
+}
+
+.gold {
+  color: rgb(255, 140, 0);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+  transition: transform 0.2s, color 0.2s, text-shadow 0.2s;
+}
+
+.grey {
+  color: rgb(38, 38, 38);
+  transition: transform 0.2s, color 0.2s;
+}
+
+.gold:hover {
+  transform: scale(1.3);
+}
+
+span:active {
+  transform: scale(0.9);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
