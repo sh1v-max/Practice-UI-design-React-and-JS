@@ -1,4 +1,13 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+.post-container{
+  width: 550px;
+  height: 180px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+img{
+  width: 100px;
+  height: 160px;
+  border-radius: 10px;
 }
