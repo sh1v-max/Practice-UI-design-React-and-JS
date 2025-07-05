@@ -22,19 +22,16 @@ export default function Pagination({ pageNo, setPageNo }) {
   return (
     <div className="pagination-wrapper">
       <div className="pagination-container">
-        {/* Previous Button */}
+
         {pageNo > 1 && (
           <button
             onClick={handlePrev}
             className="nav-btn prev-btn"
           >
-            <svg className="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
+            {'<'}
           </button>
         )}
 
-        {/* Page Numbers */}
         <div className="page-numbers">
           {paginationArray.map((page) => (
             <button
@@ -47,14 +44,11 @@ export default function Pagination({ pageNo, setPageNo }) {
           ))}
         </div>
 
-        {/* Next Button */}
         <button
           onClick={handleNext}
           className="nav-btn next-btn"
         >
-          <svg className="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
+          {'>'}
         </button>
       </div>
     </div>
