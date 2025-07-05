@@ -1,0 +1,50 @@
+export default function Pagination({ pageNo, setPageNo }) {
+  // to get the numbers before the current page
+  const prevThreeNoArr = Array.from(
+    { length: 3 },
+    (_, index) => pageNo - 1 - index
+  ).filter((value) => value > 0).reverse()
+
+  // to get the numbers after the current page
+  const nextFourNoArr = Array.from(
+    { length: 4 }, 
+    (_, index) => pageNo + index
+  )
+  console.log(prevThreeNoArr)
+  console.log(nextFourNoArr)
+  const paginationArray = [...prevThreeNoArr, ...nextFourNoArr]
+  console.log(paginationArray)
+
+  const handleNext = () => {
+    setPageNo(pageNo + 1)
+  }
+
+  const handlePrev = () => {
+    setPageNo(pageNo - 1)
+  }
+
+  return (
+    <div className="pagination-container">
+      {pageNo > 1 ? (
+        <div onClick={handlePrev} className="page-btn">
+          {'<'}
+        </div>
+      ) : (
+        ''
+      )}
+      {paginationArray.map((page) => (
+        <div
+          key={page}
+          onClick={() => setPageNo(page)}
+          className= {page === pageNo ? "page-btn active" : "page-btn"}
+        >
+          {page}
+        </div>
+      ))}
+      {/* <div className="page-btn">{pageNo}</div> */}
+      <div onClick={handleNext} className="page-btn">
+        {'>'}
+      </div>
+    </div>
+  )
+}

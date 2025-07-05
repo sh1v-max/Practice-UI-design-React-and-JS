@@ -3,6 +3,9 @@ import "./styles.css";
 
 export default function App() {
   return (
-    <Post/>
+    <div>
+      <div className="font-bold">Hello world</div>
+      <Post/>
+    </div>
   );
 }
