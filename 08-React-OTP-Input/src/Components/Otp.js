@@ -35,7 +35,7 @@ export default function Otp({ otpLength = 6 }) {
     // for backspace
     if (key === 'Backspace') {
       // ref.current[index - 1].focus()
-      console.log('backspace pressed')
+      // console.log('backspace pressed')
       copyOtpField[index] = ''
       setOtpField(copyOtpField)
       if (index - 1 >= 0) {
