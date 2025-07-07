@@ -24,6 +24,7 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 2 | ⭐ Star Rating      | Interactive star-based rating UI | [View](https://rate-my-star.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/06-Star-rating) |
 | 3 | 🌄 WallHeaven    | Basic react pagination to render multiple images/pages    | [View](https://astranoutintheocean.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/07-React-pagination) |
 | 3 | 🔑 OTP input    | Basic input field for OTP    | [View](https://enteryourotp.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/08-React-OTP-Input) |
+| 3 | 🌄 Image carousel    | A simple image carousel with a few functions    | [View](https://delightimagecarousel.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/09-Image-carousel) |
 | 3 | 🔁 Toggle Button    | Basic on/off toggle component    | [Coming soon...]() | [Code](https://github.com/sh1v-max/) |
 
 ### How to Use
