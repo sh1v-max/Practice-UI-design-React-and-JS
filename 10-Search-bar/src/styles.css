@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
-  background-color: #f5f7fa;
+  background-color: #ffffff;
   color: #1f2937;
   line-height: 1.5;
   padding: 20px;
@@ -17,7 +17,7 @@ body {
 .typeahead-container {
   max-width: 700px;
   margin: 40px auto;
-  background: #fff;
+  background: #d3d3d3;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   padding: 24px;
@@ -33,7 +33,7 @@ body {
   width: 100%;
   padding: 14px 18px;
   font-size: 16px;
-  border: 1.5px solid #d1d5db;
+  border: 1.5px solid #b0d0ff;
   border-radius: 12px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   outline: none;
@@ -148,7 +148,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #ffffff;
   scroll-behavior: smooth;
 }
 
