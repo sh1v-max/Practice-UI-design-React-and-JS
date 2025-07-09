@@ -26,7 +26,8 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 4 | 🔑 OTP input    | Basic input field for OTP    | [View](https://enteryourotp.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/08-React-OTP-Input) |
 | 5 | 🌄 Image carousel    | A simple image carousel with a few functions    | [View](https://delightimagecarousel.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/09-Image-carousel) |
 | 6 | 🔎 Search bar    | Basic on/off toggle component    | [View](https://searchthebar.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS) |
-| 7 | 🔁 Toggle Button    | Basic on/off toggle component    | [Coming soon...]() | [Code](https://github.com/sh1v-max/) |
+| 7 | 🔁 Infinite Scrolling    | Implements infinite scrolling to load more content as you scroll down    | [View](https://keepscrollingthis.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/11-Infinite-scroll) |
+| 8 | 🔁 Toggle Button    | Basic on/off toggle component    | [Coming soon...]() | [Code](https://github.com/sh1v-max/) |
 
 ### How to Use
 
