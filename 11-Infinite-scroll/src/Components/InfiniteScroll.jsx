@@ -10,7 +10,7 @@ export default function InfiniteScroll() {
   useEffect(() => {
     // to show loading until you get the data
     setLoading(true)
-    fetch(`https://picsum.photos/v2/list?page=${pageNo}&limit=3`)
+    fetch(`https://picsum.photos/v2/list?page=${pageNo}&limit=9`)
       .then((res) => res.json())
       .then((arr) => {
         setData((oldData) => [...oldData, ...arr])
