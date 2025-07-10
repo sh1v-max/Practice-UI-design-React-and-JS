@@ -10,39 +10,16 @@ const CountDownTimer = () => {
   const intervalRef = useRef(null)
 
   const handleChange = (e, field) => {
-    const input = e.target.value;
-  
-    // to allow empty string
-    if (input === "") {
-      setTime((prev) => ({ ...prev, [field]: "" }));
-      return;
-    }
-  
-    // corner case, solve for number back to 0
-    const value = parseInt(input, 10);
-    if (isNaN(value)) return;
-  
-    let newTime = { ...time, [field]: value };
-  
-    // hour, minute, and second change simultaneously
-    let hour = parseInt(newTime.hour || 0, 10);
-    let minute = parseInt(newTime.minute || 0, 10);
-    let second = parseInt(newTime.second || 0, 10);
-  
-    minute += Math.floor(second / 60);
-    second = second % 60;
-  
-    hour += Math.floor(minute / 60);
-    minute = minute % 60;
-  
-    setTime({
-      hour: hour,
-      minute: minute,
-      second: second,
-    });
-  };
-  
-  
+    const input = e.target.value
+
+    // Allow only digits or empty string
+    if (!/^\d*$/.test(input)) return
+
+    setTime((prev) => ({
+      ...prev,
+      [field]: input,
+    }))
+  }
 
   const handleStart = () => {
     if (
@@ -67,14 +44,26 @@ const CountDownTimer = () => {
   }
 
   const normalizeTime = () => {
-    let { hour, minute, second } = time;
-    minute += Math.floor(second / 60);
-    second = second % 60;
-    hour += Math.floor(minute / 60);
-    minute = minute % 60;
-    setTime({ hour, minute, second });
-  };
-  
+    let hour = parseInt(time.hour || '0', 10)
+    let minute = parseInt(time.minute || '0', 10)
+    let second = parseInt(time.second || '0', 10)
+
+    if (isNaN(hour)) hour = 0
+    if (isNaN(minute)) minute = 0
+    if (isNaN(second)) second = 0
+
+    minute += Math.floor(second / 60)
+    second = second % 60
+
+    hour += Math.floor(minute / 60)
+    minute = minute % 60
+
+    setTime({
+      hour: hour.toString(),
+      minute: minute.toString(),
+      second: second.toString(),
+    })
+  }
 
   useEffect(() => {
     if (isRunning) {
@@ -111,13 +100,17 @@ const CountDownTimer = () => {
 
   return (
     <div className="container">
+      <h1 className="title">Countdown Timer</h1>
+
       <div className="formatted-time">
         {String(time.hour || 0).padStart(2, '0')}:
         {String(time.minute || 0).padStart(2, '0')}:
         {String(time.second || 0).padStart(2, '0')}
       </div>
+
       <div className="inputs-container">
         <input
+          className="time-input"
           disabled={isRunning}
           value={time.hour}
           onChange={(e) => handleChange(e, 'hour')}
@@ -125,8 +118,9 @@ const CountDownTimer = () => {
           type="text"
           placeholder="HH"
         />
-        :
+        <span className="colon">:</span>
         <input
+          className="time-input"
           disabled={isRunning}
           value={time.minute}
           onChange={(e) => handleChange(e, 'minute')}
@@ -134,8 +128,9 @@ const CountDownTimer = () => {
           type="text"
           placeholder="MM"
         />
-        :
+        <span className="colon">:</span>
         <input
+          className="time-input"
           disabled={isRunning}
           value={time.second}
           onChange={(e) => handleChange(e, 'second')}
@@ -144,9 +139,14 @@ const CountDownTimer = () => {
           placeholder="SS"
         />
       </div>
+
       <div className="button-container">
-        <button onClick={handleStart}>{isRunning ? 'Pause' : 'Start'}</button>
-        <button onClick={handleReset}>Reset</button>
+        <button className="btn" onClick={handleStart}>
+          {isRunning ? 'Pause' : 'Start'}
+        </button>
+        <button className="btn reset" onClick={handleReset}>
+          Reset
+        </button>
       </div>
     </div>
   )
