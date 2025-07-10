@@ -12,7 +12,7 @@ const CountDownTimer = () => {
   const handleChange = (e, field) => {
     const input = e.target.value
 
-    // Allow only digits or empty string
+    // only digits or empty string
     if (!/^\d*$/.test(input)) return
 
     setTime((prev) => ({
