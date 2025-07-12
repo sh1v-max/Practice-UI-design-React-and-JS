@@ -28,7 +28,8 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 6 | 🔎 Search bar    | Basic on/off toggle component    | [View](https://searchthebar.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS) |
 | 7 | 🔁 Infinite Scrolling    | Implements infinite scrolling to load more content as you scroll down    | [View](https://keepscrollingthis.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/11-Infinite-scroll) |
 | 8 | ⏰ Countdown Timer    | A countdown timer component    | [View](https://countdowntimerhere.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/12-Countdown-timer) |
-| 9 | 🔁 Toggle Button    | Basic on/off toggle component    | [Coming soon...]() | [Code](https://github.com/sh1v-max/) |
+| 9 | 📂 File explorer    | File explorer component    | [View](https://fileexplorerjs.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/13-File-explorer) |
+| 10 | 🔁 Toggle Button    | Basic on/off toggle component    | [Coming soon...]() | [Code](https://github.com/sh1v-max/) |
 
 ### How to Use
 
