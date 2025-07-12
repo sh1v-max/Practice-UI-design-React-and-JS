@@ -1,4 +1,37 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+.node {
+  margin-left: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  user-select: none;
+}
+
+.node-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.node-label.folder:hover {
+  background-color: #e1ecff;
+  cursor: pointer;
+}
+
+.node-label.file:hover {
+  background-color: #f3f3f3;
+  cursor: default;
+}
+
+.node-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.children {
+  margin-left: 1rem;
+  border-left: 1px dashed #ccc;
+  padding-left: 1rem;
+  margin-top: 0.3rem;
 }
