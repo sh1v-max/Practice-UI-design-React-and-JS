@@ -1,4 +1,18 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+
+.container{
+  display: grid;
+  width: 16rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
 }
+
+.cell{
+  height: 5rem;
+  width: 5rem;
+  border: 1px solid black;
+}
+
+.active{
+  background-color: rgb(255, 0, 0);
+}
+
