@@ -43,7 +43,7 @@ const InteractiveGrid = () => {
         timerId.current[idx] = setTimeout(() => {
           handleOnClick(rowIdx, colIdx, false)
           if (idx === timerId.current.length - 1) timerId.current = []
-        }, 300 * (idx + 1))
+        }, 1000 * (idx + 1))
       })
       // console.log('start removing color')
       // to prevent timer from running again and again and...
@@ -61,27 +61,18 @@ const InteractiveGrid = () => {
   }, [])
 
   return (
-    <div className="app-container">
-      <h1 className="title">Interactive Grid Game</h1>
-      <div className="grid-wrapper">
-        <div className="container">
-          {grid.map((row, rowIdx) => {
-            return row.map((cell, colIdx) => {
-              return (
-                <div
-                  className={`cell ${cell ? 'active' : ''}`}
-                  key={`${rowIdx}-${colIdx}`}
-                  onClick={() => handleOnClick(rowIdx, colIdx, true)}
-                ></div>
-              )
-            })
-          })}
-        </div>
-      </div>
-      <p className="instruction">
-        Click on cells to activate them. Once all 9 cells are clicked,<br />
-        they will automatically deactivate in the order you clicked them.
-      </p>
+    <div className="container">
+      {grid.map((row, rowIdx) => {
+        return row.map((cell, colIdx) => {
+          return (
+            <div
+              className={`cell ${cell ? 'active' : ''}`}
+              key={`${rowIdx}-${colIdx}`}
+              onClick={() => handleOnClick(rowIdx, colIdx, true)}
+            ></div>
+          )
+        })
+      })}
     </div>
   )
 }

@@ -1,18 +1,152 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: #a8a8a8;
+  margin: 0;
+  padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.container{
+.app-container {
+  background: rgba(51, 51, 51, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  /* max-width: 90vw;
+  width: 100%; */
+}
+
+.title {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.container {
   display: grid;
-  width: 16rem;
+  width: 20rem;
+  max-width: 100%;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  gap: 0.75rem;
+  margin: 0 auto;
+  padding: 1rem;
+  background: rgb(255, 255, 255);
+  border-radius: 15px;
 }
 
-.cell{
-  height: 5rem;
-  width: 5rem;
-  border: 1px solid black;
+.cell {
+  height: 6rem;
+  width: 100%;
+  aspect-ratio: 1;
+  min-height: 4rem;
+  border: 2px solid #9a9a9a;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #b5b5b5, #f0f0f0);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.active{
-  background-color: rgb(255, 0, 0);
+.cell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(0.88);
+}
+
+.active {
+  background: linear-gradient(145deg, #717171, #757575);
+  border-color: #919191;
+  box-shadow: 0 6px 20px rgb(0, 0, 0);
+  animation: pulse 0.6s ease-out;
+  transform: scale(0.85);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.88);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.88);
+  }
+}
+
+
+.instruction {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 1rem;
+}
+
+.grid-wrapper {
+  position: relative;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .container {
+    width: 18rem;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+  
+  .cell {
+    height: 5rem;
+    min-height: 3.5rem;
+    border-radius: 10px;
+  }
+  
+  .instruction {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 2.5rem;
+  }
+  
+  .app-container {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .container {
+    width: 15rem;
+    gap: 0.4rem;
+    padding: 0.5rem;
+  }
+  
+  .cell {
+    height: 4rem;
+    min-height: 3rem;
+    border-radius: 8px;
+  }
+  
+  .instruction {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
 }
 
