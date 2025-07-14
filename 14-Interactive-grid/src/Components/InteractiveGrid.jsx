@@ -4,17 +4,23 @@ const InteractiveGrid = () => {
   const [grid, setGrid] = useState(
     Array.from({ length: 3 }, () => new Array(3).fill(false))
   )
-  console.log(grid)
+  const timerId = useRef([])
+  // console.log(grid)
+  // console.log(timerId)
 
   // now we need something, a variable to store the order of the cells
   // now, we can not create const queue = [], because it will be overwritten by each render as empty array
   // we can't use state either, because we need state only when we want to change the UI based on state change
   // so, now we will use ref
   const queue = useRef([])
-  console.log(queue)
+  // console.log(queue)
 
   const handleOnClick = (rowIdx, colIdx, flag) => {
-    if(grid[rowIdx][colIdx] && flag) {
+    // to prevent clicking when timer is running, after clicking all the cells
+    if (timerId.current.length > 0 && flag) {
+      return
+    }
+    if (grid[rowIdx][colIdx] && flag) {
       return
     }
     // const gridDeepCopy = grid.map((row) => [...row])
@@ -34,13 +40,25 @@ const InteractiveGrid = () => {
   useEffect(() => {
     if (queue.current.length === 9) {
       queue.current.forEach(([rowIdx, colIdx], idx) => {
-        setTimeout(() => handleOnClick(rowIdx, colIdx, false), 1000 * (idx + 1))
+        timerId.current[idx] = setTimeout(() => {
+          handleOnClick(rowIdx, colIdx, false)
+          if (idx === timerId.current.length - 1) timerId.current = []
+        }, 1000 * (idx + 1))
       })
       // console.log('start removing color')
       // to prevent timer from running again and again and...
       queue.current = []
     }
-  })
+  }, [grid])
+
+  // unmounting the setTimeout
+  useEffect(() => {
+    return () => {
+      timerId.current.forEach((id) => {
+        clearTimeout(id)
+      })
+    }
+  }, [])
 
   return (
     <div className="container">
