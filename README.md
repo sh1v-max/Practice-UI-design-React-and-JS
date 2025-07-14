@@ -29,7 +29,8 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 7 | 🔁 Infinite Scrolling    | Implements infinite scrolling to load more content as you scroll down    | [View](https://keepscrollingthis.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/11-Infinite-scroll) |
 | 8 | ⏰ Countdown Timer    | A countdown timer component    | [View](https://countdowntimerhere.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/12-Countdown-timer) |
 | 9 | 📂 File explorer    | File explorer component    | [View](https://fileexplorerjs.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/13-File-explorer) |
-| 10 | 🔁 Toggle Button    | Basic on/off toggle component    | [Coming soon...]() | [Code](https://github.com/sh1v-max/) |
+| 10 | 🟥 Interactive Grid | 3x3 grid that tracks click order and resets cells with timed animation using `useRef` and `setTimeout` | [View](https://interactivegridis.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/14-Interactive-grid) |
+| 11 | 🔁 Toggle Button    | Basic on/off toggle component    | [Coming soon...]() | [Code](https://github.com/sh1v-max/) |
 
 ### How to Use
 
