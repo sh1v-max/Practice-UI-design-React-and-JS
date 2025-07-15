@@ -5,15 +5,18 @@ const Board = ({ size, board, handleClick }) => {
   return (
     <div
       className="board"
-      style={{ gridTemplateColumns: `repeat(${size}, 50px)` }}
+      style={{ gridTemplateColumns: `repeat(${size}, 80px)` }}
     >
       {board.map((row, rowIdx) => {
         return row.map((cell, colIdx) => {
           return (
             <div
+              key={`${rowIdx}-${colIdx}`}
               onClick={() => handleClick(rowIdx, colIdx)}
-              className="cell"
-            >{cell}</div>
+              className={`cell ${cell === 'X' ? 'x-cell' : cell === 'O' ? 'o-cell' : ''}`}
+            >
+              {cell}
+            </div>
           )
         })
       })}

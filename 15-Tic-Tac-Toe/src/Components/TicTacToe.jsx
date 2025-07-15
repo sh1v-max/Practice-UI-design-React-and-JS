@@ -29,14 +29,21 @@ const TicTacToe = ({ size = 3 }) => {
 
   const handleReset = () => {
     setBoard(initialState(size))
+    setTurnX(true)
   }
 
   return (
     <div className="container">
       <h1 className="title">Tic Tac Toe</h1>
-      <Board handleClick={handleClick} size={size} board={board} />
-      <div className="status">{status}</div>
-      <button onClick={handleReset}>Reset</button>
+      <div className="game-wrapper">
+        <Board handleClick={handleClick} size={size} board={board} />
+        <div className="game-info">
+          <div className={`status ${winner ? 'winner' : ''}`}>{status}</div>
+          <button className="reset-btn" onClick={handleReset}>
+            Reset Game
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

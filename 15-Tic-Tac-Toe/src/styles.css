@@ -1,19 +1,217 @@
-.board{
-  display: grid;
-  gap: 5px;
+/* Global styles */
+* {
+  box-sizing: border-box;
 }
 
-.cell{
-  height: 50px;
-  width: 50px;
-  border: 1px solid black;
+body {
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+  background: #1a1a1a;
+  background-image: 
+    radial-gradient(circle at 25% 25%, #ff6b35 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, #f7931e 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, #2d3436 0%, transparent 50%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container styles */
+.container {
+  background: #2d3436;
+  border: 3px solid #ff6b35;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 
+    0 0 20px rgba(255, 107, 53, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Title styles */
+.title {
+  font-size: 3rem;
+  color: #ff6b35;
+  margin-bottom: 30px;
+  text-shadow: 
+    0 0 10px rgba(255, 107, 53, 0.5),
+    0 0 20px rgba(255, 107, 53, 0.3);
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Game wrapper */
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Board styles */
+.board {
+  display: grid;
+  gap: 3px;
+  padding: 20px;
+  background: #636e72;
+  border: 2px solid #f7931e;
+  box-shadow: 
+    0 0 15px rgba(247, 147, 30, 0.4),
+    inset 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Cell styles */
+.cell {
+  height: 80px;
+  width: 80px;
+  border: 2px solid #74b9ff;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 32px;
+  font-size: 2.5rem;
+  font-weight: bold;
   cursor: pointer;
-} 
+  background: #ddd;
+  transition: all 0.2s ease;
+  position: relative;
+  font-family: 'Courier New', monospace;
+}
 
-.cell:hover{
-  background-color: #ccc;
+.cell:hover {
+  background: #fab1a0;
+  border-color: #e17055;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(224, 112, 85, 0.6);
+}
+
+.cell:active {
+  transform: scale(0.95);
+}
+
+/* X and O specific styles */
+.x-cell {
+  color: #00b894;
+  background: #55efc4;
+  border-color: #00b894;
+  text-shadow: 0 0 5px rgba(0, 184, 148, 0.7);
+}
+
+.o-cell {
+  color: #6c5ce7;
+  background: #a29bfe;
+  border-color: #6c5ce7;
+  text-shadow: 0 0 5px rgba(108, 92, 231, 0.7);
+}
+
+/* Game info styles */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Status styles */
+.status {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ddd;
+  padding: 15px 30px;
+  background: #2d3436;
+  border: 2px solid #74b9ff;
+  min-width: 200px;
+  transition: all 0.3s ease;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 
+    0 0 10px rgba(116, 185, 255, 0.3),
+    inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.status.winner {
+  color: #00b894;
+  border-color: #00b894;
+  text-shadow: 0 0 10px rgba(0, 184, 148, 0.8);
+  animation: neon-glow 1.5s infinite alternate;
+}
+
+@keyframes neon-glow {
+  from { 
+    box-shadow: 
+      0 0 10px rgba(0, 184, 148, 0.3),
+      inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  to { 
+    box-shadow: 
+      0 0 20px rgba(0, 184, 148, 0.6),
+      0 0 30px rgba(0, 184, 148, 0.4),
+      inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Reset button styles */
+.reset-btn {
+  background: #e17055;
+  color: white;
+  border: 2px solid #d63031;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Courier New', monospace;
+  box-shadow: 
+    0 0 10px rgba(214, 48, 49, 0.3),
+    inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.reset-btn:hover {
+  background: #d63031;
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 15px rgba(214, 48, 49, 0.5),
+    0 0 25px rgba(214, 48, 49, 0.3),
+    inset 0 0 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.reset-btn:active {
+  transform: scale(0.95);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .cell {
+    height: 60px;
+    width: 60px;
+    font-size: 2rem;
+  }
+  
+  .board {
+    gap: 2px;
+  }
+  
+  .status {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+  
+  .reset-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
 }
