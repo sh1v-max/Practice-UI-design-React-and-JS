@@ -9,6 +9,7 @@ const INITIAL_SNAKE = [
   [6, 7],
 ]
 
+// generating random food
 const generateFood = () => {
   const x = Math.floor(Math.random() * GRID_SIZE)
   const y = Math.floor(Math.random() * GRID_SIZE)
