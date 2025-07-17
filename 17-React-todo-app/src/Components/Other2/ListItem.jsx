@@ -1,5 +1,6 @@
 import { useState, memo } from "react";
 
+// using memo to prevent unnecessary renders, only when prop changes
 export default memo(function Item({
   todo,
   handleComplete,
@@ -7,45 +8,41 @@ export default memo(function Item({
   handleUpdate,
 }) {
   const [isEditing, setEditing] = useState(false);
-  const [udpatedValue, setUpdatedValue] = useState(todo.value);
-  console.log("list Item rendering");
+  const [updatedValue, setUpdatedValue] = useState(todo.value);
+  // console.log("list Item rendering");
   return (
-    <div style={{ margin: "0.5rem" }} key={todo.id}>
+    <div className="todo-item" key={todo.id}>
       {todo.isCompleted ? (
-        <span
-          style={{
-            marginRight: "2rem",
-            textDecoration: "line-through",
-          }}
-        >
+        <span className="todo-text strikeThrough">
           {todo.value}
         </span>
       ) : isEditing ? (
         <input
-          value={udpatedValue}
+          className="edit-input"
+          value={updatedValue}
           type="text"
           onChange={(e) => setUpdatedValue(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              handleUpdate(todo.id, udpatedValue);
+              handleUpdate(todo.id, updatedValue);
               setEditing(false);
             }
           }}
         />
       ) : (
-        <span style={{ marginRight: "2rem" }}>{todo.value}</span>
+        <span className="todo-text">{todo.value}</span>
       )}
 
       <span
+        className="action-btn complete-btn"
         onClick={() => handleComplete(todo.id)}
-        style={{ marginRight: "0.5rem" }}
       >
         ✔️
       </span>
       {!todo.isCompleted && !isEditing && (
-        <span onClick={() => setEditing(true)}>📝</span>
+        <span className="action-btn edit-btn" onClick={() => setEditing(true)}>📝</span>
       )}
-      <span onClick={() => handleDelete(todo.id)}>╳</span>
+      <span className="action-btn delete-btn" onClick={() => handleDelete(todo.id)}>❌</span>
     </div>
   );
 });

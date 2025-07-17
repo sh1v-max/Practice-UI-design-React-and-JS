@@ -13,16 +13,13 @@ const Todo = () => {
   }
 
   const addTodo = () => {
-    if (!task.trim()) return; // Don't add empty todos
-    
     const newTodos = todos.map((todo) => {
       return { ...todo }
     })
     newTodos.push({
-      value: task.trim(),
+      value: task,
       isCompleted: false,
       id: new Date().getTime(),
-      createdAt: new Date().toLocaleString()
     })
     setTodos(newTodos)
     setTask('')
@@ -98,22 +95,6 @@ const Todo = () => {
 
   return (
     <div className="todo-container">
-      <div className="app-header">
-        <h1 className="app-title">📋 My Todo App</h1>
-        <p className="app-subtitle">Stay organized and get things done!</p>
-        <div className="app-stats">
-          <span className="stat-item">
-            📝 Total: {todos.length}
-          </span>
-          <span className="stat-item">
-            ✅ Completed: {todos.filter(todo => todo.isCompleted).length}
-          </span>
-          <span className="stat-item">
-            ⏳ Pending: {todos.filter(todo => !todo.isCompleted).length}
-          </span>
-        </div>
-      </div>
-      
       <div className="input-section">
         <input
           className="todo-input"
@@ -121,13 +102,10 @@ const Todo = () => {
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           type="text"
-          placeholder="What needs to be done today?"
+          placeholder="Add a new todo..."
         />
-        <button className="add-btn" onClick={addTodo} disabled={!task.trim()}>
-          ➕ Add Todo
-        </button>
+        <button className="add-btn" onClick={addTodo}>Add Todo</button>
       </div>
-      
       <div className="todo-list">
         {todos.map((todo) => {
           return (
@@ -162,15 +140,6 @@ const Todo = () => {
             />
           )
         })}
-      </div>
-      
-      <div className="app-footer">
-        <p className="footer-text">
-          💡 <strong>Tips:</strong> Click ✔️ to complete, 📝 to edit, ❌ to delete
-        </p>
-        <p className="footer-info">
-          Built with React • Press Enter to add todos quickly
-        </p>
       </div>
     </div>
   )
