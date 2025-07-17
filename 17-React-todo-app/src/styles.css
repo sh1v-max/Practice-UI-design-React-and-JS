@@ -1,4 +1,4 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+.strikeThrough{
+  text-decoration: line-through;
+  color: #888;
 }
