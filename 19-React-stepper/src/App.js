@@ -6,9 +6,11 @@ export default function App() {
     {
       label: "Personal Info",
       content: (
-        <div className="step-content">
+        <div className="step-container">
+          <div className="step-content">
           <h3>Personal Information</h3>
           <p>Please provide your basic personal details to get started with your account setup.</p>
+        </div>
         </div>
       ),
     },
