@@ -36,9 +36,6 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 14 | 🔁 Toggle Button    | Basic on/off toggle component    | [Coming soon...]() | [Code](https://github.com/sh1v-max/) |
 
 
-react loging her can be pasted on the follwoing order, also login cand be added
-
-
 ### How to Use
 
 1. Clone the repo
