@@ -5,7 +5,7 @@ import DashboardTab from './Components/DashboardTab'
 import Tabs from './Components/Tabs'
 import './styles.css'
 import { useState } from 'react'
-import { User, BarChart3, Settings, FileText, Bell, Save, Search, Calendar, DollarSign, TrendingUp, Eye, EyeOff } from 'lucide-react';
+import { User, BarChart3, Settings, FileText} from 'lucide-react';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState(0)
