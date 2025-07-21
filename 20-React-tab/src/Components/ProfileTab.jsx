@@ -3,10 +3,10 @@ import {Save} from 'lucide-react';
 
 const ProfileTab = () => {
   const [formData, setFormData] = useState({
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    phone: '+1 (555) 123-4567',
-    bio: 'Full-stack developer with 5 years of experience'
+    name: 'Singh Shiv',
+    email: 'singhshiv0427@gmail.com',
+    phone: '+91 1234567890',
+    bio: 'Just a curious mind learning web development and DSA, building beautiful WEBSITES'
   });
   const [isEditing, setIsEditing] = useState(false);
 
@@ -18,7 +18,7 @@ const ProfileTab = () => {
   return (
     <div className="profile-content">
       <div className="profile-header">
-        <div className="avatar">JD</div>
+        <div className="avatar">SS</div>
         <button 
           className="edit-btn"
           onClick={() => setIsEditing(!isEditing)}
