@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react'
+import "./tabs.css"
 
 const Tabs = ({ tabsData, onChange }) => {
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
@@ -10,14 +11,13 @@ const Tabs = ({ tabsData, onChange }) => {
           return (
             <button
               key={index}
-              className={`tab-button ${currentTabIndex === index ? 'active' : ''}`}
+              className={`${currentTabIndex === index ? 'active' : ''}`}
               onClick={() => {
                 setCurrentTabIndex(index)
                 onChange(index)
               }}
             >
-              <item.icon size={16} />
-              <span>{item.label}</span>
+              {item.label}
             </button>
           )
         })}
