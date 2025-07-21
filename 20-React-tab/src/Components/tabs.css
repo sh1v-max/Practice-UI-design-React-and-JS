@@ -1,0 +1,102 @@
+.tabs {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.tabs__container {
+  display: flex;
+  background: #2d2d2d;
+  position: relative;
+  border-radius: 12px 12px 0 0;
+}
+
+.tabs__container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #404040;
+}
+
+.tabs__container button {
+  flex: 1;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  outline: none;
+  letter-spacing: 0.5px;
+}
+
+.tabs__container button:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tabs__container button:focus {
+  box-shadow: inset 0 0 0 2px #4a9eff;
+}
+
+.tabs__container button.active {
+  color: #fff;
+  background: #1a1a1a;
+  z-index: 2;
+}
+
+.tabs__container button.active::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4a9eff, #00d4ff);
+  border-radius: 3px 3px 0 0;
+}
+
+.tabs__container button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #1a1a1a;
+  z-index: 1;
+}
+
+.tabs__content {
+  width: 100%;
+  min-height: 300px;
+  background: #1a1a1a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-size: 16px;
+  font-weight: 300;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
