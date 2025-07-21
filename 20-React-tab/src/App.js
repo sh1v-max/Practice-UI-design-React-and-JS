@@ -25,5 +25,12 @@ export default function App() {
     console.log('Tab Changed')
   }
 
-  return <Tabs tabsData={tabsData} onChange={onTabChangeHandler} />
-}
+  return (
+    <div className="App">
+      <div className="app-header">
+        <h1 className="app-title">My Dashboard</h1>
+        <p className="app-subtitle">Manage your account and settings</p>
+      </div>
+      <Tabs tabsData={tabsData} onChange={onTabChangeHandler} />
+    </div>
+  )}
