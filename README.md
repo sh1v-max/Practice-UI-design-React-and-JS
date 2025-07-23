@@ -34,6 +34,7 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 12 | 🎮 Snake game    | Simple game of Snake with arrow key controls and score tracking | [View](https://killmysnake.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/16-Snake-game) |
 | 13 | 🔄 Multi-Step Form Stepper | Step-through form with progress indicators | [View](https://multistepstepper.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/19-React-stepper) |
 | 13 | 📊 React Dashboard Tab | Dashboard interface with multiple tabs for data visualization | [View](https://reactdashboardtab.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/20-React-tab) |
+| 15 | 🧠 Memory Game    | A simple memory game for concentration and fun | [View](https://doyourmemory.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/21-Memory-game) |
 | 14 | 🔁 Toggle Button    | Basic on/off toggle component    | [Coming soon...]() | [Code](https://github.com/sh1v-max/) |
 
 
