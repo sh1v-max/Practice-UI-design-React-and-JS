@@ -43,6 +43,21 @@ const MemoryGame = () => {
     setShowInstructions(!showInstructions)
   }
 
+  // Check if game is completed
+  useEffect(() => {
+    const allFlipped = cards.every(card => card.isFlipped)
+    if (allFlipped && gameStarted) {
+      setGameCompleted(true)
+      const finalScore = currentScore + Math.max(0, 100 - moves)
+      setCurrentScore(finalScore)
+      
+      if (finalScore > highScore) {
+        setHighScore(finalScore)
+        localStorage.setItem('memoryGameHighScore', finalScore.toString())
+      }
+    }
+  }, [cards, currentScore, highScore, moves, gameStarted])
+  
   useEffect(() => {
     if (flippedCard.length === 2) {
       setIsLock(true)
@@ -67,20 +82,6 @@ const MemoryGame = () => {
     }
   }, [flippedCard, cards])
 
-  // Check if game is completed
-  useEffect(() => {
-    const allFlipped = cards.every(card => card.isFlipped)
-    if (allFlipped && gameStarted) {
-      setGameCompleted(true)
-      const finalScore = currentScore + Math.max(0, 100 - moves)
-      setCurrentScore(finalScore)
-      
-      if (finalScore > highScore) {
-        setHighScore(finalScore)
-        localStorage.setItem('memoryGameHighScore', finalScore.toString())
-      }
-    }
-  }, [cards, currentScore, highScore, moves, gameStarted])
 
   return (
     <div className="game-container">
