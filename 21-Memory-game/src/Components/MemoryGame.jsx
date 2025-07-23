@@ -95,11 +95,11 @@ const MemoryGame = () => {
         <div className="instructions">
           <h3>How to Play:</h3>
           <ul>
-            <li>Click on cards to flip them and reveal numbers</li>
-            <li>Find matching pairs of numbers</li>
-            <li>Match all pairs to win the game</li>
-            <li>Score: +10 points per match</li>
-            <li>Bonus: Up to 100 points based on efficiency</li>
+            <li>1. Click on cards to flip them and reveal numbers</li>
+            <li>2. Find matching pairs of numbers</li>
+            <li>3. Match all pairs to win the game</li>
+            <li>4. Score: +10 points per match</li>
+            <li>5. Bonus: Up to 100 points based on efficiency</li>
           </ul>
         </div>
       )}

@@ -1,4 +1,3 @@
-/* Dark Theme Memory Game Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +5,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+  background: linear-gradient(135deg, #000000 0%, #242424 50%, #000000 100%);
   font-family: 'Arial', sans-serif;
   color: #ffffff;
   min-height: 100vh;
@@ -17,11 +16,10 @@ body {
 }
 
 .game-container {
-  background: rgba(30, 30, 30, 0.95);
   border-radius: 20px;
   padding: 30px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
-              0 0 20px rgba(79, 172, 254, 0.1);
+    0 0 20px rgba(79, 172, 254, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(79, 172, 254, 0.2);
   max-width: 600px;
@@ -30,23 +28,11 @@ body {
   position: relative;
 }
 
-.game-container::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #4facfe, #00f2fe, #4facfe);
-  border-radius: 22px;
-  z-index: -1;
-  opacity: 0.3;
-}
-
 .game-header {
   margin-bottom: 25px;
   display: flex;
   justify-content: space-between;
+  color: #00f2ff;
   align-items: center;
   flex-wrap: wrap;
   gap: 15px;
@@ -55,25 +41,21 @@ body {
 .game-title {
   font-size: 2.5rem;
   font-weight: bold;
-  background: linear-gradient(45deg, #4facfe, #00f2fe);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
   margin: 0;
 }
 
 .instructions-btn {
-  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  background: #00f2ff;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
   cursor: pointer;
   font-size: 0.9rem;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
 .instructions-btn:hover {
@@ -91,7 +73,7 @@ body {
 }
 
 .instructions h3 {
-  color: #4facfe;
+  color: #00f2ff;
   margin-bottom: 15px;
   font-size: 1.3rem;
 }
@@ -106,13 +88,6 @@ body {
   padding: 5px 0;
   position: relative;
   padding-left: 20px;
-}
-
-.instructions li::before {
-  content: '▶';
-  color: #4facfe;
-  position: absolute;
-  left: 0;
 }
 
 .game-stats {
@@ -150,12 +125,11 @@ body {
 .stat-value {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #4facfe;
-  text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+  color: #00f2ff;
 }
 
 .completion-message {
-  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  background: #00f2ff;
   padding: 20px;
   border-radius: 15px;
   margin-bottom: 25px;
@@ -189,13 +163,11 @@ body {
   padding: 20px;
   background: rgba(20, 20, 20, 0.5);
   border-radius: 15px;
-  border: 1px solid rgba(79, 172, 254, 0.1);
 }
 
 .cards {
-  height: 55px;
-  width: 55px;
-  border: 2px solid rgba(79, 172, 254, 0.3);
+  height: 50px;
+  width: 50px;
   background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
   display: flex;
   justify-content: center;
@@ -208,36 +180,16 @@ body {
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   position: relative;
-  overflow: hidden;
-}
-
-.cards::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.cards:hover::before {
-  left: 100%;
 }
 
 .cards:hover {
   transform: translateY(-3px) scale(1.05);
-  border-color: #4facfe;
-  box-shadow: 0 8px 20px rgba(79, 172, 254, 0.3);
-  background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
 }
 
 .cards.flipped {
-  background: linear-gradient(145deg, #4facfe, #00f2fe);
+  background: #00f2fe;
   color: #ffffff;
   border-color: #00f2fe;
-  box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
   animation: flip 0.6s ease-in-out;
 }
 
@@ -252,7 +204,7 @@ body {
 }
 
 .reset-btn {
-  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  background: #00f2ff;
   color: white;
   border: none;
   padding: 15px 30px;
@@ -261,13 +213,10 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
 }
 
 .reset-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-  background: linear-gradient(45deg, #ff5252, #e53935);
 }
 
 .reset-btn:active {
@@ -280,6 +229,7 @@ body {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -291,9 +241,11 @@ body {
     transform: scale(0.8);
     opacity: 0;
   }
+
   50% {
     transform: scale(1.05);
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -304,9 +256,11 @@ body {
   0% {
     transform: rotateY(0deg);
   }
+
   50% {
     transform: rotateY(90deg);
   }
+
   100% {
     transform: rotateY(0deg);
   }
@@ -318,27 +272,27 @@ body {
     padding: 20px;
     margin: 10px;
   }
-  
+
   .game-title {
     font-size: 2rem;
   }
-  
+
   .game-header {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .game-stats {
     flex-direction: column;
     align-items: center;
     gap: 15px;
   }
-  
+
   .grid-container {
     max-width: 300px;
     gap: 6px;
   }
-  
+
   .cards {
     height: 45px;
     width: 45px;
@@ -350,12 +304,12 @@ body {
   .game-title {
     font-size: 1.5rem;
   }
-  
+
   .grid-container {
     max-width: 280px;
     gap: 4px;
   }
-  
+
   .cards {
     height: 40px;
     width: 40px;
