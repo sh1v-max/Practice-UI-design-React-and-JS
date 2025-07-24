@@ -5,7 +5,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  background: #1a1a1a 100%;
   color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.5;
@@ -19,7 +19,6 @@ body {
   min-height: 100vh;
 }
 
-/* Header Styles */
 .calendar-header {
   display: flex;
   justify-content: space-between;
@@ -32,10 +31,7 @@ body {
 .calendar-title h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff 0%, #a0a0a0 100%;
   margin-bottom: 0.5rem;
 }
 
@@ -63,7 +59,7 @@ body {
 }
 
 .btn-today {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  background:#1d4ed8 100%;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -71,7 +67,6 @@ body {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
 }
 
 .btn-today:hover {
@@ -101,10 +96,8 @@ body {
 
 .btn-nav:hover {
   background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Calendar Body */
 .calendar-body {
   display: flex;
   background: rgba(255, 255, 255, 0.02);
@@ -126,7 +119,6 @@ body {
   background: rgba(255, 255, 255, 0.01);
 }
 
-/* Time Slots */
 .time-slots-container {
   position: relative;
 }
@@ -165,7 +157,6 @@ body {
   margin-top: -2px;
 }
 
-/* Events Container */
 .events-container {
   position: relative;
   height: calc(24 * 80px);
@@ -184,7 +175,6 @@ body {
   padding: 0 1rem;
 }
 
-/* Event Styles */
 .event {
   position: absolute;
   left: 1rem;
@@ -223,7 +213,6 @@ body {
   font-weight: 400;
 }
 
-/* Event Color Themes */
 .event-blue {
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.85) 0%, rgba(29, 78, 216, 0.85) 100%);
   border-left-color: #3b82f6;
@@ -260,7 +249,6 @@ body {
   color: #ffffff;
 }
 
-/* Current Time Indicator */
 .current-time-line {
   position: absolute;
   left: 0;
@@ -283,25 +271,6 @@ body {
   box-shadow: 0 0 10px rgba(239, 68, 68, 0.7);
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
   .calendar-container {
     padding: 1rem;
