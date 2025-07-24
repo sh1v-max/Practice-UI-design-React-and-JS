@@ -1,38 +1,57 @@
 [
   {
     "id": 1,
+    "title": "Start the day",
+    "start": "05:00:00",
+    "end": "06:00:00"
+  },
+  {
+    "id": 2,
+    "title": "Workout",
+    "start": "06:15:00",
+    "end": "07:00:00"
+  },
+  {
+    "id": 3,
+    "title": "A cup of tea",
+    "start": "07:15:00",
+    "end": "07:30:00"
+  },
+  {
+    "id": 4,
     "title": "Morning Meeting",
     "start": "09:00:00",
     "end": "10:00:00"
   },
   {
-    "id": 2,
+    "id": 5,
     "title": "Lunch Break",
     "start": "12:00:00",
     "end": "13:00:00"
   },
   {
-    "id": 4,
+    "id": 6,
     "title": "Team Sync",
     "start": "10:30:00",
     "end": "11:30:00"
   },
   {
-    "id": 5,
+    "id": 7,
     "title": "Client Call",
     "start": "14:00:00",
     "end": "15:00:00"
   },
   {
-    "id": 6,
+    "id": 8,
     "title": "Evening Review",
     "start": "16:00:00",
     "end": "17:00:00"
   },
   {
-    "id": 7,
+    "id": 9,
     "title": "Dinner with Team",
     "start": "18:00:00",
     "end": "19:00:00"
   }
 ]
+
