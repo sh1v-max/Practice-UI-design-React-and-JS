@@ -1,5 +1,8 @@
 import React from 'react'
 import DayTimeSlots from './DayTimeSlots'
+import Events from './Events'
+import events from "../data/events.json"
+
 
 const DayView = () => {
   return (
@@ -7,6 +10,7 @@ const DayView = () => {
       <h1>My Calender</h1>
       <div className="line"></div>
       <DayTimeSlots/>
+      <Events events = {events}/>
     </div>
   )
 }

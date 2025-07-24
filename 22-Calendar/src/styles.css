@@ -22,3 +22,13 @@
   border-bottom: 1px solid #ccc;
   padding-left: 1rem;
 }
+
+.event {
+  position: absolute;
+  width: calc(100% - 6rem);
+  background-color: lightblue;
+  left: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

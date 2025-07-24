@@ -12,7 +12,7 @@ const DayTimeSlots = () => {
     <>
       {slots.map((slot) => (
         <div key={slot} className="time-slot">
-          <span>{slot}:00</span>
+          <span>{slot}</span>
         </div>
       ))}
     </>
