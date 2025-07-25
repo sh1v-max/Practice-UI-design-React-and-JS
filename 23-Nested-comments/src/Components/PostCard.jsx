@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const PostCard = ({ commentCount = 0 }) => {
+const PostCard = ({ commentCount }) => {
   const [votes, setVotes] = useState(1247)
   const [userVote, setUserVote] = useState(null) // null, 'up', or 'down'
 
@@ -33,14 +33,14 @@ const PostCard = ({ commentCount = 0 }) => {
   return (
     <div className="post-card">
       <div className="vote-section">
-        <button 
+        <button
           className={`vote-btn upvote ${userVote === 'up' ? 'active' : ''}`}
           onClick={handleUpvote}
         >
           ▲
         </button>
         <span className="vote-count">{votes}</span>
-        <button 
+        <button
           className={`vote-btn downvote ${userVote === 'down' ? 'active' : ''}`}
           onClick={handleDownvote}
         >
@@ -55,21 +55,44 @@ const PostCard = ({ commentCount = 0 }) => {
           <span className="separator">•</span>
           <span className="time-ago">5 hours ago</span>
         </div>
-        <h2 className="post-title">Building a Nested Comment System with React - Need Feedback!</h2>
+        <h2 className="post-title">
+          Dark vs Light Mode – What Do Developers Prefer?
+        </h2>
         <div className="post-text">
-          <p>Hey everyone! I just finished building a nested comment system using React hooks and I'm looking for some feedback on the architecture and user experience.</p>
-          <p>The system supports:</p>
+          <p>
+            Hey everyone! I’ve been experimenting with building dark and light
+            themes for a project, and it got me curious — which one do
+            developers actually prefer when coding or browsing?
+          </p>
+          <p>Here’s what I’m exploring:</p>
           <ul>
-            <li>Infinite nesting levels</li>
-            <li>Real-time adding/deleting comments</li>
-            <li>Clean, Reddit-like interface</li>
+            <li>Seamless switching between dark and light themes</li>
+            <li>Persistent theme storage (remembers user preference)</li>
+            <li>Accessibility and readability in both modes</li>
           </ul>
-          <p>What do you think? Any suggestions for improvements?</p>
+          <p>
+            Personally, I lean towards dark mode, but I’ve heard some developers
+            find light mode better for focus.
+            <strong>
+              {' '}
+              What’s your take? Should projects always support both modes?
+            </strong>
+          </p>
         </div>
+
         <div className="post-actions">
-          <button className="action-btn">
-            💬 {commentCount} Comments
-          </button>
+          {/* <button className="action-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path d="M2 1a1 1 0 0 0-1 1v11.793l2.146-2.147A.5.5 0 0 1 3.5 12H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z" />
+            </svg>
+            {commentCount} Comments
+          </button> */}
           <button className="action-btn">🎁 Award</button>
           <button className="action-btn">📤 Share</button>
           <button className="action-btn">💾 Save</button>

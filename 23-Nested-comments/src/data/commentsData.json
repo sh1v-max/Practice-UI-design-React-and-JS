@@ -2,84 +2,75 @@
   "comments": {
     "1": {
       "id": 1,
-      "value": "Great work on this nested comment system! The recursive structure is really clean. I've been working on something similar and this gives me some good ideas for improving my approach.",
+      "value": "Dark mode supremacy! My retinas can’t handle the blinding light of a white background at 2 AM.",
       "parentId": null,
       "children": [2, 5, 8],
       "author": "webdev_pro",
-      "createdAt": "2025-01-20T10:30:00Z",
-      "votes": 24
+      "votes": 42
     },
     "2": {
       "id": 2,
-      "value": "Thanks! I spent quite a bit of time figuring out the data structure. The key was using a flat object with parent-child relationships rather than deeply nested arrays.",
+      "value": "I used to be all-in for light mode... until I saw my electricity bill after burning my eyes every night. Dark mode is life.",
       "parentId": 1,
       "children": [3, 4],
       "author": "developer123",
-      "createdAt": "2025-01-20T11:15:00Z",
-      "votes": 12
+      "votes": 26
     },
     "3": {
       "id": 3,
-      "value": "That's exactly the approach I would recommend! Flat structures are so much easier to work with for operations like deletion and updates.",
+      "value": "For me, light mode feels like staring into the sun, but my manager says it's 'more professional.' Bruh, I write code, not legal documents.",
       "parentId": 2,
       "children": [],
       "author": "react_ninja",
-      "createdAt": "2025-01-20T11:45:00Z",
-      "votes": 8
+      "votes": 18
     },
     "4": {
       "id": 4,
-      "value": "Have you considered adding features like comment editing or vote counts? Those would make it even more Reddit-like.",
+      "value": "Real talk: why not both? I want my code editor in dark mode but my email app in light mode. It's about balance.",
       "parentId": 2,
       "children": [7],
       "author": "frontend_fanatic",
-      "createdAt": "2025-01-20T12:00:00Z",
-      "votes": 6
+      "votes": 14
     },
     "5": {
       "id": 5,
-      "value": "The UI looks really polished too! Did you use any specific design system or just custom CSS?",
+      "value": "Light mode lovers are built different. I mean, who enjoys squinting all day?",
       "parentId": 1,
       "children": [6],
       "author": "design_lover",
-      "createdAt": "2025-01-20T11:30:00Z",
-      "votes": 15
+      "votes": 33
     },
     "6": {
       "id": 6,
-      "value": "It's all custom CSS inspired by Reddit's design language. I wanted to keep it simple without any external dependencies.",
+      "value": "Honestly, I switch between both depending on the time of day. Mornings = light, nights = dark. It's like mood lighting for developers.",
       "parentId": 5,
       "children": [],
       "author": "developer123",
-      "createdAt": "2025-01-20T12:30:00Z",
-      "votes": 9
+      "votes": 12
     },
     "7": {
       "id": 7,
-      "value": "Vote counts are definitely on my roadmap! Edit functionality might be next after that.",
+      "value": "Same! Auto-theme switching based on system time is a lifesaver. Dark mode after sunset feels like developer therapy.",
       "parentId": 4,
       "children": [],
       "author": "developer123",
-      "createdAt": "2025-01-20T12:45:00Z",
-      "votes": 4
+      "votes": 11
     },
     "8": {
       "id": 8,
-      "value": "One suggestion: consider adding keyboard shortcuts like Ctrl+Enter to submit replies faster. Power users love that kind of thing!",
+      "value": "Hot take: I only use light mode to flex my confidence in front of other devs. It’s like saying ‘Yeah, I’m hardcore.’",
       "parentId": 1,
       "children": [9],
       "author": "ux_expert",
-      "createdAt": "2025-01-20T13:00:00Z",
-      "votes": 18
+      "votes": 27
     },
     "9": {
       "id": 9,
-      "value": "Great idea! Just implemented that actually. Much better UX.",
+      "value": "Plot twist: dark mode isn’t about saving your eyes, it’s about hiding all those semi-colons you forgot to add.",
       "parentId": 8,
       "children": [],
       "author": "developer123",
-      "createdAt": "2025-01-20T13:15:00Z",
-      "votes": 7
+      "votes": 19
     }
   }
 }
