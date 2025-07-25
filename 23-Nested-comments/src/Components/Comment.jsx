@@ -7,14 +7,13 @@ const Comment = ({ comment, allComments, addComment, deleteComment }) => {
   const [votes, setVotes] = useState(Math.floor(Math.random() * 50) + 1)
   const [userVote, setUserVote] = useState(null)
 
-  // Generate username once and memoize it based on comment ID
+  // Generate dummy userName and time
   const username = useMemo(() => {
     const usernames = ['techguru42', 'codewizard', 'reactfan88', 'jsdev99', 'frontendpro', 'webmaster2024']
     // Use comment ID as seed for consistent username
     return usernames[comment.id % usernames.length]
   }, [comment.id])
 
-  // Generate time ago once and memoize it based on comment ID
   const timeAgo = useMemo(() => {
     const times = ['2m', '5m', '15m', '1h', '3h', '6h', '12h', '1d']
     // Use comment ID as seed for consistent time
