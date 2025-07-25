@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 
-const Reply = ({ setShowReplyBox }) => {
+const Reply = ({ setShowReplyBox, addComment, id }) => {
   const [reply, setReply] = useState('')
   const handlePostReply = () => {
+    addComment(reply, id)
     setReply('')
     setShowReplyBox(false)
   }
