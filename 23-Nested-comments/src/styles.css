@@ -1,0 +1,82 @@
+/* Basic container for each comment */
+.comment-container {
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Header containing the text and action buttons */
+.comment-header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap:2rem;
+}
+
+/* Styling for the comment text */
+.comment-value {
+  color: #212529;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Container for the reply and delete buttons */
+.comment-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Reply and Delete button styling */
+.reply-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #007bff;
+  font-size: 0.75rem;
+}
+
+.delete-btn {
+  color: red;
+}
+
+.reply-btn:hover,
+.delete-btn:hover {
+  text-decoration: underline;
+}
+
+/* Reply form styling */
+.reply-form {
+  margin-top: 0.5rem;
+}
+
+.reply-textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  resize: none;
+}
+
+/* Button to post the reply */
+.post-reply-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.post-reply-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Nested comments are indented and separated with a left border */
+.nested-comments {
+  padding-left: 1rem;
+  border-left: 1px solid grey;
+  margin-top: 0.5rem;
+}
