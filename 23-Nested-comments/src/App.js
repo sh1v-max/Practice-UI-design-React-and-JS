@@ -2,35 +2,10 @@ import { useState } from 'react'
 import Comment from './Components/Comment'
 import commentsData from './data/commentsData.json'
 import './styles.css'
+import useComments from './hooks/useComments'
 
 export default function App() {
-  const [comments, setComments] = useState(commentsData.comments)
-  // console.log(comments)
-
-  // add a comment
-  const addComment = (value, parentId) => {
-    const newId = Date.now()
-    const newComment = { id: newId, value, parentId, children: [] }
-    setComments((prevComments) => {
-      const updatedComment = { ...prevComments, [newId]: newComment }
-      updatedComment[parentId].children.push(newId)
-      return updatedComment
-    })
-  }
-
-  // delete a comment
-  const deleteComment = (id) => {
-    const parentId = comments[id].parentId
-    setComments((prevComments) => {
-      const updatedComments = { ...prevComments }
-      updatedComments[parentId].children = updatedComments[parentId].children.filter(
-        (childId) => {
-          return childId !== id
-        }
-      )
-      return updatedComments
-    })
-  }
+  const {comments, addComment, deleteComment} = useComments(commentsData)
 
   return (
     <Comment
