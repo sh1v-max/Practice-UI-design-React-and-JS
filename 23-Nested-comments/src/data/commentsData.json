@@ -2,34 +2,84 @@
   "comments": {
     "1": {
       "id": 1,
+      "value": "Great work on this nested comment system! The recursive structure is really clean. I've been working on something similar and this gives me some good ideas for improving my approach.",
       "parentId": null,
-      "value": "Why do programmers prefer dark mode?",
-      "children": [2, 3]
+      "children": [2, 5, 8],
+      "author": "webdev_pro",
+      "createdAt": "2025-01-20T10:30:00Z",
+      "votes": 24
     },
     "2": {
       "id": 2,
+      "value": "Thanks! I spent quite a bit of time figuring out the data structure. The key was using a flat object with parent-child relationships rather than deeply nested arrays.",
       "parentId": 1,
-      "value": "Because light attracts bugs!",
-      "children": []
+      "children": [3, 4],
+      "author": "developer123",
+      "createdAt": "2025-01-20T11:15:00Z",
+      "votes": 12
     },
     "3": {
       "id": 3,
-      "parentId": 1,
-      "value": "Why do Java developers wear glasses?",
-      "children": [4]
+      "value": "That's exactly the approach I would recommend! Flat structures are so much easier to work with for operations like deletion and updates.",
+      "parentId": 2,
+      "children": [],
+      "author": "react_ninja",
+      "createdAt": "2025-01-20T11:45:00Z",
+      "votes": 8
     },
     "4": {
       "id": 4,
-      "parentId": 3,
-      "value": "Because they don't see sharp.",
-      "children": [5]
+      "value": "Have you considered adding features like comment editing or vote counts? Those would make it even more Reddit-like.",
+      "parentId": 2,
+      "children": [7],
+      "author": "frontend_fanatic",
+      "createdAt": "2025-01-20T12:00:00Z",
+      "votes": 6
     },
     "5": {
       "id": 5,
+      "value": "The UI looks really polished too! Did you use any specific design system or just custom CSS?",
+      "parentId": 1,
+      "children": [6],
+      "author": "design_lover",
+      "createdAt": "2025-01-20T11:30:00Z",
+      "votes": 15
+    },
+    "6": {
+      "id": 6,
+      "value": "It's all custom CSS inspired by Reddit's design language. I wanted to keep it simple without any external dependencies.",
+      "parentId": 5,
+      "children": [],
+      "author": "developer123",
+      "createdAt": "2025-01-20T12:30:00Z",
+      "votes": 9
+    },
+    "7": {
+      "id": 7,
+      "value": "Vote counts are definitely on my roadmap! Edit functionality might be next after that.",
       "parentId": 4,
-      "value": "I told my computer I needed a break, and it gave me a KitKat!",
-      "children": []
+      "children": [],
+      "author": "developer123",
+      "createdAt": "2025-01-20T12:45:00Z",
+      "votes": 4
+    },
+    "8": {
+      "id": 8,
+      "value": "One suggestion: consider adding keyboard shortcuts like Ctrl+Enter to submit replies faster. Power users love that kind of thing!",
+      "parentId": 1,
+      "children": [9],
+      "author": "ux_expert",
+      "createdAt": "2025-01-20T13:00:00Z",
+      "votes": 18
+    },
+    "9": {
+      "id": 9,
+      "value": "Great idea! Just implemented that actually. Much better UX.",
+      "parentId": 8,
+      "children": [],
+      "author": "developer123",
+      "createdAt": "2025-01-20T13:15:00Z",
+      "votes": 7
     }
   }
 }
-
