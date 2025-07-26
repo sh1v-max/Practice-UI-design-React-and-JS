@@ -1,0 +1,432 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0a0a0a;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Main App Container */
+.crypto-app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.crypto-app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 25% 25%, #1a1a1a 0%, transparent 50%),
+              radial-gradient(circle at 75% 75%, #262626 0%, transparent 50%);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Crypto Container */
+.crypto-container {
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid #333333;
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.crypto-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+/* Header Section */
+.crypto-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.crypto-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #333333, #1a1a1a);
+  border: 2px solid #444444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.crypto-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.crypto-symbol {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.app-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #ffffff, #cccccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: -1px;
+}
+
+.app-subtitle {
+  color: #888888;
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Form Section */
+.form-section {
+  margin-bottom: 40px;
+}
+
+.input-group {
+  margin-bottom: 24px;
+}
+
+.input-label {
+  display: block;
+  color: #cccccc;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-field, .select-field {
+  width: 100%;
+  padding: 16px 20px;
+  background: #1a1a1a;
+  border: 2px solid #333333;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input-field:focus, .select-field:focus {
+  border-color: #555555;
+  background: #222222;
+  box-shadow: 
+    0 0 0 3px rgba(85, 85, 85, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.input-field::placeholder {
+  color: #666666;
+}
+
+.select-field {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 48px;
+}
+
+.select-field option {
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 12px;
+}
+
+/* Results Section */
+.results-section {
+  background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+  border: 1px solid #333333;
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.results-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+.conversion-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.conversion-label {
+  color: #888888;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #333333;
+  border-top: 2px solid #666666;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.conversion-result {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 20px;
+  word-break: break-all;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Price Change Indicators */
+.price-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.price-change.positive {
+  background: linear-gradient(135deg, #1a4d3a, #0d3d2a);
+  color: #4ade80;
+  border-color: #22c55e;
+  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.2);
+}
+
+.price-change.negative {
+  background: linear-gradient(135deg, #4d1a1a, #3d0d0d);
+  color: #f87171;
+  border-color: #ef4444;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.2);
+}
+
+.price-change.neutral {
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  color: #888888;
+  border-color: #444444;
+  box-shadow: 0 4px 16px rgba(68, 68, 68, 0.1);
+}
+
+.change-icon {
+  font-size: 1.2rem;
+}
+
+.change-text {
+  font-weight: 600;
+}
+
+/* Footer Info */
+.footer-info {
+  text-align: center;
+  color: #666666;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .crypto-app {
+    padding: 16px;
+  }
+  
+  .crypto-container {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+  
+  .app-title {
+    font-size: 2.5rem;
+  }
+  
+  .conversion-result {
+    font-size: 2rem;
+  }
+  
+  .crypto-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .crypto-symbol {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .crypto-app {
+    padding: 12px;
+  }
+  
+  .crypto-container {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+  
+  .app-title {
+    font-size: 2rem;
+  }
+  
+  .conversion-result {
+    font-size: 1.8rem;
+  }
+  
+  .input-field, .select-field {
+    padding: 14px 16px;
+    font-size: 1rem;
+  }
+  
+  .results-section {
+    padding: 24px 20px;
+  }
+  
+  .price-change {
+    padding: 10px 16px;
+    font-size: 1rem;
+  }
+  
+  .crypto-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .crypto-symbol {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 360px) {
+  .crypto-container {
+    padding: 20px 16px;
+  }
+  
+  .app-title {
+    font-size: 1.8rem;
+  }
+  
+  .conversion-result {
+    font-size: 1.6rem;
+  }
+  
+  .input-field, .select-field {
+    padding: 12px 14px;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .crypto-container {
+    border-color: #666666;
+  }
+  
+  .input-field, .select-field {
+    border-color: #666666;
+  }
+  
+  .input-field:focus, .select-field:focus {
+    border-color: #ffffff;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .crypto-app {
+    background: white;
+    color: black;
+  }
+  
+  .crypto-container {
+    background: white;
+    border: 1px solid black;
+    box-shadow: none;
+  }
+}
