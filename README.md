@@ -37,7 +37,8 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 15 | 🧠 Memory Game    | A simple memory game for concentration and fun | [View](https://doyourmemory.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/21-Memory-game) |
 | 16 | 📅 Simple Calendar | A basic calendar component Based on simple rendering | [View](https://reactcalendarme.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/22-Calendar) |
 | 17 | 💬 Nested Comment Reddit | A nested comment system resembling Reddit's style | [View](https://discusskarma.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/23-Nested-comments) |
-| 17 | 🔁 Toggle Button    | Basic on/off toggle component    | [Coming soon...]() | [Code](https://github.com/sh1v-max/) |
+| 18 | 🚀 STRIFF - Crypto Converter | A simple Crypto Converter in React | [View](https://striffcrypto.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/24-Crypto-converter) |
+
 
 ### How to Use
 
