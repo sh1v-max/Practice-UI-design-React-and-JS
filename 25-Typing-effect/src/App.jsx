@@ -13,12 +13,14 @@ export const App = () => {
 
       <main className="app-main">
         <h2 className="section-title">Demo</h2>
-        <TypingEffect 
+        <TypingEffect
           texts={[
+            'I love JavaScript and React.',
             "I'm a Frontend Developer.",
-            "I love JavaScript and React.",
-            "Building cool UI is my passion!",
-            "Coding... Learning... Growing..."
+            'Building Beautiful Websites.',
+            'Coding... Learning... Growing...',
+            'Clean code, clean design.',
+            'Transforming concepts into real products.',
           ]}
           delay={100}
         />
@@ -29,9 +31,9 @@ export const App = () => {
         <div className="card">
           <h3>About This Demo</h3>
           <p>
-            This typing effect is built using React hooks including useState, 
-             useEffect, and useRef. It demonstrates proper timer 
-            management and cleanup to prevent memory leaks.
+            This typing effect is built using React hooks including useState,
+            useEffect, and useRef. It demonstrates proper timer management and
+            cleanup to prevent memory leaks.
           </p>
         </div>
 
