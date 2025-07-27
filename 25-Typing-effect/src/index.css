@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* .text{
+  background-color: black;
+  color: white;
+} */
+
+.app {
+  font-family: sans-serif;
+  text-align: center;
+}
