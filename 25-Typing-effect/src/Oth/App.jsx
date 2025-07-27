@@ -1,0 +1,37 @@
+import React from 'react'
+import { TypingEffect } from './Components/TypingEffect'
+
+export const App = () => {
+  return (
+    <div className="app">
+      <header className="app-header">
+        <h1 className="title">Typing Effect Demo</h1>
+        <p className="subtitle">
+          A simple React app demonstrating a smooth typing animation.
+        </p>
+      </header>
+
+      <main className="app-main">
+        <h2 className="section-title">Typing Effect Demo</h2>
+        <TypingEffect
+          texts={[
+            "I'm a Frontend Developer.",
+            'I love JavaScript and React.',
+            'Building cool UI is my passion!',
+            'Coding... Learning... Growing...',
+          ]}
+          delay={100}
+        />
+      </main>
+
+      <p className="card-text">
+        This typing effect is built using React hooks including useState,
+        useEffect, and useRef. It demonstrates proper timer management and
+        cleanup to prevent memory leaks.
+      </p>
+      <footer className="app-footer">
+        <p>© 2025 TypingEffect App | Crafted with React</p>
+      </footer>
+    </div>
+  )
+}
