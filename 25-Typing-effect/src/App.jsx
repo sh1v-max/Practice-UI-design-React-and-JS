@@ -26,7 +26,6 @@ export const App = () => {
         />
       </main>
 
-      {/* Info Section */}
       <section className="info-section">
         <div className="card">
           <h3>About This Demo</h3>
