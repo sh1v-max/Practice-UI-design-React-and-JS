@@ -38,6 +38,7 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 16 | 📅 Simple Calendar | A basic calendar component Based on simple rendering | [View](https://reactcalendarme.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/22-Calendar) |
 | 17 | 💬 Nested Comment Reddit | A nested comment system resembling Reddit's style | [View](https://discusskarma.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/23-Nested-comments) |
 | 18 | 🚀 STRIFF - Crypto Converter | A simple Crypto Converter in React | [View](https://striffcrypto.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/24-Crypto-converter) |
+| 19 | 🖋️ Typing Effect | A React component that simulates a typing effect | [View](https://typingeffecthere.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/25-Typing-effect) |
 
 
 ### How to Use
