@@ -1,6 +1,5 @@
 /* @import "tailwindcss"; */
 
-/* App Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -39,7 +38,6 @@ body {
   font-weight: 400;
 }
 
-/* File Uploader Container */
 .file-uploader {
   max-width: 700px;
   margin: 0 auto;
@@ -49,7 +47,6 @@ body {
   border: 1px solid #222222;
 }
 
-/* Instructions Section */
 .instructions {
   text-align: center;
   margin-bottom: 2rem;
@@ -72,23 +69,6 @@ body {
   margin: 0 auto 1rem auto;
 }
 
-.supported-formats {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.format-badge {
-  background: #222222;
-  color: #ffffff;
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-/* Drag & Drop Zone */
 .dropzone {
   border: 2px dashed #333333;
   padding: 3rem 2rem;
@@ -98,11 +78,6 @@ body {
   margin-bottom: 1.5rem;
   background: #0a0a0a;
   cursor: pointer;
-}
-
-.dropzone:hover {
-  border-color: #444444;
-  background: #0f0f0f;
 }
 
 .dropzone.dragging {
@@ -142,12 +117,8 @@ body {
 }
 
 .browse-btn:hover {
-  background: #f0f0f0;
+  background: #a8a8a8;
   transform: translateY(-1px);
-}
-
-.browse-btn:active {
-  transform: translateY(0);
 }
 
 /* File Count */
@@ -159,7 +130,6 @@ body {
   padding: 0.5rem;
 }
 
-/* File Previews */
 .preview-container {
   margin-top: 1rem;
 }
@@ -177,7 +147,6 @@ body {
 
 .file-preview:hover {
   background: #111111;
-  border-color: #333333;
   transform: translateY(-1px);
 }
 
@@ -202,11 +171,6 @@ body {
   color: #ffffff;
   border: 1px solid #333333;
   font-size: 0.7rem;
-}
-
-.pdf-icon {
-  background: #dc2626;
-  color: #ffffff;
 }
 
 .file-info {
@@ -271,7 +235,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .app {
     padding: 1rem;

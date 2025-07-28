@@ -48,10 +48,6 @@ export const FileUploader = () => {
       <div className="instructions">
         <h2>Upload Your Files</h2>
         <p>Supported files types: jpg, jpeg, png, pdf</p>
-        {/* <div className="supported-formats">
-          <span className="format-badge">Images</span>
-          <span className="format-badge">PDF</span>
-        </div> */}
       </div> 
 
       {/* drag and drop zone */}
