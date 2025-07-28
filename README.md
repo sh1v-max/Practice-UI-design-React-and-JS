@@ -39,6 +39,7 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 17 | 💬 Nested Comment Reddit | A nested comment system resembling Reddit's style | [View](https://discusskarma.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/23-Nested-comments) |
 | 18 | 🚀 STRIFF - Crypto Converter | A simple Crypto Converter in React | [View](https://striffcrypto.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/24-Crypto-converter) |
 | 19 | 🖋️ Typing Effect | A React component that simulates a typing effect | [View](https://typingeffecthere.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/25-Typing-effect) |
+| 20 | 🚀 Drag & Drop File Uploader | A React component that supports drag & drop and multiple file selection with image previews and file size/type display | [View](https://uploadfilehere.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/26-File-uploader) |
 
 
 ### How to Use
