@@ -40,6 +40,7 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 18 | 🚀 STRIFF - Crypto Converter | A simple Crypto Converter in React | [View](https://striffcrypto.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/24-Crypto-converter) |
 | 19 | 🖋️ Typing Effect | A React component that simulates a typing effect | [View](https://typingeffecthere.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/25-Typing-effect) |
 | 20 | 🚀 Drag & Drop File Uploader | A React component that supports drag & drop and multiple file selection with image previews and file size/type display | [View](https://uploadfilehere.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/26-File-uploader) |
+| 21 | ✅ Indeterminate Checkbox | A React component that supports parent-child checkbox, checked and unchecked relation, using useState, useEffect, and useRef for DOM + state, and DFS to update children + parent | [View](https://indeterminate-checkbox.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/27-Indeterminate-checkbox) |
 
 
 ### How to Use
