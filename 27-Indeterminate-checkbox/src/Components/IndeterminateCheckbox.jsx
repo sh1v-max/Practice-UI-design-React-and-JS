@@ -3,11 +3,11 @@ import Checkbox from './Checkbox'
 
 const IndeterminateCheckbox = ({ checkboxData, handleChange }) => {
   return (
-    <div>
+    <div className="indeterminate-checkbox">
       {/* <h1>IndeterminateCheckbox</h1> */}
       {checkboxData.map((item) => {
         return (
-          <div key={item.id} className="checkbox">
+          <div key={item.id} className="checkbox-item">
             <Checkbox
               id={item.id}
               label={item.label}
@@ -16,10 +16,12 @@ const IndeterminateCheckbox = ({ checkboxData, handleChange }) => {
             />
             {/* checking if it has children */}
             {item.children && item.children.length > 0 && (
-              <IndeterminateCheckbox
-                checkboxData={item.children}
-                handleChange={handleChange}
-              />
+              <div className="checkbox-children">
+                <IndeterminateCheckbox
+                  checkboxData={item.children}
+                  handleChange={handleChange}
+                />
+              </div>
             )}
           </div>
         )

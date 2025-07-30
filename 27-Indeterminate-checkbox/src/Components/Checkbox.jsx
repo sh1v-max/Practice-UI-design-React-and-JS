@@ -14,15 +14,17 @@ const Checkbox = ({id, label, status, handleChange}) => {
   }, [status])
 
   return (
-    <div>
+    <div className="checkbox-wrapper">
       {/* indeterminate state is not HTML property, we need js */}
       <input
         ref={checkboxRef}
         type="checkbox"
+        className="checkbox-input"
         onChange={() => handleChange(id)}
         checked={status === STATUS.CHECKED}
+        id={`checkbox-${id}`}
       />
-      <label htmlFor="">{label}</label>
+      <label htmlFor={`checkbox-${id}`} className="checkbox-label">{label}</label>
     </div>
   )
 }

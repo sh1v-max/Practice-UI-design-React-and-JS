@@ -63,12 +63,21 @@ export const App = () => {
   }
 
   return (
-    <div>
-      <h1>Indeterminate Checkbox</h1>
-      <IndeterminateCheckbox
-        handleChange={handleChange}
-        checkboxData={checkboxState}
-      />
+    <div className="app-container">
+      <div className="app-header">
+        <h1 className="app-title">Indeterminate Checkbox Demo</h1>
+        <p className="app-description">
+          A React app that supports nested checkboxes with auto-indeterminate
+          state syncing. Clicking on a parent affects children, and vice versa
+        </p>
+      </div>
+
+      <div className="checkbox-container">
+        <IndeterminateCheckbox
+          handleChange={handleChange}
+          checkboxData={checkboxState}
+        />
+      </div>
     </div>
   )
 }
