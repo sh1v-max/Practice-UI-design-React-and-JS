@@ -1,8 +1,10 @@
-export default function Signal({ color, isActive }) {
+export default function Signal({ color, isActive, size = "normal" }) {
   return (
     <div
-      className="signal"
-      style={{ backgroundColor: `${isActive ? color : "grey"}` }}
-    ></div>
+      className={`signal signal-${size} ${isActive ? 'signal-active' : 'signal-inactive'}`}
+      data-color={color}
+    >
+      <div className="signal-glow"></div>
+    </div>
   );
 }
