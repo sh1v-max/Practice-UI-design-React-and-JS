@@ -5,17 +5,7 @@ import FAQ from './Components/FAQ'
 
 export const App = () => {
   return (
-    <div className="app">
-      <header className="app-header">
-        <div className="hero-section">
-          <h1 className="app-title">Knowledge Base</h1>
-          <p className="app-description">
-            Welcome to our comprehensive FAQ section. Get instant answers to your questions 
-            and learn more about our services and policies.
-          </p>
-        </div>
-      </header>
-      
+    <div className="app">      
       <main className="main-content">
         {/* <Hello data ={data}/> */}
         <FAQ data={data}/>
