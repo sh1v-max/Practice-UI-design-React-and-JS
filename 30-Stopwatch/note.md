@@ -1,0 +1,4 @@
+- hh:mm:ss:ms
+- will store time in ms
+- we will use ref to store time in ms, since 1970, the time of start of javaScript
+- also ref to store timer interval
