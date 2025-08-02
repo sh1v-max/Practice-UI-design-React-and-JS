@@ -42,8 +42,8 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 20 | 🚀 Drag & Drop File Uploader | A React component that supports drag & drop and multiple file selection with image previews and file size/type display | [View](https://uploadfilehere.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/26-File-uploader) |
 | 21 | ✅ Indeterminate Checkbox | A React component that supports parent-child checkbox, checked and unchecked relation, using useState, useEffect, and useRef for DOM + state, and DFS to update children + parent | [View](https://indeterminate-checkbox.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/27-Indeterminate-checkbox) |
 | 22 | 🚦 Traffic Light Simulator | A React component that displays a traffic light with green, yellow, and red lights and a speed controller | [View](https://trafficlighthere.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/28-Traffic-light) |
-
 | 23 | 🤔 FAQ Accordion | A React component that displays a FAQ accordion with toggle QnA visibility, expand/collapse all controls, and state-driven logic using index flags | [View](https://faq-accordiondot.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/29-FAQ-component) |
+| 24 | ⏱️ Stopwatch | A React component that displays a stopwatch with Start, Pause, Resume, Reset, Lap tracking, Tab-switch pause using window blur/focus, and Millisecond-level precision | [View](https://isyourstopwatch.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/30-Stopwatch) |
 
 ### How to Use
 
