@@ -5,7 +5,7 @@ This folder contains simple React problems to build efficiency in writing clean 
 The goal is to improve speed, logic clarity, and confidence for machine coding rounds and frontend interviews.
 
 
-### Focus Areas
+### Focus 
 
 - Functional components and hooks (`useState`, `useEffect`)
 - Event handling and controlled inputs
