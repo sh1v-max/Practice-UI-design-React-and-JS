@@ -1,0 +1,326 @@
+/* @import "tailwindcss"; */
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* App container */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #000000 0%, #111111 50%, #000000 100%);
+  position: relative;
+}
+
+.app::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Header section */
+.app-header {
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg, #ffffff, #cccccc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.app-subtitle {
+  font-size: 1rem;
+  color: #888888;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* Main content area */
+.app-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Clock container */
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.clock-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 60px 40px;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.clock-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  border-radius: 22px;
+  z-index: -1;
+}
+
+/* Date display */
+.date-display {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.day-of-week {
+  font-size: 1.2rem;
+  color: #cccccc;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.full-date {
+  font-size: 1rem;
+  color: #888888;
+  font-weight: 300;
+}
+
+/* Digital clock display */
+.digital-clock {
+  margin-bottom: 40px;
+}
+
+.time-display {
+  font-size: 4rem;
+  font-weight: 300;
+  font-family: 'Courier New', monospace;
+  color: #ffffff;
+  letter-spacing: 4px;
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.time-display::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+/* Clock info section */
+.clock-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 10px;
+}
+
+.method-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  background: #00ff88;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.method-text {
+  font-size: 0.9rem;
+  color: #888888;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.extra-info {
+  font-size: 0.8rem;
+  color: #888888;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-align: center;
+  max-width: 90%;
+}
+
+
+/* Footer section */
+.app-footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-text {
+  padding-top: 10px;
+  font-size: 0.9rem;
+  color: #aaaaaa;
+}
+
+.app-footer a {
+  color: #aaaaaa;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.app-footer a:hover {
+  color: #ffffff;
+}
+
+.tech-badges {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #cccccc;
+  font-weight: 400;
+  letter-spacing: 1px;
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  cursor: pointer;
+  border-color: rgb(170, 170, 170);
+}
+
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .app-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .clock-wrapper {
+    margin: 20px;
+    padding: 40px 30px;
+  }
+
+  .time-display {
+    font-size: 3rem;
+    letter-spacing: 2px;
+  }
+
+  .day-of-week {
+    font-size: 1rem;
+  }
+
+  .full-date {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .clock-wrapper {
+    margin: 10px;
+    padding: 30px 20px;
+  }
+
+  .time-display {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+
+  .tech-badges {
+    gap: 8px;
+  }
+
+  .badge {
+    padding: 4px 10px;
+    font-size: 0.7rem;
+  }
+}
