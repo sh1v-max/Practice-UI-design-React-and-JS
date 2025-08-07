@@ -45,6 +45,7 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 23 | 🤔 FAQ Accordion | A React component that displays a FAQ accordion with toggle QnA visibility, expand/collapse all controls, and state-driven logic using index flags | [View](https://faq-accordiondot.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/29-FAQ-component) |
 | 24 | ⏱️ Stopwatch | A React component that displays a stopwatch with Start, Pause, Resume, Reset, Lap tracking, Tab-switch pause using window blur/focus, and Millisecond-level precision | [View](https://isyourstopwatch.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/30-Stopwatch) |
 | 25 | 🕰️ Digital Clock | A React component that displays live time & date with AM/PM, smart tick synced to system seconds, no delay, clean formatting, and reusable | [View](https://sync-clock.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/31-Digital-clock) |
+| 26 | ⭕️ Overlapping Circles | A React component that renders multiple circles that change color when overlapping, with visual feedback and 2D distance detection using React state and DOM positioning | [View](https://overlappingcircles.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/32-Overlapping-circles) |
 
 ### How to Use
 
