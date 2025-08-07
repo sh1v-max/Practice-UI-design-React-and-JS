@@ -8,7 +8,7 @@ export const App = () => {
       <header className='app-header'>
         <h1 className='app-title'>Interactive Circles</h1>
         <p className='app-description'>
-          Click anywhere on the screen to create circles. When circles overlap, they change colors!
+          Click anywhere on the screen to create circles. All overlapping circles within its radius will change color!
         </p>
       </header>
       
