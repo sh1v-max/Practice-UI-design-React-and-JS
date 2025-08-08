@@ -40,39 +40,67 @@ export const App = () => {
   }
 
   return (
-    <div>
-      {/* <Hello/> */}
-      <span>Hello i'm learning react</span>
-      {/* always pass handler function, and not the set value */}
-      <GrandParent
-        mode={ThemeMode}
-        themeMode={themeMode}
-        setThemeMode={handleToggle}
-      />
+    <div className="app-container">
+      <header className="app-header">
+        <h1 className="app-title">Theme App</h1>
+        <p className="app-description">
+          A React application demonstrating dark and light mode implementation using Context API and prop drilling
+        </p>
+      </header>
+
+      <main className="app-main">
+
+        <div className="theme-section">
+          <p className="section-description">
+            Click the button below to toggle between dark and light modes
+          </p>
+          
+          {/* always pass handler function, and not the set value */}
+          <GrandParent
+            mode={ThemeMode}
+            themeMode={themeMode}
+            setThemeMode={handleToggle}
+          />
+        </div>
+      </main>
+
+      <footer className="app-footer">
+        <p>Built with React • Theme switching with prop drilling example</p>
+      </footer>
     </div>
   )
 }
 
 const GrandParent = ({ themeMode, setThemeMode }) => {
   return (
-    <div>
+    <div className="grandparent-container">
+      <div className="component-label">GrandParent Component</div>
       <Parent themeMode={themeMode} setThemeMode={setThemeMode} />
     </div>
   )
 }
 
 const Parent = ({ themeMode, setThemeMode }) => {
-  return <Child themeMode={themeMode} setThemeMode={setThemeMode} />
+  return (
+    <div className="parent-container">
+      <div className="component-label">Parent Component</div>
+      <Child themeMode={themeMode} setThemeMode={setThemeMode} />
+    </div>
+  )
 }
 
 const Child = ({ themeMode, setThemeMode }) => {
   const text = themeMode === ThemeMode.Dark ? '🌑' : '☀️'
 
   return (
-    <>
+    <div className="child-container">
+      <div className="component-label">Child Component</div>
       <button className="theme-btn" onClick={setThemeMode}>
-        {text}
+        <span className="theme-icon">{text}</span>
+        <span className="theme-text">
+          Switch to {themeMode === ThemeMode.Dark ? 'Light' : 'Dark'} Mode
+        </span>
       </button>
-    </>
+    </div>
   )
 }

@@ -1,20 +1,260 @@
 /* @import "tailwindcss"; */
 
-.theme-btn{
-  padding: 8px 10px;
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease;
+  min-height: 100vh;
+}
+
+/* Theme Classes */
+.light {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* App Container */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.app-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px 0;
+}
+
+.app-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background-clip: text;
+  letter-spacing: -1px;
+}
+
+.app-description {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Theme Section */
+.theme-section {
+  text-align: center;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+/* Component Containers */
+.grandparent-container,
+.parent-container,
+.child-container {
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+.grandparent-container {
+  background: rgba(100, 100, 100, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.parent-container {
+  background: rgba(80, 80, 80, 0.1);
+  margin: 15px 0;
+}
+
+.child-container {
+  background: rgba(60, 60, 60, 0.1);
+  text-align: center;
+}
+
+.component-label {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.theme-btn {
+  padding: 15px 30px;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 50px;
   font-size: 16px;
-  transition: all 0.2s ease;
-  border: 1px solid black;
-}
-
-.light{
-  background-color: white;
-  color: black;
-}
-
-.dark{
-  background-color: black;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.8);
   color: white;
-} 
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.theme-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(20, 20, 20, 0.9);
+}
+
+.theme-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.theme-btn:hover::before {
+  left: 100%;
+}
+
+.theme-icon {
+  font-size: 1.2em;
+  display: inline-block;
+}
+
+.theme-text {
+  font-size: 0.95em;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+/* Light Theme Overrides */
+.light .theme-section {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light .welcome-section {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.light .info-section {
+  background: rgba(0, 0, 0, 0.01);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.light .grandparent-container {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.light .parent-container {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light .child-container {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.light .theme-btn {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a1a1a;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.light .theme-btn:hover {
+  background: rgba(240, 240, 240, 0.95);
+  border-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.light .app-footer {
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 15px;
+  }
+  
+  .app-title {
+    font-size: 2.2rem;
+  }
+  
+  .app-description {
+    font-size: 1rem;
+  }
+  
+  .theme-btn {
+    min-width: 180px;
+    padding: 12px 25px;
+    font-size: 15px;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .app-main {
+    gap: 25px;
+  }
+}
