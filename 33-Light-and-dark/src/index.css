@@ -1,0 +1,20 @@
+/* @import "tailwindcss"; */
+
+.theme-btn{
+  padding: 8px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  border: 1px solid black;
+}
+
+.light{
+  background-color: white;
+  color: black;
+}
+
+.dark{
+  background-color: black;
+  color: white;
+} 
