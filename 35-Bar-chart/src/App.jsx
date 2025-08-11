@@ -25,7 +25,7 @@ export const App = () => {
         }
       })
       setFreq(map)
-      console.log(freq)
+      // console.log(freq)
       // console.log(map)
     } catch (error) {
       console.error('Error fetching data:', error)
@@ -49,7 +49,7 @@ export const App = () => {
       // console.log(arr)
     }
   }, [freq])
-  console.log('freq: ' + yAxis)
+  // console.log('freq: ' + yAxis)
   // now, we've got the y axis and the data, time to plot
 
   useEffect(() => {
