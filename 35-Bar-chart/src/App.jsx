@@ -5,24 +5,33 @@ import BarChart from './Components/BarChart'
 export const App = () => {
   const [freq, setFreq] = useState(undefined)
   const [yAxis, setYAxis] = useState(undefined)
+  const [loading, setLoading] = useState(false)
+
   const fetchNumber = async () => {
-    const url =
-      'https://www.random.org/integers/?num=200&min=1&max=10&col=1&base=10&format=plain&rnd=new'
-    const res = await fetch(url)
-    let data = await res.text()
-    data = data.split('\n').filter(Boolean)
-    // creating a map and storing data in it
-    const map = {}
-    data?.forEach((item) => {
-      if (map[item]) {
-        map[item] = map[item] + 1
-      } else {
-        map[item] = 1
-      }
-    })
-    setFreq(map)
-    console.log(freq)
-    // console.log(map)
+    setLoading(true)
+    try {
+      const url =
+        'https://www.random.org/integers/?num=200&min=1&max=10&col=1&base=10&format=plain&rnd=new'
+      const res = await fetch(url)
+      let data = await res.text()
+      data = data.split('\n').filter(Boolean)
+      // creating a map and storing data in it
+      const map = {}
+      data?.forEach((item) => {
+        if (map[item]) {
+          map[item] = map[item] + 1
+        } else {
+          map[item] = 1
+        }
+      })
+      setFreq(map)
+      console.log(freq)
+      // console.log(map)
+    } catch (error) {
+      console.error('Error fetching data:', error)
+    } finally {
+      setLoading(false)
+    }
   }
 
   // creating y axis
@@ -47,30 +56,61 @@ export const App = () => {
     fetchNumber()
   }, [])
 
+  const handleRefresh = () => {
+    fetchNumber()
+  }
+
   return (
     <div className="App">
+      <div className="header">
+        <h1 className="app-title">Bar Chart Visualizer</h1>
+        <p className="app-description">
+        </p>
+        <button className="refresh-btn" onClick={handleRefresh} disabled={loading}>
+          {loading ? 'Loading...' : 'Generate New Data'}
+        </button>
+      </div>
+      
       <div className="container">
-        <div className="box">
-          <div
-            className="box-y-axis"
-            style={{ height: `${yAxis && yAxis[0]}%` }}
-          >
-            {yAxis?.map((val, index) => (
-              <div key={index}>
-                <span>{val}</span>
+        <div className="chart-wrapper">
+          <h2 className="chart-title"></h2>
+          {loading ? (
+            <div className="loading-spinner">
+              <div className="spinner"></div>
+              <p>Fetching next data...</p>
+            </div>
+          ) : (
+            <div className="box">
+              <div
+                className="box-y-axis"
+                style={{ height: `${yAxis && yAxis[0]}%` }}
+              >
+                {yAxis?.map((val, index) => (
+                  <div key={index} className="y-axis-label">
+                    <span>{val}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          {freq &&
-            Object.entries(freq)?.map(([key, val]) => (
-              <div className="box-x-axis">
-                <div style={{ height: `${val}%` }} className="graph"></div>
-                <div className="index" key={key}>
-                  {key}
-                </div>
-              </div>
-            ))}
+              {freq &&
+                Object.entries(freq)?.map(([key, val]) => (
+                  <div className="box-x-axis" key={key}>
+                    <div 
+                      style={{ height: `${val}%` }} 
+                      className="graph"
+                      data-value={val}
+                    ></div>
+                    <div className="index">
+                      {key}
+                    </div>
+                  </div>
+                ))}
+            </div>
+          )}
         </div>
+      </div>
+      
+      <div className="footer">
+        <p>Built with React • by <a href="https://github.com/sh1v-max" target='_blank'>Shiv</a></p>
       </div>
     </div>
   )
