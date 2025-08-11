@@ -21,7 +21,7 @@ export const App = () => {
       }
     })
     setFreq(map)
-    // console.log(freq)
+    console.log(freq)
     // console.log(map)
   }
 
@@ -40,7 +40,7 @@ export const App = () => {
       // console.log(arr)
     }
   }, [freq])
-  console.log(yAxis)
+  console.log('freq: ' + yAxis)
   // now, we've got the y axis and the data, time to plot
 
   useEffect(() => {
@@ -61,6 +61,15 @@ export const App = () => {
               </div>
             ))}
           </div>
+          {freq &&
+            Object.entries(freq)?.map(([key, val]) => (
+              <div className="box-x-axis">
+                <div style={{ height: `${val}%` }} className="graph"></div>
+                <div className="index" key={key}>
+                  {key}
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </div>
