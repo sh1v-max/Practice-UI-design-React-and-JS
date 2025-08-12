@@ -1,0 +1,191 @@
+/* @import "tailwindcss"; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.app-subtitle {
+  font-size: 1rem;
+  color: #999;
+  margin-top: 8px;
+}
+
+.open-dialog-btn {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.open-dialog-btn:hover {
+  background-color: #222;
+}
+
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+  animation: showDialog 0.3s linear forwards;
+  backdrop-filter: blur(4px);
+}
+
+.dialog-content {
+  background-color: #111;
+  color: #e0e0e0;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 80%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  animation: showDialog 0.3s linear forwards;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+}
+
+.dialog-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 35px;
+  width: 35px;
+  border: 1px solid #444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dialog-close:hover {
+  background-color: #222;
+}
+
+.feature-list {
+  margin-top: 20px;
+  padding-left: 20px;
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.feature-list li {
+  margin-bottom: 10px;
+  list-style-type: disc;
+}
+
+
+.dialog-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.dialog-buttons .save {
+  background-color: #0d6efd;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dialog-buttons .save:hover {
+  background-color: #0b5ed7;
+}
+
+.dialog-buttons .cancel {
+  background-color: #444;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dialog-buttons .cancel:hover {
+  background-color: #666;
+}
+
+.hide-dialog {
+  animation: hideDialog 0.3s linear forwards !important;
+}
+
+@keyframes showDialog {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hideDialog {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
