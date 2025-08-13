@@ -18,3 +18,10 @@ createRoot(document.getElementById('root')).render(
 // added role="switch" for accessibility
 // added area-checked={isOn} for screen readers
 // visible focused when tab is pressed
+// dynamically added all switch from app.jsx, and used switch component to render them all
+// made them accessible with aria attributes
+// added toggle functionality for each switch
+// added dark mode toggle functionality
+// added light theme toggle functionality
+// added sound toggle functionality
+// added notification toggle functionality

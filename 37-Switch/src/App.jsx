@@ -8,33 +8,28 @@ export const App = () => {
   const [notificationsEnabled, setNotificationsEnabled] = useState(false)
   const [soundEnabled, setSoundEnabled] = useState(true)
 
-  // handleToggle will invert the current state of the switch
   const handleToggle = () => {
     setIsOn(!isOn)
   }
 
-  // handleDarkModeToggle will toggle dark mode theme
   const handleDarkModeToggle = () => {
     setIsDarkModeOn((prev) => {
       const newValue = !prev
-      document.body.classList.toggle('light-theme', !newValue) // light theme only when dark mode is OFF
+      document.body.classList.toggle('light-theme', !newValue)
       return newValue
     })
   }
 
-  // handleNotificationsToggle will toggle notification settings
   const handleNotificationsToggle = () => {
     setNotificationsEnabled(!notificationsEnabled)
   }
 
-  // handleSoundToggle will toggle sound settings
   const handleSoundToggle = () => {
     setSoundEnabled(!soundEnabled)
   }
 
   return (
     <div className="app-container">
-      {/* Introduction Section */}
       <header className="app-header">
         <h1>React Switch Components</h1>
         <p>
@@ -44,7 +39,6 @@ export const App = () => {
         </p>
       </header>
 
-      {/* Main Switch Section */}
       <div className="switches-container">
 
         <div className="switch-section">
@@ -100,7 +94,6 @@ export const App = () => {
         </div>
       </div>
 
-      {/* Footer Information */}
       <footer className="app-footer">
         <p>Built with React • by <a href="https://github.com/sh1v-max" target='_blank'>Shiv</a></p>
       </footer>
