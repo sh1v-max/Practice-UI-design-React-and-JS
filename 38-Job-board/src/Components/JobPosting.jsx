@@ -4,7 +4,6 @@ const JobPosting = ({ url, title, by, time }) => {
   const formattedTime = new Date(time * 1000).toLocaleString()
   console.log(formattedTime)
 
-  // Calculate time ago
   const getTimeAgo = (timestamp) => {
     const now = Date.now()
     const posted = timestamp * 1000
