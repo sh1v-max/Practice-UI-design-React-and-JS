@@ -49,6 +49,7 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 26 | 🧮 Calculator | A React component that provides basic calculator functionality with a simple user interface and responsive design | [View](https://npmcalculator.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/34-Calculator) |
 | 26 | 💬 Dialog Popup | A React component that renders a dialog outside the app body to block page interaction, using createPortal with a focus trap to keep tab key cycles inside the dialog and closes with the Escape key | [View](https://dialogpopup.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/36-Dialog) |
 | 27 | 💻 Switch Component | A React component that renders a switch with themes, sound & notification variants, with accessibility features like role="switch", aria-checked, and focus-visible | [View](https://reactswitch.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/37-Switch) |
+| 28 | 🛍️ Roadsidestore | An eCommerce app demonstrating breadcrumbs, product listing, details page, loading states, and error handling | [View](https://roadsidestore.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/39-Breadcrumbs) |
 
 ### How to Use
 
