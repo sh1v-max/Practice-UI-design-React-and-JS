@@ -8,13 +8,12 @@ const Breadcrumbs = () => {
   // console.log(pathnames)
   let breadcrumbPath = ''
 
-  // Function to format breadcrumb names
   const formatBreadcrumbName = (name) => {
-    // Check if it's a number (product ID)
+    // check for product oid
     if (!isNaN(name)) {
       return `Product #${name}`
     }
-    // Capitalize first letter and replace dashes/underscores with spaces
+    // format the name
     return name.charAt(0).toUpperCase() + name.slice(1).replace(/[-_]/g, ' ')
   }
 
