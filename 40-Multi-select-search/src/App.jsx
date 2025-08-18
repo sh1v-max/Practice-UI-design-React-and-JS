@@ -8,29 +8,35 @@ export const App = () => {
   const [selectedUsers, setSelectedUsers] = useState([])
   const [selectedUserSet, setSelectedUserSet] = useState(new Set())
   const [activeSuggestion, setActiveSuggestion] = useState(0)
+  const [isLoading, setIsLoading] = useState(false)
 
   const inputRef = useRef(null)
 
   useEffect(() => {
-    const fetchUsers = () => {
+    const fetchUsers = async () => {
       if (searchTerm.trim() === '') {
         setSuggestions([])
-        setActiveSuggestion(0) // reset highlight when input clears
+        setActiveSuggestion(0)
+        setIsLoading(false)
         return
       }
 
-      fetch(`https://dummyjson.com/users/search?q=${searchTerm}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setSuggestions(data.users)
-          setActiveSuggestion(0) // reset highlight on new results
-        })
-        .catch((err) => {
-          console.error(err)
-        })
+      setIsLoading(true)
+      try {
+        const response = await fetch(`https://dummyjson.com/users/search?q=${searchTerm}`)
+        const data = await response.json()
+        setSuggestions(data.users || [])
+        setActiveSuggestion(0)
+      } catch (err) {
+        console.error(err)
+        setSuggestions([])
+      } finally {
+        setIsLoading(false)
+      }
     }
 
-    fetchUsers()
+    const debounceTimer = setTimeout(fetchUsers, 300)
+    return () => clearTimeout(debounceTimer)
   }, [searchTerm])
 
   const handleSelectUser = (user) => {
@@ -74,14 +80,48 @@ export const App = () => {
       activeSuggestion >= 0 &&
       activeSuggestion < suggestions.length
     ) {
-      handleSelectUser(suggestions[activeSuggestion])
+      e.preventDefault()
+      const userToSelect = suggestions[activeSuggestion]
+      if (!selectedUserSet.has(userToSelect.email)) {
+        handleSelectUser(userToSelect)
+      }
+    } else if (e.key === 'Escape') {
+      setSuggestions([])
+      setSearchTerm('')
     }
+  }
+
+  const clearAllUsers = () => {
+    setSelectedUsers([])
+    setSelectedUserSet(new Set())
+    setSuggestions([])
+    setSearchTerm('')
+    inputRef.current.focus()
   }
 
   return (
     <div className="app">
+      {/* App Header */}
+      <div className="app-header">
+        <h1 className="app-title">Multi-Select User Search</h1>
+        <p className="app-description">
+          Search and select multiple users. 
+          Use arrow keys for navigation and backspace to clear.
+        </p>
+      </div>
+
       {/* <Hello/> */}
+      
       <div className="user-search-container">
+        <div className="search-header">
+          <h2>Select Users</h2>
+          {selectedUsers.length > 0 && (
+            <button className="clear-all-btn" onClick={clearAllUsers}>
+              Clear All ({selectedUsers.length})
+            </button>
+          )}
+        </div>
+
         <div className="user-search-input">
           {/* pills */}
           {selectedUsers.map((user) => {
@@ -94,7 +134,8 @@ export const App = () => {
               />
             )
           })}
-          <div>
+          
+          <div className="input-container">
             <input
               ref={inputRef}
               type="text"
@@ -104,33 +145,78 @@ export const App = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search for a user..."
               onKeyDown={handleKeyDown}
+              className="search-input"
             />
+            
+            {/* Loading indicator */}
+            {isLoading && <div className="loading-spinner"></div>}
+            
             {/* search suggestions */}
-            <ul className="suggestions-list">
-              {suggestions?.map((user, index) => {
-                return !selectedUserSet.has(user.email) ? (
-                  <li
-                    key={user.email}
-                    onClick={() => handleSelectUser(user)}
-                    className={
-                      index === activeSuggestion ? 'active-suggestion' : ''
-                    }
-                  >
-                    <img
-                      src={user.image}
-                      alt={`${user.firstName} ${user.lastName}`}
-                    />
-                    <span>
-                      {user.firstName} {user.lastName}
-                    </span>
-                  </li>
-                ) : (
-                  <div key={user.email}></div>
-                )
-              })}
-            </ul>
+            {suggestions.length > 0 && (
+              <ul className="suggestions-list">
+                {suggestions.map((user, index) => {
+                  return !selectedUserSet.has(user.email) ? (
+                    <li
+                      key={user.email}
+                      onClick={() => handleSelectUser(user)}
+                      className={
+                        index === activeSuggestion ? 'suggestion-item active-suggestion' : 'suggestion-item'
+                      }
+                    >
+                      <img
+                        src={user.image}
+                        alt={`${user.firstName} ${user.lastName}`}
+                        className="user-avatar"
+                      />
+                      <div className="user-info">
+                        <span className="user-name">
+                          {user.firstName} {user.lastName}
+                        </span>
+                        <span className="user-email">{user.email}</span>
+                      </div>
+                    </li>
+                  ) : null
+                })}
+              </ul>
+            )}
+            
+            {/* No results message */}
+            {searchTerm.trim() !== '' && !isLoading && suggestions.length === 0 && (
+              <div className="no-results">
+                No users found for "{searchTerm}"
+              </div>
+            )}
           </div>
         </div>
+
+        {/* Selected users summary */}
+        {selectedUsers.length > 0 && (
+          <div className="selected-summary">
+            <h3>Selected Users ({selectedUsers.length})</h3>
+            <div className="selected-users-grid">
+              {selectedUsers.map((user) => (
+                <div key={user.email} className="selected-user-card">
+                  <img 
+                    src={user.image} 
+                    alt={`${user.firstName} ${user.lastName}`}
+                    className="card-avatar"
+                  />
+                  <div className="card-info">
+                    <span className="card-name">{user.firstName} {user.lastName}</span>
+                    <span className="card-email">{user.email}</span>
+                  </div>
+                  <button 
+                    className="remove-btn"
+                    onClick={() => handleRemoveUser(user)}
+                    title="Remove user"
+                  >
+                    ×
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
