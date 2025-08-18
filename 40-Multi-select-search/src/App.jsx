@@ -9,6 +9,7 @@ export const App = () => {
   const [selectedUserSet, setSelectedUserSet] = useState(new Set())
   const [activeSuggestion, setActiveSuggestion] = useState(0)
   const [isLoading, setIsLoading] = useState(false)
+  const [hasSearched, setHasSearched] = useState(false)
 
   const inputRef = useRef(null)
 
@@ -18,12 +19,18 @@ export const App = () => {
         setSuggestions([])
         setActiveSuggestion(0)
         setIsLoading(false)
+        setIsLoading(false)
+        setHasSearched(false)
         return
       }
 
       setIsLoading(true)
+      setHasSearched(true)
+      setIsLoading(true)
       try {
-        const response = await fetch(`https://dummyjson.com/users/search?q=${searchTerm}`)
+        const response = await fetch(
+          `https://dummyjson.com/users/search?q=${searchTerm}`
+        )
         const data = await response.json()
         setSuggestions(data.users || [])
         setActiveSuggestion(0)
@@ -105,13 +112,13 @@ export const App = () => {
       <div className="app-header">
         <h1 className="app-title">Multi-Select User Search</h1>
         <p className="app-description">
-          Search and select multiple users. 
-          Use arrow keys for navigation and backspace to clear.
+          Search and select multiple users. Use arrow keys for navigation and
+          backspace to clear.
         </p>
       </div>
 
       {/* <Hello/> */}
-      
+
       <div className="user-search-container">
         <div className="search-header">
           <h2>Select Users</h2>
@@ -134,7 +141,7 @@ export const App = () => {
               />
             )
           })}
-          
+
           <div className="input-container">
             <input
               ref={inputRef}
@@ -147,10 +154,9 @@ export const App = () => {
               onKeyDown={handleKeyDown}
               className="search-input"
             />
-            
-            {/* Loading indicator */}
+
             {isLoading && <div className="loading-spinner"></div>}
-            
+
             {/* search suggestions */}
             {suggestions.length > 0 && (
               <ul className="suggestions-list">
@@ -160,7 +166,9 @@ export const App = () => {
                       key={user.email}
                       onClick={() => handleSelectUser(user)}
                       className={
-                        index === activeSuggestion ? 'suggestion-item active-suggestion' : 'suggestion-item'
+                        index === activeSuggestion
+                          ? 'suggestion-item active-suggestion'
+                          : 'suggestion-item'
                       }
                     >
                       <img
@@ -179,33 +187,36 @@ export const App = () => {
                 })}
               </ul>
             )}
-            
-            {/* No results message */}
-            {searchTerm.trim() !== '' && !isLoading && suggestions.length === 0 && (
-              <div className="no-results">
-                No users found for "{searchTerm}"
-              </div>
-            )}
+
+            {hasSearched &&
+              !isLoading &&
+              searchTerm.trim() !== '' &&
+              suggestions.length === 0 && (
+                <div className="no-results">
+                  No users found for "{searchTerm}"
+                </div>
+              )}
           </div>
         </div>
 
-        {/* Selected users summary */}
         {selectedUsers.length > 0 && (
           <div className="selected-summary">
             <h3>Selected Users ({selectedUsers.length})</h3>
             <div className="selected-users-grid">
               {selectedUsers.map((user) => (
                 <div key={user.email} className="selected-user-card">
-                  <img 
-                    src={user.image} 
+                  <img
+                    src={user.image}
                     alt={`${user.firstName} ${user.lastName}`}
                     className="card-avatar"
                   />
                   <div className="card-info">
-                    <span className="card-name">{user.firstName} {user.lastName}</span>
+                    <span className="card-name">
+                      {user.firstName} {user.lastName}
+                    </span>
                     <span className="card-email">{user.email}</span>
                   </div>
-                  <button 
+                  <button
                     className="remove-btn"
                     onClick={() => handleRemoveUser(user)}
                     title="Remove user"
