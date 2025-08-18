@@ -65,6 +65,14 @@ export const App = () => {
     setSelectedUserSet(updatedEmails)
   }
 
+  const clearAllUsers = () => {
+    setSelectedUsers([])
+    setSelectedUserSet(new Set())
+    setSuggestions([])
+    setSearchTerm('')
+    inputRef.current.focus()
+  }
+
   const handleKeyDown = (e) => {
     if (
       e.key === 'Backspace' &&
@@ -96,14 +104,6 @@ export const App = () => {
       setSuggestions([])
       setSearchTerm('')
     }
-  }
-
-  const clearAllUsers = () => {
-    setSelectedUsers([])
-    setSelectedUserSet(new Set())
-    setSuggestions([])
-    setSearchTerm('')
-    inputRef.current.focus()
   }
 
   return (
@@ -157,7 +157,6 @@ export const App = () => {
 
             {isLoading && <div className="loading-spinner"></div>}
 
-            {/* search suggestions */}
             {suggestions.length > 0 && (
               <ul className="suggestions-list">
                 {suggestions.map((user, index) => {
