@@ -50,6 +50,8 @@ Each problem is kept small and direct — no unnecessary styling, just pure logi
 | 26 | 💬 Dialog Popup | A React component that renders a dialog outside the app body to block page interaction, using createPortal with a focus trap to keep tab key cycles inside the dialog and closes with the Escape key | [View](https://dialogpopup.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/36-Dialog) |
 | 27 | 💻 Switch Component | A React component that renders a switch with themes, sound & notification variants, with accessibility features like role="switch", aria-checked, and focus-visible | [View](https://reactswitch.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/37-Switch) |
 | 28 | 🛍️ Roadsidestore | An eCommerce app demonstrating breadcrumbs, product listing, details page, loading states, and error handling | [View](https://roadsidestore.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/39-Breadcrumbs) |
+| 28 | 🛍️ Multi Select User Search | An input field that allows users to search for users with live API fetch, add/remove pills, arrow key/enter and backspace for navigation, and "No user found" state | [View](https://multiselectusersearch.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/40-Multi-select-search) |
+| 29 | 🤔 QuizGuru | A React app that renders multiple-choice questions with instant feedback, score tracking, state-driven flow, and a restart option | [View](https://yourquizguru.netlify.app/) | [Code](https://github.com/sh1v-max/Practice-UI-design-React-and-JS/tree/main/41-Quiz-app) |
 
 ### How to Use
 

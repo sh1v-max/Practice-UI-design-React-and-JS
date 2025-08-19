@@ -22,7 +22,7 @@ const Home = ({ onStartQuiz, totalQuestions }) => {
   return (
     <div className="welcome-screen">
       <div className="welcome-header">
-        <h1 className="app-title">🧠 Tech Quiz</h1>
+        <h1 className="app-title">🧠 QuizGuru</h1>
         <p className="app-subtitle">Test your knowledge of technology, programming, and computing</p>
       </div>
 

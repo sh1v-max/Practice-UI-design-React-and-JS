@@ -25,13 +25,10 @@ export const App = () => {
   useEffect(() => {
     if (gameState === 'playing') {
       let questionsToUse = [...questions]
-      
       if (quizSettings.randomizeQuestions) {
         questionsToUse = questionsToUse.sort(() => Math.random() - 0.5)
       }
-      
       questionsToUse = questionsToUse.slice(0, quizSettings.questionsToShow)
-      
       setShuffledQuestions(questionsToUse)
     }
   }, [gameState, quizSettings])
