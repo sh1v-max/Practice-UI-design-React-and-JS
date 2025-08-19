@@ -1,0 +1,422 @@
+[
+  {
+    "id": 1,
+    "category": "Computer History",
+    "difficulty": "medium",
+    "question": "Who is known as the father of the computer?",
+    "answerOptions": [
+      { "text": "Charles Babbage", "isCorrect": true },
+      { "text": "Alan Turing", "isCorrect": false },
+      { "text": "Bill Gates", "isCorrect": false },
+      { "text": "Steve Jobs", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Networking",
+    "difficulty": "easy",
+    "question": "What does 'HTTP' stand for?",
+    "answerOptions": [
+      { "text": "HyperText Transfer Protocol", "isCorrect": true },
+      { "text": "Hyper Transfer Text Protocol", "isCorrect": false },
+      { "text": "HighText Transfer Protocol", "isCorrect": false },
+      { "text": "Hyper Tool Transfer Process", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "Companies",
+    "difficulty": "easy",
+    "question": "Which company developed the Windows operating system?",
+    "answerOptions": [
+      { "text": "Apple", "isCorrect": false },
+      { "text": "Google", "isCorrect": false },
+      { "text": "Microsoft", "isCorrect": true },
+      { "text": "IBM", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 4,
+    "category": "Hardware",
+    "difficulty": "easy",
+    "question": "What does 'CPU' stand for?",
+    "answerOptions": [
+      { "text": "Central Processing Unit", "isCorrect": true },
+      { "text": "Computer Processing Unit", "isCorrect": false },
+      { "text": "Central Power Unit", "isCorrect": false },
+      { "text": "Core Processing Utility", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 5,
+    "category": "Programming",
+    "difficulty": "medium",
+    "question": "Which programming language is known as the mother of all languages?",
+    "answerOptions": [
+      { "text": "Assembly", "isCorrect": false },
+      { "text": "FORTRAN", "isCorrect": false },
+      { "text": "C", "isCorrect": true },
+      { "text": "Python", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 6,
+    "category": "Networking",
+    "difficulty": "easy",
+    "question": "What does 'URL' stand for?",
+    "answerOptions": [
+      { "text": "Uniform Resource Locator", "isCorrect": true },
+      { "text": "Universal Routing Link", "isCorrect": false },
+      { "text": "Unified Reference Link", "isCorrect": false },
+      { "text": "Uniform Reference Locator", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 7,
+    "category": "Companies",
+    "difficulty": "easy",
+    "question": "Which company created the iPhone?",
+    "answerOptions": [
+      { "text": "Samsung", "isCorrect": false },
+      { "text": "Apple", "isCorrect": true },
+      { "text": "Nokia", "isCorrect": false },
+      { "text": "Sony", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 8,
+    "category": "Operating Systems",
+    "difficulty": "medium",
+    "question": "Which operating system is open-source?",
+    "answerOptions": [
+      { "text": "Linux", "isCorrect": true },
+      { "text": "Windows", "isCorrect": false },
+      { "text": "macOS", "isCorrect": false },
+      { "text": "iOS", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 9,
+    "category": "Hardware",
+    "difficulty": "easy",
+    "question": "What does 'RAM' stand for?",
+    "answerOptions": [
+      { "text": "Random Access Memory", "isCorrect": true },
+      { "text": "Read Access Memory", "isCorrect": false },
+      { "text": "Run Access Memory", "isCorrect": false },
+      { "text": "Random Allocation Memory", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 10,
+    "category": "Networking",
+    "difficulty": "medium",
+    "question": "What does 'IP' in IP address stand for?",
+    "answerOptions": [
+      { "text": "Internet Protocol", "isCorrect": true },
+      { "text": "Internal Process", "isCorrect": false },
+      { "text": "Internet Provider", "isCorrect": false },
+      { "text": "Input Protocol", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 11,
+    "category": "Companies",
+    "difficulty": "easy",
+    "question": "Which search engine is owned by Google?",
+    "answerOptions": [
+      { "text": "Yahoo", "isCorrect": false },
+      { "text": "Bing", "isCorrect": false },
+      { "text": "DuckDuckGo", "isCorrect": false },
+      { "text": "Google Search", "isCorrect": true }
+    ]
+  },
+  {
+    "id": 12,
+    "category": "General",
+    "difficulty": "easy",
+    "question": "Which symbol is used to denote an email address?",
+    "answerOptions": [
+      { "text": "#", "isCorrect": false },
+      { "text": "&", "isCorrect": false },
+      { "text": "@", "isCorrect": true },
+      { "text": "%", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 13,
+    "category": "Operating Systems",
+    "difficulty": "easy",
+    "question": "Which company created the Android operating system?",
+    "answerOptions": [
+      { "text": "Apple", "isCorrect": false },
+      { "text": "Microsoft", "isCorrect": false },
+      { "text": "Google", "isCorrect": true },
+      { "text": "IBM", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 14,
+    "category": "Programming",
+    "difficulty": "easy",
+    "question": "Which programming language is primarily used for web development?",
+    "answerOptions": [
+      { "text": "JavaScript", "isCorrect": true },
+      { "text": "C", "isCorrect": false },
+      { "text": "Python", "isCorrect": false },
+      { "text": "COBOL", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 15,
+    "category": "Companies",
+    "difficulty": "easy",
+    "question": "Which company developed the Macintosh computer?",
+    "answerOptions": [
+      { "text": "IBM", "isCorrect": false },
+      { "text": "Microsoft", "isCorrect": false },
+      { "text": "Apple", "isCorrect": true },
+      { "text": "Intel", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 16,
+    "category": "Hardware",
+    "difficulty": "medium",
+    "question": "What is the full form of BIOS?",
+    "answerOptions": [
+      { "text": "Basic Input Output System", "isCorrect": true },
+      { "text": "Binary Input Output Software", "isCorrect": false },
+      { "text": "Basic Integrated Operating System", "isCorrect": false },
+      { "text": "Binary Information Operating Setup", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 17,
+    "category": "File Formats",
+    "difficulty": "easy",
+    "question": "What does PDF stand for?",
+    "answerOptions": [
+      { "text": "Portable Document Format", "isCorrect": true },
+      { "text": "Public Data File", "isCorrect": false },
+      { "text": "Personal Document File", "isCorrect": false },
+      { "text": "Printable Document Format", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 18,
+    "category": "Gaming",
+    "difficulty": "easy",
+    "question": "Which company is known for the PlayStation gaming console?",
+    "answerOptions": [
+      { "text": "Sony", "isCorrect": true },
+      { "text": "Microsoft", "isCorrect": false },
+      { "text": "Nintendo", "isCorrect": false },
+      { "text": "Sega", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 19,
+    "category": "Companies",
+    "difficulty": "easy",
+    "question": "Which tech giant owns YouTube?",
+    "answerOptions": [
+      { "text": "Amazon", "isCorrect": false },
+      { "text": "Meta", "isCorrect": false },
+      { "text": "Google", "isCorrect": true },
+      { "text": "Apple", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 20,
+    "category": "Networking",
+    "difficulty": "medium",
+    "question": "What does VPN stand for?",
+    "answerOptions": [
+      { "text": "Virtual Private Network", "isCorrect": true },
+      { "text": "Verified Personal Network", "isCorrect": false },
+      { "text": "Virtual Process Node", "isCorrect": false },
+      { "text": "Verified Private Net", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 21,
+    "category": "Programming",
+    "difficulty": "medium",
+    "question": "Which programming language is mainly used for iOS app development?",
+    "answerOptions": [
+      { "text": "Swift", "isCorrect": true },
+      { "text": "Kotlin", "isCorrect": false },
+      { "text": "Java", "isCorrect": false },
+      { "text": "C#", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 22,
+    "category": "Web Development",
+    "difficulty": "easy",
+    "question": "What does 'HTML' stand for?",
+    "answerOptions": [
+      { "text": "HyperText Markup Language", "isCorrect": true },
+      { "text": "HighText Markup Language", "isCorrect": false },
+      { "text": "Hyper Transfer Markup Language", "isCorrect": false },
+      { "text": "HyperText Making Language", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 23,
+    "category": "File Systems",
+    "difficulty": "easy",
+    "question": "What is the default file extension of a Windows executable file?",
+    "answerOptions": [
+      { "text": ".exe", "isCorrect": true },
+      { "text": ".bat", "isCorrect": false },
+      { "text": ".msi", "isCorrect": false },
+      { "text": ".dll", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 24,
+    "category": "Hardware",
+    "difficulty": "easy",
+    "question": "Which device is known as the brain of the computer?",
+    "answerOptions": [
+      { "text": "Hard Disk", "isCorrect": false },
+      { "text": "RAM", "isCorrect": false },
+      { "text": "CPU", "isCorrect": true },
+      { "text": "GPU", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 25,
+    "category": "User Interface",
+    "difficulty": "easy",
+    "question": "What does GUI stand for?",
+    "answerOptions": [
+      { "text": "Graphical User Interface", "isCorrect": true },
+      { "text": "General User Interaction", "isCorrect": false },
+      { "text": "Graphical Utility Input", "isCorrect": false },
+      { "text": "General Utility Interface", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 26,
+    "category": "Programming",
+    "difficulty": "medium",
+    "question": "Which company developed the Java programming language?",
+    "answerOptions": [
+      { "text": "Microsoft", "isCorrect": false },
+      { "text": "Sun Microsystems", "isCorrect": true },
+      { "text": "Google", "isCorrect": false },
+      { "text": "Apple", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 27,
+    "category": "Networking",
+    "difficulty": "medium",
+    "question": "What does DNS stand for?",
+    "answerOptions": [
+      { "text": "Domain Name System", "isCorrect": true },
+      { "text": "Digital Network Service", "isCorrect": false },
+      { "text": "Domain Number Service", "isCorrect": false },
+      { "text": "Direct Network Setup", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 28,
+    "category": "Operating Systems",
+    "difficulty": "easy",
+    "question": "Which operating system is developed by Apple?",
+    "answerOptions": [
+      { "text": "macOS", "isCorrect": true },
+      { "text": "Linux", "isCorrect": false },
+      { "text": "Windows", "isCorrect": false },
+      { "text": "Unix", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 29,
+    "category": "Web Browsers",
+    "difficulty": "easy",
+    "question": "Which web browser was developed by Mozilla?",
+    "answerOptions": [
+      { "text": "Safari", "isCorrect": false },
+      { "text": "Firefox", "isCorrect": true },
+      { "text": "Chrome", "isCorrect": false },
+      { "text": "Edge", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 30,
+    "category": "Programming",
+    "difficulty": "hard",
+    "question": "Which data structure follows LIFO (Last In, First Out) principle?",
+    "answerOptions": [
+      { "text": "Queue", "isCorrect": false },
+      { "text": "Stack", "isCorrect": true },
+      { "text": "Array", "isCorrect": false },
+      { "text": "Linked List", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 31,
+    "category": "Security",
+    "difficulty": "medium",
+    "question": "What does SSL stand for?",
+    "answerOptions": [
+      { "text": "Secure Socket Layer", "isCorrect": true },
+      { "text": "Safe Security Link", "isCorrect": false },
+      { "text": "Secure System Login", "isCorrect": false },
+      { "text": "System Security Layer", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 32,
+    "category": "Database",
+    "difficulty": "medium",
+    "question": "What does SQL stand for?",
+    "answerOptions": [
+      { "text": "Structured Query Language", "isCorrect": true },
+      { "text": "Standard Query Language", "isCorrect": false },
+      { "text": "System Query Language", "isCorrect": false },
+      { "text": "Sequential Query Language", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 33,
+    "category": "Hardware",
+    "difficulty": "hard",
+    "question": "What is the primary function of a GPU?",
+    "answerOptions": [
+      { "text": "General Processing", "isCorrect": false },
+      { "text": "Graphics Processing", "isCorrect": true },
+      { "text": "Network Processing", "isCorrect": false },
+      { "text": "Audio Processing", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 34,
+    "category": "Cloud Computing",
+    "difficulty": "medium",
+    "question": "Which company provides AWS (Amazon Web Services)?",
+    "answerOptions": [
+      { "text": "Amazon", "isCorrect": true },
+      { "text": "Microsoft", "isCorrect": false },
+      { "text": "Google", "isCorrect": false },
+      { "text": "IBM", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 35,
+    "category": "Programming",
+    "difficulty": "hard",
+    "question": "Which programming paradigm does JavaScript primarily support?",
+    "answerOptions": [
+      { "text": "Object-Oriented only", "isCorrect": false },
+      { "text": "Functional only", "isCorrect": false },
+      { "text": "Multi-paradigm", "isCorrect": true },
+      { "text": "Procedural only", "isCorrect": false }
+    ]
+  }
+]
