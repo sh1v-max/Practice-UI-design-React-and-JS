@@ -1,0 +1,222 @@
+/* @import "tailwindcss"; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: black;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: auto;
+}
+
+.app-container {
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-attachment: fixed;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+}
+
+.app-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.grid-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.selectable-grid-wrapper {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.grid-info {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.grid-dimensions {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.selected-count {
+  color: #888888;
+  font-size: 0.95rem;
+}
+
+.clear-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.clear-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #444444 0%, #2a2a2a 100%);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.clear-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #222222;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(15, 40px);
+  grid-template-rows: repeat(15, 40px);
+  gap: 3px;
+  user-select: none;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.box {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  color: #888888;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.box:hover {
+  border-color: #ff5900;
+  background: #ff8f53;
+  color: #cccccc;
+  transform: scale(1.02);
+}
+
+.box.selected {
+  border-color: #ff5900;
+  background: #ff8f53;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.box.selected::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.app-footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  text-align: center;
+  color: #666666;
+  font-size: 0.9rem;
+}
+
+.app-footer a {
+  color: #888888;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.app-footer a:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .app-title {
+    font-size: 2.5rem;
+  }
+
+  .app-instructions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(15, 35px);
+    grid-template-rows: repeat(15, 35px);
+    gap: 2px;
+  }
+
+  .box {
+    width: 35px;
+    height: 35px;
+    font-size: 0.7rem;
+  }
+
+  .selectable-grid-wrapper {
+    padding: 1rem;
+  }
+
+  .grid-header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
