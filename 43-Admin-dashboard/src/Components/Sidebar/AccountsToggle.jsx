@@ -11,8 +11,8 @@ const AccountsToggle = () => {
           className="size-8 rounded shrink-0 bg-violet-500 shadow"
         />
         <div className="text-start">
-          <span className="text-sm font-bold block">Tom Is Loading</span>
-          <span className="text-xs block text-stone-500">tom@hover.dev</span>
+          <span className="text-sm font-bold block">Hello Wazir</span>
+          <span className="text-xs block text-stone-500">wazir@hello.dev</span>
         </div>
 
         <FiChevronDown className="absolute right-2 top-1/2 translate-y-[calc(-50%+4px)] text-xs" />
