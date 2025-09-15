@@ -3,7 +3,9 @@ import avatar from '../images/dashboard/avatar.svg'
 import add from '../images/dashboard/add.svg'
 import calender from '../images/dashboard/calender.svg'
 import premium from '../images/dashboard/premium.svg'
-// import ChartView from './ChartView.js'
+import InvoiceChart from './InvoiceChart.tsx'
+import InvoiceList from './InvoiceList.tsx'
+import Footer from './footer.tsx'
 
 const Dashboard: React.FC = () => {
   const [selectedPeriod, setSelectedPeriod] = useState('3Months')
@@ -120,7 +122,9 @@ const Dashboard: React.FC = () => {
         </div>
 
         {/* Chart Section (always visible) */}
-        {/* <ChartView /> */}
+        <InvoiceChart />
+        <InvoiceList />
+        <Footer/>
       </div>
     </div>
   )

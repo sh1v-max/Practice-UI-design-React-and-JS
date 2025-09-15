@@ -1,0 +1,88 @@
+export const chartData = [
+  { month: 'Jan', income: 35000, growth: 0 },
+  { month: 'Feb', income: 48000, growth: 37 },
+  { month: 'Mar', income: 65000, growth: 35 },
+  { month: 'Apr', income: 28000, growth: -57 },
+  { month: 'May', income: 52000, growth: 86 },
+  { month: 'Jun', income: 0, growth: -100 },
+]
+
+export const invoices = [
+  {
+    id: 1,
+    client: 'Client Name',
+    amount: 125000,
+    due: '2024-06-15',
+    status: 'update',
+  },
+  {
+    id: 2,
+    client: 'Client Name',
+    amount: 125000,
+    due: '2024-06-15',
+    status: 'unpaid',
+  },
+  {
+    id: 3,
+    client: 'Income Trend',
+    amount: 125000,
+    due: '2024-06-15',
+    status: 'disputed',
+  },
+  {
+    id: 4,
+    client: 'Income Trend',
+    amount: 125000,
+    due: '2024-06-15',
+    status: 'paid',
+  },
+  {
+    id: 5,
+    client: 'Income Trend',
+    amount: 125000,
+    due: '2024-06-15',
+    status: 'paid',
+  },
+  {
+    id: 6,
+    client: 'Income Trend',
+    amount: 125000,
+    due: '2024-06-15',
+    status: 'partially-paid',
+  },
+  {
+    id: 7,
+    client: 'Income Trend',
+    amount: 125000,
+    due: '2024-06-15',
+    status: 'paid',
+  },
+  {
+    id: 8,
+    client: 'Income Trend',
+    amount: 125000,
+    due: '2024-06-15',
+    status: 'overdue',
+  },
+  {
+    id: 9,
+    client: 'Income Trend',
+    amount: 125000,
+    due: '2024-06-15',
+    status: 'awaited',
+  },
+  {
+    id: 10,
+    client: 'Income Trend',
+    amount: 125000,
+    due: '2024-06-15',
+    status: 'draft',
+  },
+  {
+    id: 11,
+    client: 'Income Trend',
+    amount: 125000,
+    due: '2024-06-15',
+    status: 'paid',
+  },
+]
