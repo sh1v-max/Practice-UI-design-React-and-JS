@@ -4,6 +4,7 @@ import Dashboard from './Components/Dashboard'
 
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState(0)
+  console.log(currentScreen)
   // 0: dashboard, 1: chart view, 2: invoice list
 
   return (

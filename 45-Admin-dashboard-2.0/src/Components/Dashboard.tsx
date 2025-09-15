@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Plus, Calendar, Crown } from 'lucide-react'
 import avatar from '../images/dashboard/avatar.svg'
 import add from '../images/dashboard/add.svg'
 import calender from '../images/dashboard/calender.svg'
