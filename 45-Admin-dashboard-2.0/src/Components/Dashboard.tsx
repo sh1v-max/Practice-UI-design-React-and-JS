@@ -3,16 +3,9 @@ import avatar from '../images/dashboard/avatar.svg'
 import add from '../images/dashboard/add.svg'
 import calender from '../images/dashboard/calender.svg'
 import premium from '../images/dashboard/premium.svg'
+// import ChartView from './ChartView.js'
 
-interface DashboardProps {
-  onViewChart: () => void
-  onViewInvoices: () => void
-}
-
-const Dashboard: React.FC<DashboardProps> = ({
-  onViewChart,
-  onViewInvoices,
-}) => {
+const Dashboard: React.FC = () => {
   const [selectedPeriod, setSelectedPeriod] = useState('3Months')
 
   return (
@@ -45,7 +38,7 @@ const Dashboard: React.FC<DashboardProps> = ({
         {/* Create New Invoice */}
         <div className="items-center text-center">
           <div className="bg-gray-200 rounded-[46px] p-6 flex flex-col items-center text-center">
-            <div className="w-16 h-16  rounded-full flex items-center justify-center mb-4">
+            <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4">
               <img src={add} alt="" />
             </div>
             <h2 className="text-[28px] font-semibold text-purple-700 mb-1">
@@ -97,7 +90,7 @@ const Dashboard: React.FC<DashboardProps> = ({
           </div>
 
           <button className="flex items-center gap-1 text-gray-500 text-s">
-            <img className="" src={calender} alt="" />
+            <img src={calender} alt="" />
             Custom
           </button>
         </div>
@@ -126,21 +119,8 @@ const Dashboard: React.FC<DashboardProps> = ({
           </div>
         </div>
 
-        {/* Navigation Buttons */}
-        <div className="flex gap-3">
-          <button
-            onClick={onViewChart}
-            className="flex-1 bg-purple-500 text-white py-3 px-4 rounded-lg font-medium shadow-md"
-          >
-            View Income Trend
-          </button>
-          <button
-            onClick={onViewInvoices}
-            className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg font-medium shadow-md"
-          >
-            View All Invoices
-          </button>
-        </div>
+        {/* Chart Section (always visible) */}
+        {/* <ChartView /> */}
       </div>
     </div>
   )
