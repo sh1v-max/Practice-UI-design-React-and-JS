@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import avatar from '../images/dashboard/avatar.svg'
 import add from '../images/dashboard/add.svg'
 import calender from '../images/dashboard/calender.svg'
 import premium from '../images/dashboard/premium.svg'
 import InvoiceChart from './InvoiceChart.tsx'
 import InvoiceList from './InvoiceList.tsx'
 import Footer from './footer.tsx'
+import Header from './Header.tsx'
 
 const Dashboard: React.FC = () => {
   const [selectedPeriod, setSelectedPeriod] = useState('3Months')
@@ -13,28 +13,7 @@ const Dashboard: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-purple-400 px-4 py-3 pb-15">
-        <div className="flex items-center justify-between">
-          {/* Left: Back */}
-          <div className="flex items-center gap-1 text-black font-medium">
-            <span className="text-2xl">&lt;</span>
-            <span className="text-base">Back</span>
-          </div>
-
-          {/* Center: Dashboard */}
-          <h1 className="text-lg font-semibold text-gray-900 text-center flex-1">
-            Dashboard
-          </h1>
-
-          {/* Right: Profile */}
-          <img
-            className="w-10 h-10 rounded-full border-2 border-white shadow-md"
-            src={avatar}
-            alt="Profile"
-          />
-        </div>
-      </div>
-
+      <Header />
       {/* Main Content */}
       <div className="p-4 bg-white space-y-6 rounded-t-[46px] -mt-10">
         {/* Create New Invoice */}
@@ -124,8 +103,8 @@ const Dashboard: React.FC = () => {
         {/* Chart Section (always visible) */}
         <InvoiceChart />
         <InvoiceList />
-        <Footer/>
       </div>
+      <Footer />
     </div>
   )
 }
