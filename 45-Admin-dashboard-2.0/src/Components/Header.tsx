@@ -5,19 +5,19 @@ const Header = () => {
     <div className="bg-purple-400 px-4 py-3 pb-15">
       <div className="flex items-center justify-between">
         {/* Left: Back */}
-        <div className="flex items-center gap-1 text-black font-medium">
-          <span className="text-2xl">&lt;</span>
-          <span className="text-base">Back</span>
+        <div className="flex items-center gap-1 text-gray-900 font-medium">
+          <span className="text-[22px] font-bold">&lt;</span>
+          <span className="text-[22px]">Back</span>
         </div>
 
         {/* Center: Dashboard */}
-        <h1 className="text-lg font-semibold text-gray-900 text-center flex-1">
+        <h1 className="text-[22px] font-semibold text-black text-center flex-1">
           Dashboard
         </h1>
 
         {/* Right: Profile */}
         <img
-          className="w-10 h-10 rounded-full border-2 border-white shadow-md"
+          className="w-[40px] h-[40px] rounded-full"
           src={avatar}
           alt="Profile"
         />
