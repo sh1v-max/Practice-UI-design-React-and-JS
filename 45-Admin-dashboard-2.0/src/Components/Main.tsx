@@ -23,7 +23,7 @@ const Main: React.FC = () => {
           Start by creating and sending new invoice
         </p>
       </div>
-      <p className="text-purple-600 text-xs mt-2">
+      <p className="text-purple-600 text-xs mt-2 cursor-pointer hover:underline">
         Or Upload an existing invoice and set payment reminder
       </p>
     </div>

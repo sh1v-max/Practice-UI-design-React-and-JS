@@ -37,7 +37,6 @@ const IncomeChart: React.FC = () => {
             <div
               key={index}
               className="flex flex-col items-center relative"
-              style={{ zIndex: 2 }}
             >
               <div
                 className="w-10 bg-purple-600 rounded-lg"
@@ -47,17 +46,20 @@ const IncomeChart: React.FC = () => {
             </div>
           ))}
 
-          {/* Growth line */}
+          {/* Growth line + circles */}
           <svg
-            className="absolute inset-0 w-full h-full "
+            className="absolute inset-0 w-full h-full pointer-events-none"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
-            style={{ zIndex: 1 }}
+            style={{ zIndex: 10 }}
           >
+            {/* Line */}
             <polyline
               fill="none"
-              stroke="#991B1B"
+              stroke="#C2626D" // Tailwind red-600
               strokeWidth="1"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               points={chartData
                 .map((d, i) => {
                   const x = (i / (chartData.length - 1)) * 100
@@ -66,6 +68,22 @@ const IncomeChart: React.FC = () => {
                 })
                 .join(' ')}
             />
+
+            {/* Circles */}
+            {chartData.map((d, i) => {
+              const x = (i / (chartData.length - 1)) * 100
+              const y = 100 - ((d.growth + 100) / 200) * 100
+              return (
+                <circle
+                  key={i}
+                  cx={x}
+                  cy={y}
+                  r="2"
+                  fill="#7F1D1D"
+                  strokeWidth="1"
+                />
+              )
+            })}
           </svg>
         </div>
       </div>
@@ -77,12 +95,13 @@ const IncomeChart: React.FC = () => {
           <span className="text-[18px] text-purple-600">Income</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-0.5 bg-red-800 rounded-full"></div>
-          <span className="text-[18px] text-red-800">MomGrowth</span>
+          <div className="w-4 h-0.5 bg-red-900 rounded-full"></div>
+          <span className="text-[18px] text-red-900">MomGrowth</span>
         </div>
       </div>
     </div>
   )
 }
+
 
 export default IncomeChart

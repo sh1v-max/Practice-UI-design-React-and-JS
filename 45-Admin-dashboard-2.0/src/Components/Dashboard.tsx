@@ -6,8 +6,8 @@ import Main from './Main.tsx'
 
 const Dashboard: React.FC = () => {
   return (
-    <div className='bg-purple-400 min-h-screen '>
-      <div className="min-h-screen w-full md:w-2/4 2xl:w-3/8 border-5 border-gray-800 rounded-t-2xl rounded-b-[46px] mx-auto">
+    <div className='bg-white min-h-screen '>
+      <div className="min-h-screen w-full md:w-[500px] border-2 border-gray-300 rounded-t-2xl rounded-b-[46px] mx-auto">
         {/* Header */}
         <StatusBar />
         <Header />

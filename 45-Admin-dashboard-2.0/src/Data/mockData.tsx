@@ -4,7 +4,7 @@ export const chartData = [
   { month: 'Mar', income: 65000, growth: 35 },
   { month: 'Apr', income: 28000, growth: -57 },
   { month: 'May', income: 52000, growth: 86 },
-  { month: 'Jun', income: 0, growth: -70 },
+  { month: 'Jun', income: 0, growth: -57 },
 ]
 
 export const invoices = [
