@@ -2,7 +2,7 @@ import avatar from '../images/dashboard/avatar.svg'
 
 const Header = () => {
   return (
-    <div className="bg-purple-400 px-4 py-3 pb-15">
+    <div className="bg-purple-400 px-8 py-3 pb-15">
       <div className="flex items-center justify-between">
         {/* Left: Back */}
         <div className="flex items-center gap-1 text-gray-900 font-medium">
