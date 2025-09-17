@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from './footer.tsx'
+import Footer from './Footer.tsx'
 import Header from './Header.tsx'
 import StatusBar from './StatusBar.tsx'
 import Main from './Main.tsx'
