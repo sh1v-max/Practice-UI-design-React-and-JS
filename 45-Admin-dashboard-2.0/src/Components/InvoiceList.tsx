@@ -11,7 +11,7 @@ const InvoiceList: React.FC = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-4 mt-10">
         <h2 className="text-lg font-semibold text-gray-900">Invoices</h2>
         <button
           onClick={() => setOpen(!open)}
