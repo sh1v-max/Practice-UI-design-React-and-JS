@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Services - Company</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img class="title" src="images/title.svg" alt="Company Logo">
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <button class="quote-btn">Get A Quote</button>
+
+      <!-- hamburger -->
+      <div class="hamburger" id="hamburger">
+        <img src="images/ham.svg" alt="">
+      </div>
+    </div>
+  </nav>
+
+  <!-- overlay for script -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+  <!-- menu drawer -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <img class="mobile-menu-logo" src="images/title.svg" alt="Company Logo">
+      <div class="close-menu" id="closeMenu">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <ul class="mobile-menu-list">
+      <li class="mobile-menu-item home-menu-active">
+        <img src="images/home.svg" alt="Home Icon" class="menu-icon">
+        <a class="home-menu-active" href="#home">Home</a>
+      </li>
+      <li class="mobile-menu-item">
+        <img src="images/about.svg" alt="About Icon" class="menu-icon">
+        <a class="home-menu-inactive" href="#about">About Us</a>
+      </li>
+      <li class="mobile-menu-item">
+        <img src="images/services.svg" alt="Services Icon" class="menu-icon">
+        <a class="home-menu-inactive" href="#services">Our Services</a>
+      </li>
+      <li class="mobile-menu-item">
+        <img src="images/pricing.svg" alt="Pricing Icon" class="menu-icon">
+        <a class="home-menu-inactive" href="#pricing">Pricing</a>
+      </li>
+      <li class="mobile-menu-item">
+        <img src="images/faq.svg" alt="FAQ Icon" class="menu-icon">
+        <a class="home-menu-inactive" href="#faq">FAQ</a>
+      </li>
+
+      <button class="mobile-contact-btn">CONTACT US</button>
+    </ul>
+
+  </div>
+
+  <!-- main section -->
+  <section class="main">
+    <div class="main-container">
+      <div class="main-content">
+        <h2 class="main-title">
+          Your Resume<br>
+          <span class="highlight">Deserves A Yes</span> Let's<br>
+          Make It Happen
+        </h2>
+        <p class="main-description">
+          If Your Resume Isn't Getting Responses, It's Time For An Upgrade.<br>
+          Get An ATS-Optimized Resume Crafted By HR Experts To Help You<br>
+          Land More Interviews. Our Resumes Are Designed To Get Your Foot<br>
+          In The Door And Place Your Name At The Top Of The Shortlist.
+        </p>
+        <div class="main-buttons">
+          <button class="btn-resume">RESUME PAKAGES</button>
+          <button class="btn-contact">CONTACT US</button>
+        </div>
+      </div>
+      <!-- image -->
+      <div class="main-image">
+        <div class="main-person">
+          <img class="main-girl" src="images/girl.svg" alt="girl">
+        </div>
+        <div class="main-rating">
+          <img class="rating-card" src="images/rating.svg" alt="rating">
+        </div>
+        <div class="main-stats">
+          <img class="stats-card" src="images/stats.svg" alt="stats">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- features section -->
+  <section class="features">
+    <div class="features-container">
+      <div class="features-header">
+        <span class="features-label">What You Get</span>
+        <h2 class="features-title">
+          You're Not Just <span class="highlight-red">Another Applicant</span> And Your<br>
+          Resume Shouldn't Look Like One
+        </h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <img class="feature-icon" src="images/g1.svg" alt="feature 1 image">
+          <h3>A Resume Format That<br>Gets You Interviews</h3>
+          <p>Get a professionally written,<br>keyword-optimized resume that<br>lands in recruiter inboxes.</p>
+        </div>
+        <div class="feature-card">
+          <img class="feature-icon" src="images/g2.svg" alt="feature 2 image">
+          <h3>A Cover Letter Style That<br>Stands Out Strong</h3>
+          <p>Stand out with a cover letter<br>that speaks directly to the role<br>and reflects your strengths.</p>
+        </div>
+        <div class="feature-card">
+          <img class="feature-icon" src="images/g3.svg" alt="feature 3 image">
+          <h3>A LinkedIn Profile That<br>Works For You</h3>
+          <p>Attract the right eyes, start<br>conversations, and show up in<br>recruiter searches.</p>
+        </div>
+        <div class="feature-card">
+          <img class="feature-icon" src="images/g4.svg" alt="feature 4 image">
+          <h3>An Interview Strategy That<br>Builds Confidence</h3>
+          <p>Interview preparation with real<br>HR professionals so you speak<br>clearly confidently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- js for hamburger -->
+   <!-- adding js for a little accessibility -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const closeMenu = document.getElementById('closeMenu');
+
+    // open menu
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      mobileMenuOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    // close menu
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    mobileMenuOverlay.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    const menuLinks = document.querySelectorAll('.mobile-menu-item a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+    });
+  </script>
+</body>
+
+</html>
