@@ -72,6 +72,7 @@ export default function ArtTable({ selectedIds, selectMany, deselectMany, onErro
       dataKey="id"
       showGridlines
       stripedRows
+      responsiveLayout="scroll"
       tableStyle={{ minWidth: '60rem' }}
     >
       <Column selectionMode="multiple" headerStyle={{ width: '3rem' }} />
