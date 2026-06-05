@@ -1,0 +1,152 @@
+@layer utilities {
+  /* Container utilities */
+  .container-page {
+    @apply mx-auto max-w-[1400px] px-lg;
+  }
+
+  .container-md {
+    @apply mx-auto max-w-2xl;
+  }
+
+  .container-lg {
+    @apply mx-auto max-w-4xl;
+  }
+
+  /* Typography utilities */
+  .text-display-xl {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -2.4px;
+  }
+
+  .text-display-lg {
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -1.28px;
+  }
+
+  .text-display-md {
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.96px;
+  }
+
+  .text-display-sm {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.6px;
+  }
+
+  .text-body-lg {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.75;
+  }
+
+  .text-body-md {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+  }
+
+  .text-body-md-strong {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.75;
+  }
+
+  .text-body-sm {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: -0.28px;
+  }
+
+  .text-body-sm-strong {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.75;
+    letter-spacing: -0.28px;
+  }
+
+  .text-caption {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.75;
+  }
+
+  .text-caption-mono {
+    font-size: 0.75rem;
+    font-family: 'Geist Mono', monospace;
+    font-weight: 400;
+    line-height: 1.75;
+    text-transform: uppercase;
+  }
+
+  .text-code {
+    font-size: 0.875rem;
+    font-family: 'Geist Mono', monospace;
+    line-height: 1.75;
+  }
+
+  /* Flex utilities */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .flex-col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  /* Gradient utilities */
+  .gradient-develop {
+    @apply bg-gradient-to-r from-gradient-develop-start to-gradient-develop-end;
+  }
+
+  .gradient-preview {
+    @apply bg-gradient-to-r from-gradient-preview-start to-gradient-preview-end;
+  }
+
+  .gradient-ship {
+    @apply bg-gradient-to-r from-gradient-ship-start to-gradient-ship-end;
+  }
+
+  /* Backdrop utilities */
+  .backdrop-blur-lg {
+    @apply backdrop-blur-[100px];
+  }
+
+  /* Stacked shadows */
+  .shadow-level-1 {
+    box-shadow: var(--shadow-level-1);
+  }
+
+  .shadow-level-2 {
+    box-shadow: var(--shadow-level-2), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
+
+  .shadow-level-3 {
+    box-shadow: var(--shadow-level-3), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
+
+  .shadow-level-4 {
+    box-shadow: var(--shadow-level-4), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
+
+  .shadow-level-5 {
+    box-shadow: var(--shadow-level-5), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Utility for smooth transitions */
+  .transition-smooth {
+    @apply transition-all duration-200 ease-out;
+  }
+}

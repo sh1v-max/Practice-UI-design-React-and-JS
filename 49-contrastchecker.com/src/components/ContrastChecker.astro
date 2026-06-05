@@ -1,0 +1,560 @@
+---
+---
+
+<div class="mx-auto max-w-[1400px] px-lg py-8">
+	<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+		<!-- Left Column: Inputs & Results -->
+		<div class="space-y-6">
+			<!-- Color Inputs -->
+			<div class="card-marketing">
+				<h3 class="text-display-sm mb-lg">Color Inputs</h3>
+
+				<!-- Foreground Input -->
+				<div class="space-y-sm mb-lg">
+					<label class="block text-body-sm-strong">Foreground</label>
+					<div class="flex gap-md items-center">
+						<input
+							type="color"
+							id="fgColorPicker"
+							class="w-12 h-12 rounded-md cursor-pointer border border-hairline"
+							value="#111827"
+						/>
+						<input
+							type="text"
+							id="fgColorInput"
+							class="input-field flex-1"
+							placeholder="#111827"
+							value="#111827"
+						/>
+					</div>
+				</div>
+
+				<!-- Background Input -->
+				<div class="space-y-sm mb-lg">
+					<label class="block text-body-sm-strong">Background</label>
+					<div class="flex gap-md items-center">
+						<input
+							type="color"
+							id="bgColorPicker"
+							class="w-12 h-12 rounded-md cursor-pointer border border-hairline"
+							value="#ffffff"
+						/>
+						<input
+							type="text"
+							id="bgColorInput"
+							class="input-field flex-1"
+							placeholder="#ffffff"
+							value="#ffffff"
+						/>
+					</div>
+				</div>
+
+				<!-- Format Tabs -->
+				<div class="tab-group mb-lg">
+					<button class="tab-button active" data-format="hex">HEX</button>
+					<button class="tab-button" data-format="rgb">RGB</button>
+					<button class="tab-button" data-format="hsl">HSL</button>
+				</div>
+
+				<!-- Swap Button -->
+				<button id="swapButton" class="btn-secondary w-full">
+					↕ Swap Colors
+				</button>
+			</div>
+
+			<!-- Contrast Ratio -->
+			<div class="card-marketing">
+				<h3 class="text-display-sm mb-md">Contrast Ratio</h3>
+				<div class="flex items-center gap-lg mb-md">
+					<div>
+						<div class="text-5xl font-semibold text-ink" id="ratioValue">16:1</div>
+						<p class="text-body-sm text-body mt-1">
+							<span id="qualityLabel">Excellent</span>
+						</p>
+					</div>
+					<svg id="meterSvg" class="w-24 h-24" viewBox="0 0 100 100">
+						<circle cx="50" cy="50" r="40" fill="none" stroke="#e5e7eb" stroke-width="8" />
+						<circle
+							id="meterArc"
+							cx="50"
+							cy="50"
+							r="40"
+							fill="none"
+							stroke="#10b981"
+							stroke-width="8"
+							stroke-dasharray="251.2 251.2"
+							stroke-dashoffset="0"
+							stroke-linecap="round"
+							transform="rotate(-90 50 50)"
+							class="transition-all duration-500"
+						/>
+					</svg>
+				</div>
+			</div>
+
+			<!-- WCAG Results -->
+			<div class="card-marketing">
+				<h3 class="text-display-sm mb-lg">WCAG Results</h3>
+				<div class="space-y-sm">
+					<div class="flex items-center justify-between p-md bg-canvas-soft rounded-md">
+						<span class="text-body-sm-strong">AA Small Text</span>
+						<span id="aaSmall" class="text-sm font-medium">✓ Pass</span>
+					</div>
+					<div class="flex items-center justify-between p-md bg-canvas-soft rounded-md">
+						<span class="text-body-sm-strong">AA Large Text</span>
+						<span id="aaLarge" class="text-sm font-medium">✓ Pass</span>
+					</div>
+					<div class="flex items-center justify-between p-md bg-canvas-soft rounded-md">
+						<span class="text-body-sm-strong">AAA Small Text</span>
+						<span id="aaaSmall" class="text-sm font-medium">✗ Fail</span>
+					</div>
+					<div class="flex items-center justify-between p-md bg-canvas-soft rounded-md">
+						<span class="text-body-sm-strong">AAA Large Text</span>
+						<span id="aaaLarge" class="text-sm font-medium">✓ Pass</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Smart Auto-Fix (hidden by default) -->
+			<div id="autoFixSection" class="card-marketing hidden">
+				<h3 class="text-display-sm mb-lg">Smart Auto-Fix</h3>
+				<p class="text-body-sm text-body mb-lg">Suggested accessible alternatives:</p>
+				<div id="suggestionsContainer" class="space-y-sm">
+					<!-- Populated by JS -->
+				</div>
+			</div>
+		</div>
+
+		<!-- Right Column: Preview -->
+		<div class="space-y-6">
+			<!-- Live Preview -->
+			<div class="card-marketing">
+				<h3 class="text-display-sm mb-lg">Live Preview</h3>
+				<div
+					id="previewArea"
+					class="p-lg rounded-md"
+					style="background-color: #ffffff; color: #111827;"
+				>
+					<h2 class="text-2xl font-semibold mb-md">Heading</h2>
+					<p class="text-body-md mb-md">
+						This is a paragraph with sample text to demonstrate the contrast between your foreground and
+						background colors.
+					</p>
+					<button class="btn-primary mb-md">Button</button>
+					<a href="#" class="text-link hover:underline text-body-md">Link text</a>
+				</div>
+			</div>
+
+			<!-- Color Blindness Simulator -->
+			<div class="card-marketing">
+				<h3 class="text-display-sm mb-lg">Color Blindness</h3>
+				<div class="tab-group mb-lg">
+					<button class="tab-button active" data-blind="normal">Normal</button>
+					<button class="tab-button" data-blind="protanopia">Protanopia</button>
+					<button class="tab-button" data-blind="deuteranopia">Deuteranopia</button>
+					<button class="tab-button" data-blind="tritanopia">Tritanopia</button>
+					<button class="tab-button" data-blind="achromatopsia">Achromatopsia</button>
+				</div>
+				<div id="blindnessPreviews" class="flex gap-md">
+					<div class="flex-1 h-20 rounded-md border border-hairline" style="background-color: #111827;"></div>
+					<div class="flex-1 h-20 rounded-md border border-hairline" style="background-color: #ffffff;"></div>
+				</div>
+			</div>
+
+			<!-- Saved Palettes -->
+			<div class="card-marketing">
+				<h3 class="text-display-sm mb-lg">Saved Palettes</h3>
+				<button id="savePaletteBtn" class="btn-primary w-full mb-lg">
+					Save Current Pair
+				</button>
+				<div id="palettesList" class="space-y-sm">
+					<!-- Populated by JS -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Below the fold sections -->
+
+	<!-- Color Format Converter -->
+	<div class="card-marketing mb-8">
+		<h3 class="text-display-sm mb-lg">Color Format Converter</h3>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+			<div>
+				<label class="text-body-sm-strong block mb-sm">HEX</label>
+				<div class="flex gap-sm">
+					<input type="text" id="hexDisplay" class="input-field flex-1" readonly value="#111827" />
+					<button class="btn-icon" data-copy="hex" title="Copy HEX">📋</button>
+				</div>
+			</div>
+			<div>
+				<label class="text-body-sm-strong block mb-sm">RGB</label>
+				<div class="flex gap-sm">
+					<input type="text" id="rgbDisplay" class="input-field flex-1" readonly value="rgb(17, 24, 39)" />
+					<button class="btn-icon" data-copy="rgb" title="Copy RGB">📋</button>
+				</div>
+			</div>
+			<div>
+				<label class="text-body-sm-strong block mb-sm">HSL</label>
+				<div class="flex gap-sm">
+					<input type="text" id="hslDisplay" class="input-field flex-1" readonly value="hsl(210, 35%, 11%)" />
+					<button class="btn-icon" data-copy="hsl" title="Copy HSL">📋</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Developer Output -->
+	<div class="card-marketing mb-8">
+		<h3 class="text-display-sm mb-lg">Developer Output</h3>
+		<div class="tab-group mb-lg">
+			<button class="tab-button active" data-dev-tab="css">CSS Variables</button>
+			<button class="tab-button" data-dev-tab="tailwind">Tailwind Classes</button>
+		</div>
+		<div id="devCssTab" class="block">
+			<pre
+				class="bg-ink text-canvas p-lg rounded-md overflow-x-auto text-sm mb-md"><code id="cssOutput">--foreground: #111827;
+--background: #FFFFFF;</code></pre>
+			<button class="btn-secondary w-full" data-copy="css">Copy CSS</button>
+		</div>
+		<div id="devTailwindTab" class="hidden">
+			<pre
+				class="bg-ink text-canvas p-lg rounded-md overflow-x-auto text-sm mb-md"><code id="tailwindOutput">text-slate-900 / bg-white</code></pre>
+			<button class="btn-secondary w-full" data-copy="tailwind">Copy Classes</button>
+		</div>
+	</div>
+</div>
+
+<!-- Toast notification -->
+<div id="toast" class="toast hidden">
+	<span id="toastMessage">Copied to clipboard!</span>
+</div>
+
+<script>
+	import { parseColor, toHex, toRgb, toHsl, rgbToHsl, hslToRgb, type RGB } from '../lib/colors';
+	import { contrastRatio, wcagResults, qualityLabel, qualityColor } from '../lib/contrast';
+	import { suggestFixes } from '../lib/autofix';
+	import { toCssVars, toTailwindClasses, toShareUrl } from '../lib/export';
+	import { simulate } from '../lib/colorblind';
+
+	let fgColor: RGB = { r: 17, g: 24, b: 39 };
+	let bgColor: RGB = { r: 255, g: 255, b: 255 };
+	let activeFormat = 'hex';
+	let activeBlindType: 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia' | 'achromatopsia' =
+		'normal';
+	let savedPalettes: Array<{ name: string; fg: RGB; bg: RGB }> = [];
+
+	function updateAll() {
+		updateRatio();
+		updateWCAG();
+		updatePreview();
+		updateMeter();
+		updateAutoFix();
+		updateFormats();
+		updateDeveloperOutput();
+		updateUrl();
+	}
+
+	function updateRatio() {
+		const ratio = contrastRatio(fgColor, bgColor);
+		const quality = qualityLabel(ratio);
+		document.getElementById('ratioValue')!.textContent = `${ratio.toFixed(2)}:1`;
+		document.getElementById('qualityLabel')!.textContent = quality;
+	}
+
+	function updateWCAG() {
+		const ratio = contrastRatio(fgColor, bgColor);
+		const results = wcagResults(ratio);
+		document.getElementById('aaSmall')!.textContent = results.aaSmall ? '✓ Pass' : '✗ Fail';
+		document.getElementById('aaSmall')!.style.color = results.aaSmall ? '#10b981' : '#ef4444';
+		document.getElementById('aaLarge')!.textContent = results.aaLarge ? '✓ Pass' : '✗ Fail';
+		document.getElementById('aaLarge')!.style.color = results.aaLarge ? '#10b981' : '#ef4444';
+		document.getElementById('aaaSmall')!.textContent = results.aaaSmall ? '✓ Pass' : '✗ Fail';
+		document.getElementById('aaaSmall')!.style.color = results.aaaSmall ? '#10b981' : '#ef4444';
+		document.getElementById('aaaLarge')!.textContent = results.aaaLarge ? '✓ Pass' : '✗ Fail';
+		document.getElementById('aaaLarge')!.style.color = results.aaaLarge ? '#10b981' : '#ef4444';
+	}
+
+	function updatePreview() {
+		const previewArea = document.getElementById('previewArea')!;
+		const blindSimulated = simulate(fgColor, activeBlindType);
+		const blindBg = simulate(bgColor, activeBlindType);
+
+		previewArea.style.backgroundColor = toHex(blindBg);
+		previewArea.style.color = toHex(blindSimulated);
+
+		const blindnessPreviews = document.getElementById('blindnessPreviews')!;
+		const children = blindnessPreviews.querySelectorAll('div');
+		if (children.length >= 2) {
+			children[0].style.backgroundColor = toHex(blindSimulated);
+			children[1].style.backgroundColor = toHex(blindBg);
+		}
+	}
+
+	function updateMeter() {
+		const ratio = contrastRatio(fgColor, bgColor);
+		const color = qualityColor(ratio);
+		const meterArc = document.getElementById('meterArc')!;
+
+		const maxRatio = 21;
+		const percentage = Math.min(ratio / maxRatio, 1);
+		const circumference = 251.2;
+		const offset = circumference * (1 - percentage);
+
+		meterArc.style.stroke = color;
+		meterArc.style.strokeDashoffset = offset.toString();
+	}
+
+	function updateAutoFix() {
+		const ratio = contrastRatio(fgColor, bgColor);
+		const results = wcagResults(ratio);
+		const autoFixSection = document.getElementById('autoFixSection')!;
+
+		if (!results.aaSmall || !results.aaLarge || !results.aaaSmall || !results.aaaLarge) {
+			autoFixSection.classList.remove('hidden');
+
+			const suggestions = suggestFixes(fgColor, bgColor);
+			const container = document.getElementById('suggestionsContainer')!;
+			container.innerHTML = suggestions
+				.map(
+					(s, idx) =>
+						`<div class="p-md bg-canvas-soft rounded-md flex items-center justify-between">
+			<div>
+				<div class="text-body-sm-strong">${s.hex}</div>
+				<div class="text-body-sm text-body">Ratio: ${s.ratio.toFixed(2)}:1</div>
+			</div>
+			<button class="btn-primary-sm apply-suggestion" data-index="${idx}">Apply</button>
+		</div>`
+				)
+				.join('');
+
+			document.querySelectorAll('.apply-suggestion').forEach((btn) => {
+				btn.addEventListener('click', (e) => {
+					const idx = parseInt((e.target as HTMLElement).getAttribute('data-index') || '0');
+					fgColor = suggestions[idx].rgb;
+					document.getElementById('fgColorPicker')!.value = toHex(fgColor);
+					document.getElementById('fgColorInput')!.value = toHex(fgColor);
+					updateAll();
+				});
+			});
+		} else {
+			autoFixSection.classList.add('hidden');
+		}
+	}
+
+	function updateFormats() {
+		const hex = toHex(fgColor);
+		const rgb = toRgb(fgColor);
+		const hsl = toHsl(fgColor);
+		document.getElementById('hexDisplay')!.value = hex;
+		document.getElementById('rgbDisplay')!.value = rgb;
+		document.getElementById('hslDisplay')!.value = hsl;
+	}
+
+	function updateDeveloperOutput() {
+		const css = toCssVars(fgColor, bgColor);
+		const tailwind = toTailwindClasses(fgColor, bgColor);
+		document.getElementById('cssOutput')!.textContent = css;
+		document.getElementById('tailwindOutput')!.textContent = tailwind;
+	}
+
+	function updateUrl() {
+		const url = toShareUrl(fgColor, bgColor);
+		window.history.replaceState({}, '', url);
+	}
+
+	function showToast(message: string) {
+		const toast = document.getElementById('toast')!;
+		const toastMessage = document.getElementById('toastMessage')!;
+		toastMessage.textContent = message;
+		toast.classList.remove('hidden');
+		setTimeout(() => toast.classList.add('hidden'), 2000);
+	}
+
+	function loadFromUrl() {
+		const params = new URLSearchParams(window.location.search);
+		const fg = params.get('fg');
+		const bg = params.get('bg');
+
+		if (fg) {
+			const parsed = parseColor(`#${fg}`);
+			if (parsed) fgColor = parsed;
+		}
+		if (bg) {
+			const parsed = parseColor(`#${bg}`);
+			if (parsed) bgColor = parsed;
+		}
+
+		document.getElementById('fgColorPicker')!.value = toHex(fgColor);
+		document.getElementById('fgColorInput')!.value = toHex(fgColor);
+		document.getElementById('bgColorPicker')!.value = toHex(bgColor);
+		document.getElementById('bgColorInput')!.value = toHex(bgColor);
+	}
+
+	function loadPalettes() {
+		const stored = localStorage.getItem('contrastlab-palettes');
+		if (stored) {
+			try {
+				savedPalettes = JSON.parse(stored);
+				renderPalettes();
+			} catch {}
+		}
+	}
+
+	function savePalette() {
+		const name = prompt('Palette name:', `${toHex(fgColor)} / ${toHex(bgColor)}`);
+		if (!name) return;
+
+		savedPalettes.push({ name, fg: fgColor, bg: bgColor });
+		localStorage.setItem('contrastlab-palettes', JSON.stringify(savedPalettes));
+		renderPalettes();
+		showToast('Palette saved!');
+	}
+
+	function renderPalettes() {
+		const list = document.getElementById('palettesList')!;
+		list.innerHTML = savedPalettes
+			.map(
+				(p, idx) =>
+					`<button class="load-palette p-sm bg-canvas-soft rounded-md text-left hover:bg-hairline transition-smooth" data-index="${idx}">
+			<div class="text-body-sm-strong">${p.name}</div>
+			<div class="text-caption text-body">${toHex(p.fg)} / ${toHex(p.bg)}</div>
+		</button>`
+			)
+			.join('');
+
+		document.querySelectorAll('.load-palette').forEach((btn) => {
+			btn.addEventListener('click', (e) => {
+				const idx = parseInt((e.target as HTMLElement).getAttribute('data-index') || '0');
+				fgColor = savedPalettes[idx].fg;
+				bgColor = savedPalettes[idx].bg;
+				document.getElementById('fgColorPicker')!.value = toHex(fgColor);
+				document.getElementById('fgColorInput')!.value = toHex(fgColor);
+				document.getElementById('bgColorPicker')!.value = toHex(bgColor);
+				document.getElementById('bgColorInput')!.value = toHex(bgColor);
+				updateAll();
+			});
+		});
+	}
+
+	// Event listeners
+	document.getElementById('fgColorPicker')!.addEventListener('input', (e) => {
+		const val = (e.target as HTMLInputElement).value;
+		const parsed = parseColor(val);
+		if (parsed) {
+			fgColor = parsed;
+			document.getElementById('fgColorInput')!.value = toHex(fgColor);
+			updateAll();
+		}
+	});
+
+	document.getElementById('fgColorInput')!.addEventListener('input', (e) => {
+		const val = (e.target as HTMLInputElement).value;
+		const parsed = parseColor(val);
+		if (parsed) {
+			fgColor = parsed;
+			document.getElementById('fgColorPicker')!.value = toHex(fgColor);
+			updateAll();
+		}
+	});
+
+	document.getElementById('bgColorPicker')!.addEventListener('input', (e) => {
+		const val = (e.target as HTMLInputElement).value;
+		const parsed = parseColor(val);
+		if (parsed) {
+			bgColor = parsed;
+			document.getElementById('bgColorInput')!.value = toHex(bgColor);
+			updateAll();
+		}
+	});
+
+	document.getElementById('bgColorInput')!.addEventListener('input', (e) => {
+		const val = (e.target as HTMLInputElement).value;
+		const parsed = parseColor(val);
+		if (parsed) {
+			bgColor = parsed;
+			document.getElementById('bgColorPicker')!.value = toHex(bgColor);
+			updateAll();
+		}
+	});
+
+	document.getElementById('swapButton')!.addEventListener('click', () => {
+		[fgColor, bgColor] = [bgColor, fgColor];
+		document.getElementById('fgColorPicker')!.value = toHex(fgColor);
+		document.getElementById('fgColorInput')!.value = toHex(fgColor);
+		document.getElementById('bgColorPicker')!.value = toHex(bgColor);
+		document.getElementById('bgColorInput')!.value = toHex(bgColor);
+		updateAll();
+	});
+
+	// Format tabs
+	document.querySelectorAll('.tab-button').forEach((btn) => {
+		if (btn.parentElement?.id === undefined || btn.parentElement.classList.contains('tab-group')) {
+			btn.addEventListener('click', (e) => {
+				const format = (e.target as HTMLElement).getAttribute('data-format');
+				if (format) {
+					document.querySelectorAll('[data-format]').forEach((b) => b.classList.remove('active'));
+					(e.target as HTMLElement).classList.add('active');
+					activeFormat = format;
+				}
+			});
+		}
+	});
+
+	// Color blindness tabs
+	document.querySelectorAll('[data-blind]').forEach((btn) => {
+		btn.addEventListener('click', (e) => {
+			const blind = (e.target as HTMLElement).getAttribute('data-blind');
+			if (blind) {
+				document
+					.querySelectorAll('[data-blind]')
+					.forEach((b) => b.classList.remove('active'));
+				(e.target as HTMLElement).classList.add('active');
+				activeBlindType = blind as any;
+				updatePreview();
+			}
+		});
+	});
+
+	// Developer tabs
+	document.querySelectorAll('[data-dev-tab]').forEach((btn) => {
+		btn.addEventListener('click', (e) => {
+			const tab = (e.target as HTMLElement).getAttribute('data-dev-tab');
+			if (tab) {
+				document.querySelectorAll('[data-dev-tab]').forEach((b) => b.classList.remove('active'));
+				document.getElementById('devCssTab')?.classList.add('hidden');
+				document.getElementById('devTailwindTab')?.classList.add('hidden');
+				(e.target as HTMLElement).classList.add('active');
+				if (tab === 'css') document.getElementById('devCssTab')?.classList.remove('hidden');
+				if (tab === 'tailwind') document.getElementById('devTailwindTab')?.classList.remove('hidden');
+			}
+		});
+	});
+
+	// Copy buttons
+	document.querySelectorAll('[data-copy]').forEach((btn) => {
+		btn.addEventListener('click', async (e) => {
+			const type = (e.target as HTMLElement).getAttribute('data-copy');
+			let text = '';
+
+			if (type === 'hex') text = document.getElementById('hexDisplay')!.value;
+			if (type === 'rgb') text = document.getElementById('rgbDisplay')!.value;
+			if (type === 'hsl') text = document.getElementById('hslDisplay')!.value;
+			if (type === 'css') text = document.getElementById('cssOutput')!.textContent || '';
+			if (type === 'tailwind') text = document.getElementById('tailwindOutput')!.textContent || '';
+
+			if (text) {
+				await navigator.clipboard.writeText(text);
+				showToast('Copied to clipboard!');
+			}
+		});
+	});
+
+	// Save palette button
+	document.getElementById('savePaletteBtn')!.addEventListener('click', savePalette);
+
+	// Initialize
+	loadFromUrl();
+	loadPalettes();
+	updateAll();
+</script>

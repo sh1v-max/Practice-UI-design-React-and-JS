@@ -1,0 +1,126 @@
+@layer base {
+  /* Font faces */
+  @font-face {
+    font-family: 'Geist';
+    src: url('https://cdn.jsdelivr.net/npm/geist-font@1.3.1/fonts/geist-sans-400.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Geist';
+    src: url('https://cdn.jsdelivr.net/npm/geist-font@1.3.1/fonts/geist-sans-500.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Geist';
+    src: url('https://cdn.jsdelivr.net/npm/geist-font@1.3.1/fonts/geist-sans-600.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Geist Mono';
+    src: url('https://cdn.jsdelivr.net/npm/geist-font@1.3.1/fonts/geist-mono-400.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  /* HTML & Body */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(250 250 250);
+    color: rgb(23 23 23);
+    font-family: Geist, Inter, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: rgb(23 23 23);
+    color: rgb(255 255 255);
+  }
+
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-size: 3rem;
+    letter-spacing: -2.4px;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+    letter-spacing: -1.28px;
+  }
+
+  h3 {
+    font-size: 1.875rem;
+    letter-spacing: -0.96px;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    letter-spacing: -0.6px;
+  }
+
+  /* Links */
+  a {
+    color: rgb(0 112 243);
+    transition: color 0.2s;
+  }
+
+  a:hover {
+    color: rgb(7 97 209);
+  }
+
+  /* Code */
+  code {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.875rem;
+    background-color: rgb(245 245 245);
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+  }
+
+  pre {
+    background-color: rgb(23 23 23);
+    color: rgb(255 255 255);
+    font-family: 'Geist Mono', monospace;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+  }
+
+  /* Forms */
+  input,
+  textarea,
+  select {
+    font-family: Geist, system-ui, sans-serif;
+  }
+
+  button {
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  /* Focus states */
+  :focus-visible {
+    outline: 2px solid rgb(0 112 243);
+    outline-offset: 0.5rem;
+  }
+}

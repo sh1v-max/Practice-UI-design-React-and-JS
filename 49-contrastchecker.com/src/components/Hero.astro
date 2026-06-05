@@ -1,0 +1,49 @@
+---
+---
+
+<section class="relative bg-canvas overflow-hidden">
+	<!-- Mesh gradient backdrop -->
+	<div class="absolute inset-0 opacity-30 blur-3xl pointer-events-none">
+		<svg
+			class="absolute w-full h-full"
+			viewBox="0 0 1200 800"
+			preserveAspectRatio="xMidYMid slice"
+		>
+			<defs>
+				<linearGradient id="mesh-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+					<stop offset="0%" stop-color="#007cf0" />
+					<stop offset="25%" stop-color="#00dfd8" />
+					<stop offset="50%" stop-color="#7928ca" />
+					<stop offset="75%" stop-color="#ff0080" />
+					<stop offset="100%" stop-color="#f9cb28" />
+				</linearGradient>
+			</defs>
+			<ellipse cx="100" cy="100" rx="400" ry="300" fill="url(#mesh-gradient)" opacity="0.5" />
+			<ellipse cx="1100" cy="700" rx="350" ry="250" fill="url(#mesh-gradient)" opacity="0.5" />
+		</svg>
+	</div>
+
+	<div class="container-page py-32 relative z-10">
+		<div class="max-w-3xl">
+			<div class="inline-block mb-6">
+				<span class="text-caption-mono text-body bg-canvas-soft px-sm py-1 rounded-full">
+					WCAG 2.2 · AA · AAA · APCA
+				</span>
+			</div>
+
+			<h1 class="text-display-xl mb-6 leading-tight">
+				Check contrast. Build accessible.
+			</h1>
+
+			<p class="text-body-lg text-body mb-8 max-w-2xl">
+				Instant WCAG contrast checking for designers & developers. Test color pairs, simulate color
+				blindness, generate shareable reports, and export for your design system.
+			</p>
+
+			<div class="flex flex-col sm:flex-row gap-4">
+				<a href="#checker" class="btn-primary text-center">Try it now →</a>
+				<a href="#accessibility" class="btn-secondary text-center">Learn more</a>
+			</div>
+		</div>
+	</div>
+</section>

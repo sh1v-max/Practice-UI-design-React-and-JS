@@ -1,0 +1,75 @@
+---
+---
+
+<section id="wcag" class="bg-canvas-soft py-20">
+	<div class="container-page">
+		<div class="max-w-2xl mb-12">
+			<h2 class="text-display-lg mb-4">Understanding WCAG Contrast Requirements</h2>
+			<p class="text-body-lg text-body">
+				WCAG 2.2 defines minimum contrast ratios for different text sizes and accessibility levels. AA is
+				the recommended standard; AAA is enhanced.
+			</p>
+		</div>
+
+		<div class="overflow-x-auto">
+			<table class="w-full">
+				<thead>
+					<tr class="border-b border-hairline">
+						<th class="text-left text-caption-mono text-body py-3 px-4">Criterion</th>
+						<th class="text-left text-caption-mono text-body py-3 px-4">Text Size</th>
+						<th class="text-left text-caption-mono text-body py-3 px-4">AA Ratio</th>
+						<th class="text-left text-caption-mono text-body py-3 px-4">AAA Ratio</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="border-b border-hairline hover:bg-canvas-soft-2 transition-colors">
+						<td class="py-3 px-4 text-body-sm font-medium">Normal Text</td>
+						<td class="py-3 px-4 text-body-sm">< 18px (14pt)</td>
+						<td class="py-3 px-4 text-body-sm"><strong>4.5:1</strong></td>
+						<td class="py-3 px-4 text-body-sm"><strong>7:1</strong></td>
+					</tr>
+					<tr class="border-b border-hairline hover:bg-canvas-soft-2 transition-colors">
+						<td class="py-3 px-4 text-body-sm font-medium">Large Text</td>
+						<td class="py-3 px-4 text-body-sm">≥ 18px (14pt) OR bold ≥ 14px</td>
+						<td class="py-3 px-4 text-body-sm"><strong>3:1</strong></td>
+						<td class="py-3 px-4 text-body-sm"><strong>4.5:1</strong></td>
+					</tr>
+					<tr class="border-b border-hairline hover:bg-canvas-soft-2 transition-colors">
+						<td class="py-3 px-4 text-body-sm font-medium">UI Components</td>
+						<td class="py-3 px-4 text-body-sm">Buttons, inputs, focus indicators</td>
+						<td class="py-3 px-4 text-body-sm"><strong>3:1</strong></td>
+						<td class="py-3 px-4 text-body-sm"><strong>3:1</strong></td>
+					</tr>
+					<tr class="hover:bg-canvas-soft-2 transition-colors">
+						<td class="py-3 px-4 text-body-sm font-medium">Graphics & Text Images</td>
+						<td class="py-3 px-4 text-body-sm">Logos, decorative elements</td>
+						<td class="py-3 px-4 text-body-sm">No minimum</td>
+						<td class="py-3 px-4 text-body-sm">No minimum</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+			<div class="card-marketing">
+				<h3 class="text-display-sm mb-3">🎯 What is Contrast Ratio?</h3>
+				<p class="text-body-md text-body mb-4">
+					Contrast ratio measures the difference in luminance between two colors on a scale of 1:1 to
+					21:1. Higher ratios are more accessible.
+				</p>
+				<p class="text-body-sm text-mute">
+					Formula: (L1 + 0.05) / (L2 + 0.05), where L is relative luminance.
+				</p>
+			</div>
+
+			<div class="card-marketing">
+				<h3 class="text-display-sm mb-3">📊 AA vs AAA</h3>
+				<p class="text-body-md text-body mb-4">
+					<strong>AA</strong> is the standard required by law in most jurisdictions. <strong>AAA</strong> is
+					enhanced and recommended for sensitive content like medical or educational materials.
+				</p>
+				<p class="text-body-sm text-mute">Start with AA. Aim for AAA when possible.</p>
+			</div>
+		</div>
+	</div>
+</section>

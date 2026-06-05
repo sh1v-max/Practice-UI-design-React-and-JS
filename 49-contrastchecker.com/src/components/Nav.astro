@@ -1,0 +1,38 @@
+---
+---
+
+<nav class="sticky top-0 z-40 border-b border-hairline bg-canvas">
+	<div class="container-page h-16 flex items-center justify-between">
+		<div class="flex items-center gap-xl">
+			<div class="text-2xl font-semibold text-ink">ContrastLab</div>
+		</div>
+
+		<div class="hidden md:flex items-center gap-lg">
+			<a href="#checker" class="text-body-sm text-body hover:text-ink transition-colors">Checker</a>
+			<a href="#accessibility" class="text-body-sm text-body hover:text-ink transition-colors"
+				>Why A11y</a
+			>
+			<a href="#wcag" class="text-body-sm text-body hover:text-ink transition-colors">WCAG Guide</a>
+			<a href="#faq" class="text-body-sm text-body hover:text-ink transition-colors">FAQ</a>
+		</div>
+
+		<div class="flex items-center gap-sm">
+			<button
+				id="shareBtn"
+				class="btn-icon"
+				title="Share"
+				onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied!');"
+			>
+				🔗
+			</button>
+			<button class="md:hidden btn-icon" id="menuBtn" title="Menu">☰</button>
+		</div>
+	</div>
+</nav>
+
+<script>
+	// Mobile menu toggle (placeholder)
+	document.getElementById('menuBtn')?.addEventListener('click', () => {
+		alert('Mobile menu coming soon!');
+	});
+</script>
