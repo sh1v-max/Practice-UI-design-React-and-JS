@@ -478,8 +478,16 @@
 	}
 
 	function savePalette() {
-		const name = prompt('Palette name:', `${toHex(fgColor)} / ${toHex(bgColor)}`);
-		if (!name) return;
+		const fgHex = toHex(fgColor);
+		const bgHex = toHex(bgColor);
+		const name = `${fgHex} / ${bgHex}`;
+
+		// Check if already exists
+		const exists = savedPalettes.some(p => toHex(p.fg) === fgHex && toHex(p.bg) === bgHex);
+		if (exists) {
+			showToast('Palette already saved!');
+			return;
+		}
 
 		savedPalettes.push({ name, fg: fgColor, bg: bgColor });
 		localStorage.setItem('contrastlab-palettes', JSON.stringify(savedPalettes));
@@ -491,17 +499,29 @@
 		const list = document.getElementById('palettesList')!;
 		list.innerHTML = savedPalettes
 			.map(
-				(p, idx) =>
-					`<button class="load-palette p-sm bg-canvas-soft rounded-md text-left hover:bg-hairline transition-smooth" data-index="${idx}">
-			<div class="text-body-sm-strong">${p.name}</div>
-			<div class="text-caption text-body">${toHex(p.fg)} / ${toHex(p.bg)}</div>
+				(p, idx) => {
+					const fgHex = toHex(p.fg);
+					const bgHex = toHex(p.bg);
+					return `<button class="load-palette p-sm bg-canvas-soft rounded-md text-left hover:bg-hairline transition-smooth flex items-center gap-md" data-index="${idx}" style="border: 1px solid #e5e5e5;">
+			<div class="flex gap-sm items-center flex-1">
+				<div style="width: 20px; height: 20px; border-radius: 4px; background-color: ${fgHex}; border: 1px solid #d1d5db;"></div>
+				<div style="width: 20px; height: 20px; border-radius: 4px; background-color: ${bgHex}; border: 1px solid #d1d5db;"></div>
+			</div>
+			<div>
+				<div class="text-body-sm-strong">${fgHex} / ${bgHex}</div>
+			</div>
+			<button class="delete-palette text-body hover:text-ink" data-index="${idx}" style="background: none; border: none; cursor: pointer; padding: 0; font-size: 18px;" onclick="event.stopPropagation(); deletePalette(${idx})">×</button>
 		</button>`
+				}
 			)
 			.join('');
 
 		document.querySelectorAll('.load-palette').forEach((btn) => {
 			btn.addEventListener('click', (e) => {
-				const idx = parseInt((e.target as HTMLElement).getAttribute('data-index') || '0');
+				// Don't load if clicking the delete button
+				if ((e.target as HTMLElement).classList.contains('delete-palette')) return;
+
+				const idx = parseInt(btn.getAttribute('data-index') || '0');
 				fgColor = savedPalettes[idx].fg;
 				bgColor = savedPalettes[idx].bg;
 				document.getElementById('fgColorPicker')!.value = toHex(fgColor);
@@ -511,6 +531,13 @@
 				updateAll();
 			});
 		});
+	}
+
+	function deletePalette(idx: number) {
+		savedPalettes.splice(idx, 1);
+		localStorage.setItem('contrastlab-palettes', JSON.stringify(savedPalettes));
+		renderPalettes();
+		showToast('Palette deleted!');
 	}
 
 	// Event listeners
