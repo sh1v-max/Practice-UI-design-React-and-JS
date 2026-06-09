@@ -3,3 +3,15 @@
 @import './base.css';
 @import './utilities.css';
 @import './components.css';
+
+/* Dark mode color scheme */
+html.dark {
+  --color-ink: #ffffff;
+  --color-canvas: #0f0f0f;
+  --color-canvas-soft: #1a1a1a;
+  --color-canvas-soft-2: #262626;
+  --color-body: #e0e0e0;
+  --color-mute: #999999;
+  --color-hairline: #333333;
+  --color-hairline-strong: #555555;
+}

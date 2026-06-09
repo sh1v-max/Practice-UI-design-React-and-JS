@@ -10,7 +10,7 @@ const { title = 'ContrastLab', description = 'Instant WCAG contrast checking for
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,6 +22,14 @@ const { title = 'ContrastLab', description = 'Instant WCAG contrast checking for
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} — WCAG Contrast Checker</title>
+		<script>
+			// Prevent flash of wrong theme
+			const isDark = localStorage.getItem('darkMode') === 'true' ||
+				(!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+			if (isDark) {
+				document.documentElement.classList.add('dark');
+			}
+		</script>
 	</head>
 	<body>
 		<slot />
