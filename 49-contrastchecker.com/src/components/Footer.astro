@@ -1,20 +1,64 @@
 ---
 ---
 
-<footer class="bg-ink text-canvas border-t border-hairline mt-20 w-full">
-	<div class="w-full px-lg py-12" style="margin: 0 auto; max-width: 80rem;">
-		<div class="flex items-center justify-between mb-8">
-			<div class="text-lg font-semibold">ContrastLab</div>
-			<div class="flex gap-lg">
-				<a href="#" class="text-body-sm hover:opacity-80 transition-colors">About</a>
-				<a href="#" class="text-body-sm hover:opacity-80 transition-colors">Contact</a>
-				<a href="#" class="text-body-sm hover:opacity-80 transition-colors">Privacy Policy</a>
-				<a href="#" class="text-body-sm hover:opacity-80 transition-colors">Terms & Conditions</a>
+<footer class="bg-canvas border-t border-hairline mt-20 w-full">
+	<div class="w-full px-lg" style="margin: 0 auto; max-width: 80rem; padding: 64px 24px;">
+		<!-- Main footer content - 4 column layout -->
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+			<!-- Brand/Product column -->
+			<div>
+				<div class="text-display-sm text-ink mb-4">ContrastLab</div>
+				<p class="text-body-sm text-body mb-4">
+					Instant WCAG contrast checking. Build accessible color systems with confidence.
+				</p>
+				<p class="text-caption text-body">
+					Made with <span style="color: #ff0080;">❤️</span> for accessible design.
+				</p>
+			</div>
+
+			<!-- Tools/Features column -->
+			<div>
+				<p class="text-caption-mono text-ink mb-6" style="text-transform: uppercase; font-weight: 500; letter-spacing: 0.05em;">Tools</p>
+				<ul class="space-y-3">
+					<li><a href="#checker" class="text-body-sm text-body hover:text-ink transition-colors">Contrast Checker</a></li>
+					<li><a href="#" class="text-body-sm text-body hover:text-ink transition-colors">Color Blindness Simulator</a></li>
+					<li><a href="#wcag" class="text-body-sm text-body hover:text-ink transition-colors">WCAG Guide</a></li>
+				</ul>
+			</div>
+
+			<!-- Company/Resources column -->
+			<div>
+				<p class="text-caption-mono text-ink mb-6" style="text-transform: uppercase; font-weight: 500; letter-spacing: 0.05em;">Company</p>
+				<ul class="space-y-3">
+					<li><a href="#" class="text-body-sm text-body hover:text-ink transition-colors">About</a></li>
+					<li><a href="#" class="text-body-sm text-body hover:text-ink transition-colors">Contact</a></li>
+					<li><a href="#" class="text-body-sm text-body hover:text-ink transition-colors">Privacy Policy</a></li>
+					<li><a href="#" class="text-body-sm text-body hover:text-ink transition-colors">Terms & Conditions</a></li>
+				</ul>
+			</div>
+
+			<!-- Social/Connect column -->
+			<div>
+				<p class="text-caption-mono text-ink mb-6" style="text-transform: uppercase; font-weight: 500; letter-spacing: 0.05em;">Connect</p>
+				<p class="text-body-sm text-body mb-4">Share with fellow designers.</p>
+				<div class="flex flex-col gap-3">
+					<a href="https://twitter.com/share" target="_blank" rel="noopener noreferrer" class="text-body-sm text-link hover:text-link-deep transition-colors inline-flex items-center gap-2">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"></path></svg>
+						X (Twitter)
+					</a>
+					<a href="https://facebook.com/sharer/sharer.php" target="_blank" rel="noopener noreferrer" class="text-body-sm text-link hover:text-link-deep transition-colors inline-flex items-center gap-2">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a6 6 0 00-6 6v4a6 6 0 006 6h3"></path><path d="M16 18H9"></path></svg>
+						Facebook
+					</a>
+				</div>
 			</div>
 		</div>
 
-		<p class="text-body-sm text-canvas/80 text-center">
-			© 2026 ContrastLab. Built for accessibility.
-		</p>
+		<!-- Divider -->
+		<div style="border-top: 1px solid #ebebeb; margin-top: 48px; padding-top: 24px;">
+			<p class="text-caption text-body text-center">
+				© 2026 ContrastLab. Built for accessibility. For educational purposes only.
+			</p>
+		</div>
 	</div>
 </footer>
