@@ -2,9 +2,9 @@
 ---
 
 <nav class="sticky top-0 z-40 border-b border-hairline bg-canvas w-full">
-	<div class="w-full px-lg h-16 flex items-center justify-between" style="margin: 0 auto; max-width: 80rem;">
-		<div class="flex items-center gap-xl">
-			<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="text-2xl font-semibold text-ink hover:opacity-80 transition-colors cursor-pointer bg-none border-none p-0">ContrastLab</button>
+	<div class="w-full h-16 flex items-center justify-between" style="margin: 0 auto; padding: 0 var(--spacing-md);">
+		<div class="flex-shrink-0">
+			<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="text-xl font-semibold text-ink hover:opacity-80 transition-colors cursor-pointer bg-none border-none p-0">ContrastLab</button>
 		</div>
 
 		<div class="hidden md:flex items-center gap-lg">
@@ -16,27 +16,43 @@
 			<a href="#faq" class="text-body-sm text-body hover:text-ink transition-colors">FAQ</a>
 		</div>
 
-		<div class="flex items-center gap-sm">
+		<div class="flex items-center gap-sm flex-shrink-0">
 			<button
 				id="darkModeToggle"
 				class="btn-icon"
 				title="Toggle dark mode"
-				style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"
+				style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"
 			>
 				<svg id="sunIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
 				<svg id="moonIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 			</button>
 			<button
 				id="shareBtn"
-				class="btn-icon"
+				class="btn-icon hidden sm:flex"
 				title="Share"
 				onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied!');"
+				style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"
 			>
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
 			</button>
-			<button class="md:hidden btn-icon" id="menuBtn" title="Menu">
+			<button class="md:hidden btn-icon" id="menuBtn" title="Menu" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
 			</button>
+		</div>
+	</div>
+
+	<!-- Mobile Menu -->
+	<div id="mobileMenu" class="hidden md:hidden bg-canvas border-t border-hairline" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+		<div class="px-lg py-md flex flex-col gap-sm">
+			<a href="#checker" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">Checker</a>
+			<a href="#accessibility" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">Why A11y</a>
+			<a href="#wcag" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">WCAG Guide</a>
+			<a href="#faq" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">FAQ</a>
+			<hr style="border: none; border-top: 1px solid var(--color-hairline); margin: var(--spacing-sm) 0;">
+			<button class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft text-left bg-none border-none cursor-pointer">About</button>
+			<button class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft text-left bg-none border-none cursor-pointer">Contact</button>
+			<button class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft text-left bg-none border-none cursor-pointer">Privacy Policy</button>
+			<button class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft text-left bg-none border-none cursor-pointer">Terms & Conditions</button>
 		</div>
 	</div>
 </nav>
@@ -44,8 +60,8 @@
 <script>
 	// Dark mode toggle
 	const darkModeToggle = document.getElementById('darkModeToggle');
-	const sunIcon = document.getElementById('sunIcon');
-	const moonIcon = document.getElementById('moonIcon');
+	const sunIcon = document.getElementById('sunIcon') as HTMLElement | null;
+	const moonIcon = document.getElementById('moonIcon') as HTMLElement | null;
 	const html = document.documentElement;
 
 	// Check for saved dark mode preference or system preference
@@ -55,29 +71,60 @@
 	// Apply initial state
 	if (isDark) {
 		html.classList.add('dark');
-		sunIcon.style.display = 'none';
-		moonIcon.style.display = 'block';
+		if (sunIcon) sunIcon.style.display = 'none';
+		if (moonIcon) moonIcon.style.display = 'block';
 	} else {
 		html.classList.remove('dark');
-		sunIcon.style.display = 'block';
-		moonIcon.style.display = 'none';
+		if (sunIcon) sunIcon.style.display = 'block';
+		if (moonIcon) moonIcon.style.display = 'none';
 	}
 
 	darkModeToggle?.addEventListener('click', () => {
-		const isDarkMode = html.classList.toggle('dark');
-		localStorage.setItem('darkMode', isDarkMode);
-
+		const isDarkMode = html.classList.contains('dark');
 		if (isDarkMode) {
-			sunIcon.style.display = 'none';
-			moonIcon.style.display = 'block';
+			html.classList.remove('dark');
+			localStorage.setItem('darkMode', 'false');
+			if (sunIcon) sunIcon.style.display = 'block';
+			if (moonIcon) moonIcon.style.display = 'none';
 		} else {
-			sunIcon.style.display = 'block';
-			moonIcon.style.display = 'none';
+			html.classList.add('dark');
+			localStorage.setItem('darkMode', 'true');
+			if (sunIcon) sunIcon.style.display = 'none';
+			if (moonIcon) moonIcon.style.display = 'block';
 		}
 	});
 
-	// Mobile menu toggle (placeholder)
-	document.getElementById('menuBtn')?.addEventListener('click', () => {
-		alert('Mobile menu coming soon!');
+	// Mobile menu toggle
+	const menuBtn = document.getElementById('menuBtn');
+	const mobileMenu = document.getElementById('mobileMenu') as HTMLElement | null;
+
+	menuBtn?.addEventListener('click', () => {
+		if (!mobileMenu) return;
+		const isHidden = mobileMenu.classList.contains('hidden');
+		if (isHidden) {
+			mobileMenu.classList.remove('hidden');
+			// Use setTimeout to trigger the transition
+			setTimeout(() => {
+				mobileMenu.style.maxHeight = '500px';
+			}, 10);
+		} else {
+			mobileMenu.style.maxHeight = '0';
+			// Hide after transition
+			setTimeout(() => {
+				mobileMenu.classList.add('hidden');
+			}, 300);
+		}
+	});
+
+	// Close menu when clicking links
+	document.querySelectorAll('#mobileMenu a, #mobileMenu button').forEach(link => {
+		link.addEventListener('click', () => {
+			if (mobileMenu) {
+				mobileMenu.style.maxHeight = '0';
+				setTimeout(() => {
+					mobileMenu?.classList.add('hidden');
+				}, 300);
+			}
+		});
 	});
 </script>

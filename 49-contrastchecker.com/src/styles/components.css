@@ -248,6 +248,156 @@
     display: none;
   }
 
+  /* Mobile responsive component adjustments */
+  @media (max-width: 639px) {
+    /* Force proper padding on all containers */
+    section {
+      padding-left: var(--spacing-md) !important;
+      padding-right: var(--spacing-md) !important;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* Nav adjustments for mobile */
+    nav {
+      padding: var(--spacing-sm) var(--spacing-md) !important;
+    }
+
+    /* Fix text overflow */
+    p, span, div {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      margin-bottom: var(--spacing-md) !important;
+    }
+
+    /* Toast positioning on mobile */
+    .toast {
+      bottom: var(--spacing-md);
+      right: var(--spacing-md);
+      left: var(--spacing-md);
+      width: auto;
+    }
+
+    /* Tab group on mobile */
+    .tab-group {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      gap: var(--spacing-xs);
+    }
+
+    /* Tab buttons on mobile */
+    .tab-button {
+      padding-left: var(--spacing-sm);
+      padding-right: var(--spacing-sm);
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+
+    /* Input fields on mobile */
+    .input-field {
+      height: 40px;
+      font-size: 16px; /* Prevents zoom on iOS */
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Button sizing on mobile */
+    .btn-primary,
+    .btn-secondary {
+      min-height: 48px;
+      width: 100%;
+      font-size: 16px; /* Prevents zoom on iOS */
+      padding: var(--spacing-md) !important;
+    }
+
+    /* Card grid on mobile */
+    .card-marketing {
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+    }
+
+    /* Flex column on mobile */
+    .flex-col.sm\:flex-row {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    /* Grid to single column on mobile */
+    .grid {
+      gap: var(--spacing-md) !important;
+    }
+
+    /* Table adjustments for mobile */
+    table {
+      font-size: 0.75rem;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+    }
+
+    table th,
+    table td {
+      padding: var(--spacing-xs);
+    }
+
+    /* Add margin between elements */
+    .mb-4, .mb-6, .mb-8, .mb-12 {
+      margin-bottom: var(--spacing-md) !important;
+    }
+
+    /* Content wrapper padding */
+    div[style*="margin: 0 auto"] {
+      padding-left: var(--spacing-md);
+      padding-right: var(--spacing-md);
+      box-sizing: border-box;
+    }
+
+    /* Feature cards spacing */
+    .grid-cols-1 > div,
+    .grid-cols-3 > div,
+    .grid-cols-4 > div {
+      margin-bottom: var(--spacing-md);
+    }
+  }
+
+  /* Ensure readability on mobile */
+  @media (max-width: 639px) {
+    html {
+      font-size: 14px;
+    }
+
+    body {
+      font-size: 16px; /* Prevents iOS zoom on input focus */
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    input, textarea, select {
+      font-size: 16px;
+      width: 100%;
+    }
+
+    /* Link sizing on mobile */
+    a {
+      display: inline-block;
+      min-height: 44px;
+      min-width: 44px;
+      padding: var(--spacing-xs);
+    }
+  }
+
   /* Flex utilities */
   .flex-center {
     display: flex;

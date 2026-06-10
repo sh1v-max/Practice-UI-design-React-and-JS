@@ -12,33 +12,89 @@
     @apply mx-auto max-w-4xl;
   }
 
-  /* Typography utilities */
+  /* Typography utilities - responsive scaling */
   .text-display-xl {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     line-height: 1.2;
-    letter-spacing: -2.4px;
+    letter-spacing: -1.5px;
+  }
+
+  @media (min-width: 640px) {
+    .text-display-xl {
+      font-size: 2.5rem;
+      letter-spacing: -1.8px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .text-display-xl {
+      font-size: 3rem;
+      letter-spacing: -2.4px;
+    }
   }
 
   .text-display-lg {
-    font-size: 2.25rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -1.28px;
-  }
-
-  .text-display-md {
-    font-size: 1.875rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.96px;
-  }
-
-  .text-display-sm {
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.6px;
+  }
+
+  @media (min-width: 640px) {
+    .text-display-lg {
+      font-size: 1.875rem;
+      letter-spacing: -0.8px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .text-display-lg {
+      font-size: 2.25rem;
+      letter-spacing: -1.28px;
+    }
+  }
+
+  .text-display-md {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  @media (min-width: 640px) {
+    .text-display-md {
+      font-size: 1.5rem;
+      letter-spacing: -0.6px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .text-display-md {
+      font-size: 1.875rem;
+      letter-spacing: -0.96px;
+    }
+  }
+
+  .text-display-sm {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+  }
+
+  @media (min-width: 640px) {
+    .text-display-sm {
+      font-size: 1.25rem;
+      letter-spacing: -0.5px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .text-display-sm {
+      font-size: 1.5rem;
+      letter-spacing: -0.6px;
+    }
   }
 
   .text-body-lg {
@@ -148,5 +204,74 @@
   /* Utility for smooth transitions */
   .transition-smooth {
     @apply transition-all duration-200 ease-out;
+  }
+
+  /* Mobile-specific responsive utilities */
+  @media (max-width: 639px) {
+    /* Reduce padding on mobile */
+    .px-lg {
+      padding-left: var(--spacing-md);
+      padding-right: var(--spacing-md);
+    }
+
+    .py-lg {
+      padding-top: var(--spacing-md);
+      padding-bottom: var(--spacing-md);
+    }
+
+    .p-lg {
+      padding: var(--spacing-md);
+    }
+
+    /* Reduce gaps on mobile */
+    .gap-lg {
+      gap: var(--spacing-md);
+    }
+
+    /* Stack grids on mobile */
+    .grid-cols-3 {
+      grid-template-columns: 1fr;
+    }
+
+    .grid-cols-4 {
+      grid-template-columns: 1fr;
+    }
+
+    /* Reduce section padding on mobile */
+    .py-20 {
+      padding-top: var(--spacing-4xl);
+      padding-bottom: var(--spacing-4xl);
+    }
+
+    .py-32 {
+      padding-top: var(--spacing-3xl);
+      padding-bottom: var(--spacing-3xl);
+    }
+
+    /* Reduce margin bottom on mobile */
+    .mb-12 {
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .mt-20 {
+      margin-top: var(--spacing-3xl);
+    }
+  }
+
+  /* Ensure touch targets are at least 44px */
+  button, a[class*="btn"], input[type="button"], input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better mobile nav spacing */
+  @media (max-width: 767px) {
+    .hidden.md\:flex {
+      display: none !important;
+    }
+
+    .md\:hidden {
+      display: flex !important;
+    }
   }
 }

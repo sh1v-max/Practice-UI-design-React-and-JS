@@ -2,9 +2,36 @@
 ---
 
 <footer class="bg-canvas border-t border-hairline mt-20 w-full">
-	<div class="w-full px-lg" style="margin: 0 auto; max-width: 80rem; padding: 64px 24px;">
+	<!-- Mobile minimal footer -->
+	<div class="md:hidden w-full flex flex-col" style="padding: 16px 16px; background-color: var(--color-canvas);">
+		<!-- Logo -->
+		<div class="flex items-center gap-2 mb-4">
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-ink flex-shrink-0"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+			<span class="text-body-sm text-ink font-semibold">ContrastLab</span>
+		</div>
+
+		<!-- Links row -->
+		<div class="flex gap-3 mb-2 flex-wrap text-body-sm">
+			<a href="#" style="color: var(--color-mute);" class="hover:opacity-80 transition-opacity">About</a>
+			<a href="#" style="color: var(--color-mute);" class="hover:opacity-80 transition-opacity">Contact</a>
+			<a href="#" style="color: var(--color-mute);" class="hover:opacity-80 transition-opacity">Privacy Policy</a>
+		</div>
+
+		<!-- Terms link -->
+		<div class="mb-4 text-body-sm">
+			<a href="#" style="color: var(--color-mute);" class="hover:opacity-80 transition-opacity">Terms & Conditions</a>
+		</div>
+
+		<!-- Copyright -->
+		<p class="text-caption text-body">
+			© 2026 ContrastLab. Built for accessibility.
+		</p>
+	</div>
+
+	<!-- Desktop full footer -->
+	<div class="hidden md:block w-full" style="margin: 0 auto; max-width: 80rem; padding: 48px 24px;">
 		<!-- Main footer content - 4 column layout -->
-		<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+		<div class="grid grid-cols-4 gap-12 mb-12">
 			<!-- Brand/Product column -->
 			<div>
 				<div class="text-display-sm text-ink mb-4">ContrastLab</div>
@@ -50,12 +77,16 @@
 						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a6 6 0 00-6 6v4a6 6 0 006 6h3"></path><path d="M16 18H9"></path></svg>
 						Facebook
 					</a>
+					<a href="#" class="text-body-sm text-link hover:text-link-deep transition-colors inline-flex items-center gap-2">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+						Share
+					</a>
 				</div>
 			</div>
 		</div>
 
 		<!-- Divider -->
-		<div style="border-top: 1px solid #ebebeb; margin-top: 48px; padding-top: 24px;">
+		<div style="border-top: 1px solid var(--color-hairline); padding-top: 24px;">
 			<p class="text-caption text-body text-center">
 				© 2026 ContrastLab. Built for accessibility. For educational purposes only.
 			</p>

@@ -5,61 +5,71 @@
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
 		<!-- Left Column: Inputs & Results -->
 		<div class="space-y-6">
-			<!-- Color Inputs -->
-			<div class="card-marketing">
-				<h3 class="text-display-sm mb-lg">Color Inputs</h3>
-
-				<!-- Foreground Input -->
-				<div class="space-y-sm mb-lg">
-					<label class="block text-body-sm-strong">Foreground</label>
-					<div class="flex gap-md items-center">
-						<input
-							type="color"
-							id="fgColorPicker"
-							class="w-12 h-12 rounded-md cursor-pointer border border-hairline"
-							value="#111827"
-						/>
-						<input
-							type="text"
-							id="fgColorInput"
-							class="input-field flex-1"
-							placeholder="#111827"
-							value="#111827"
-						/>
+			<!-- Color Inputs - Large Visual Design -->
+			<div style="display: flex; gap: 24px; align-items: flex-start; margin-bottom: 32px; flex-wrap: wrap;">
+				<!-- Foreground Color Box -->
+				<div style="flex: 1; min-width: 160px;">
+					<input
+						type="color"
+						id="fgColorPicker"
+						style="-webkit-appearance: none; appearance: none; position: absolute; left: -9999px; top: -9999px; width: 0; height: 0; border: 0; padding: 0; margin: 0; opacity: 0; visibility: hidden; pointer-events: none; background: transparent;"
+					/>
+					<div
+						id="fgColorSwatch"
+						class="rounded-lg border-2 transition-all duration-300 cursor-pointer"
+						style="width: 100%; height: 180px; background-color: #111827; border-color: var(--color-hairline); position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;"
+						onclick="document.getElementById('fgColorPicker').click();"
+					>
+						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
 					</div>
-				</div>
-
-				<!-- Background Input -->
-				<div class="space-y-sm mb-lg">
-					<label class="block text-body-sm-strong">Background</label>
-					<div class="flex gap-md items-center">
-						<input
-							type="color"
-							id="bgColorPicker"
-							class="w-12 h-12 rounded-md cursor-pointer border border-hairline"
-							value="#ffffff"
-						/>
-						<input
-							type="text"
-							id="bgColorInput"
-							class="input-field flex-1"
-							placeholder="#ffffff"
-							value="#ffffff"
-						/>
-					</div>
-				</div>
-
-				<!-- Format Tabs -->
-				<div class="tab-group mb-lg">
-					<button class="tab-button active" data-format="hex">HEX</button>
-					<button class="tab-button" data-format="rgb">RGB</button>
-					<button class="tab-button" data-format="hsl">HSL</button>
+					<label class="text-body-sm-strong" style="display: block; margin-bottom: 6px;">Foreground</label>
+					<input
+						type="text"
+						id="fgColorInput"
+						placeholder="#111827"
+						value="#111827"
+						style="width: 100%; padding: 8px 12px; border: 1px solid var(--color-hairline); border-radius: 6px; font-family: 'Geist Mono', monospace; font-size: 0.875rem; background-color: var(--color-canvas-soft); color: var(--color-ink); box-sizing: border-box;"
+					/>
 				</div>
 
 				<!-- Swap Button -->
-				<button id="swapButton" class="btn-secondary w-full">
-					↕ Swap Colors
-				</button>
+				<div style="display: flex; align-items: center; margin-top: 90px; flex: 0 0 auto;">
+					<button id="swapButton" style="background: none; border: none; cursor: pointer; padding: 12px; color: var(--color-body); transition: all 0.2s; border-radius: 6px; display: flex; align-items: center; justify-content: center; hover:bg-canvas-soft;" title="Swap colors">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+					</button>
+				</div>
+
+				<!-- Background Color Box -->
+				<div style="flex: 1; min-width: 160px;">
+					<input
+						type="color"
+						id="bgColorPicker"
+						style="-webkit-appearance: none; appearance: none; position: absolute; left: -9999px; top: -9999px; width: 0; height: 0; border: 0; padding: 0; margin: 0; opacity: 0; visibility: hidden; pointer-events: none; background: transparent;"
+					/>
+					<div
+						id="bgColorSwatch"
+						class="rounded-lg border-2 transition-all duration-300 cursor-pointer"
+						style="width: 100%; height: 180px; background-color: #ffffff; border-color: var(--color-hairline); position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;"
+						onclick="document.getElementById('bgColorPicker').click();"
+					>
+						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+					</div>
+					<label class="text-body-sm-strong" style="display: block; margin-bottom: 6px;">Background</label>
+					<input
+						type="text"
+						id="bgColorInput"
+						placeholder="#ffffff"
+						value="#ffffff"
+						style="width: 100%; padding: 8px 12px; border: 1px solid var(--color-hairline); border-radius: 6px; font-family: 'Geist Mono', monospace; font-size: 0.875rem; background-color: var(--color-canvas-soft); color: var(--color-ink); box-sizing: border-box;"
+					/>
+				</div>
+			</div>
+
+			<!-- Format Tabs -->
+			<div class="tab-group mb-lg" style="margin-bottom: 20px;">
+				<button class="tab-button active" data-format="hex">HEX</button>
+				<button class="tab-button" data-format="rgb">RGB</button>
+				<button class="tab-button" data-format="hsl">HSL</button>
 			</div>
 
 			<!-- Contrast Ratio -->
@@ -423,15 +433,23 @@
 		const fgHex = toHex(fgColor);
 		const bgHex = toHex(bgColor);
 
-		// Update CSS Variables
-		document.getElementById('cssColorFg')!.textContent = fgHex;
-		document.getElementById('cssColorBg')!.textContent = bgHex;
-		document.getElementById('cssSwatchFg')!.style.backgroundColor = fgHex;
-		document.getElementById('cssSwatchBg')!.style.backgroundColor = bgHex;
+		// Update CSS Variables - only if elements exist
+		const cssColorFg = document.getElementById('cssColorFg');
+		const cssColorBg = document.getElementById('cssColorBg');
+		const cssSwatchFg = document.getElementById('cssSwatchFg');
+		const cssSwatchBg = document.getElementById('cssSwatchBg');
+		const tailwindOutput = document.getElementById('tailwindOutput');
+
+		if (cssColorFg) cssColorFg.textContent = fgHex;
+		if (cssColorBg) cssColorBg.textContent = bgHex;
+		if (cssSwatchFg) cssSwatchFg.style.backgroundColor = fgHex;
+		if (cssSwatchBg) cssSwatchBg.style.backgroundColor = bgHex;
 
 		// Update Tailwind Classes
-		const tailwind = toTailwindClasses(fgColor, bgColor);
-		document.getElementById('tailwindOutput')!.textContent = tailwind;
+		if (tailwindOutput) {
+			const tailwind = toTailwindClasses(fgColor, bgColor);
+			tailwindOutput.textContent = tailwind;
+		}
 	}
 
 	function updateUrl() {
@@ -655,6 +673,56 @@
 
 	// Save palette button
 	document.getElementById('savePaletteBtn')!.addEventListener('click', savePalette);
+
+	// Color picker changes
+	const fgPicker = document.getElementById('fgColorPicker') as HTMLInputElement | null;
+	const bgPicker = document.getElementById('bgColorPicker') as HTMLInputElement | null;
+	const fgInput = document.getElementById('fgColorInput') as HTMLInputElement | null;
+	const bgInput = document.getElementById('bgColorInput') as HTMLInputElement | null;
+
+	if (fgPicker) {
+		fgPicker.addEventListener('change', () => {
+			const parsed = parseColor(fgPicker.value);
+			if (parsed) {
+				fgColor = parsed;
+				if (fgInput) fgInput.value = fgPicker.value;
+				updateAll();
+			}
+		});
+	}
+
+	if (bgPicker) {
+		bgPicker.addEventListener('change', () => {
+			const parsed = parseColor(bgPicker.value);
+			if (parsed) {
+				bgColor = parsed;
+				if (bgInput) bgInput.value = bgPicker.value;
+				updateAll();
+			}
+		});
+	}
+
+	if (fgInput) {
+		fgInput.addEventListener('change', () => {
+			const parsed = parseColor(fgInput.value);
+			if (parsed) {
+				fgColor = parsed;
+				if (fgPicker) fgPicker.value = toHex(fgColor);
+				updateAll();
+			}
+		});
+	}
+
+	if (bgInput) {
+		bgInput.addEventListener('change', () => {
+			const parsed = parseColor(bgInput.value);
+			if (parsed) {
+				bgColor = parsed;
+				if (bgPicker) bgPicker.value = toHex(bgColor);
+				updateAll();
+			}
+		});
+	}
 
 	// Initialize
 	loadFromUrl();
