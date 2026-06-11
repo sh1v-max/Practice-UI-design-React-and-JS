@@ -1,5 +1,5 @@
 import type { RGB } from './colors';
-import { toHex, toRgb, toHsl } from './colors';
+import { toHex } from './colors';
 
 const tailwindColorMap: Record<string, string> = {
 	'#000000': 'black',

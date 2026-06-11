@@ -30,7 +30,7 @@ export function suggestFixes(fg: RGB, bg: RGB): Suggestion[] {
 }
 
 function findClosestLuminance(
-	originalFg: RGB,
+	_originalFg: RGB,
 	bg: RGB,
 	fgHsl: HSL,
 	targetRatio: number
