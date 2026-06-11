@@ -82,188 +82,440 @@ interface Props {
 
 ---
 
-## Step 5 — Create src/components/contrast/ColorSelectorPanel.tsx
+## Step 5 — Create src/hooks/usePalettes.ts
 
-Wrapper that renders both `ColorSelector` components side by side with a swap button in the middle.
+Extract all palette-related logic from `useContrastState`.
 
-**Props:** `fgHex`, `bgHex`, `setFgHex`, `setBgHex`, `swapColors`
+Responsibilities:
 
----
+* Load palettes from localStorage
+* Save palette
+* Delete palette
+* Load palette
+* Migrate old palette format
 
-## Step 6 — Create src/components/contrast/ContrastRatioCard.tsx
+Palette model:
 
-Displays the contrast ratio and animated SVG ring meter.
-
-**Props:** `ratio`, `quality`, `meterColor`
-
-**SVG meter:** Arc fills from 0 to `ratio/21 × 360°`. Color transitions: red → orange → amber → green. Smooth CSS transition on dashoffset and stroke color.
-
----
-
-## Step 7 — Create src/components/contrast/WCAGResultsCard.tsx
-
-Four rows showing AA/AAA pass/fail results. Driven purely from a static `ROWS` array — no duplicated JSX.
-
-**Props:** `wcag: WCAGResults`
-
-Rows:
-- AA Small Text (4.5:1)
-- AA Large Text (3:1)
-- AAA Small Text (7:1)
-- AAA Large Text (4.5:1)
-
----
-
-## Step 8 — Create src/components/contrast/AutoFixSuggestions.tsx
-
-Only renders when `suggestions.length > 0` (i.e., colors are failing WCAG). Shows up to 3 suggested foreground alternatives.
-
-**Props:** `suggestions: Suggestion[]`, `onApply: (hex: string) => void`
-
-Each suggestion shows: color swatch, hex value, ratio, Apply button.
-
----
-
-## Step 9 — Create src/components/contrast/LivePreview.tsx
-
-Renders a preview area using the actual fg/bg colors. Shows heading, paragraph, button, link.
-
-**Props:** `fgHex`, `bgHex`
-
-No blind simulation here — blind simulation is handled by `ColorBlindnessSimulator`.
-
----
-
-## Step 10 — Create src/components/contrast/ColorBlindnessSimulator.tsx
-
-Tabs for 5 blind types. Two color swatches update to show simulated colors.
-
-**Props:** `fgRgb`, `bgRgb`, `activeBlindType`, `onChangeBlindType`
-
-Uses `simulate()` from `colorblind.ts` — no DOM manipulation.
-
----
-
-## Step 11 — Create src/components/contrast/SavedPalettes.tsx
-
-Save/load/delete palette pairs. Empty state message. Click row to load.
-
-**Props:** `palettes`, `onSave`, `onLoad`, `onDelete`
-
-Each row: two color swatches + hex labels + delete × button.
-
----
-
-## Step 12 — Create src/components/contrast/ColorFormatConverter.tsx
-
-HEX / RGB / HSL display with copy buttons. Derives all values from `fgRgb` prop via `toHex`, `toRgb`, `toHsl`.
-
-**Props:** `fgRgb: RGB`, `onCopy: (text: string) => void`
-
----
-
-## Step 13 — Create src/components/contrast/DeveloperOutput.tsx
-
-CSS Variables tab + Tailwind Classes tab. Local `useState` for active tab.
-
-**Props:** `fgRgb`, `bgRgb`, `tailwindClasses`, `onCopy`
-
-CSS tab shows colored `--foreground` / `--background` output with swatches. Tailwind tab shows the class string.
-
----
-
-## Step 14 — Create src/components/ContrastCheckerApp.tsx
-
-Main React island. Calls `useContrastState()` and passes slices of state to each sub-component. Contains the 2-column grid layout, full-width sections, and the toast notification.
-
-This is the ONLY component that calls `useContrastState`. All others receive plain props.
-
-Layout:
-```
-┌─────────────────────────────────────────┐
-│ Left col            │ Right col          │
-│ ColorSelectorPanel  │ LivePreview        │
-│ ContrastRatioCard   │ ColorBlindSim      │
-│ WCAGResultsCard     │ SavedPalettes      │
-│ AutoFixSuggestions  │                    │
-├─────────────────────────────────────────┤
-│ ColorFormatConverter (full width)        │
-│ DeveloperOutput (full width)             │
-└─────────────────────────────────────────┘
-```
-
----
-
-## Step 15 — Replace ContrastChecker.astro with thin wrapper
-
-The new file is just 5 lines:
-
-```astro
----
-import ContrastCheckerApp from './ContrastCheckerApp';
----
-<ContrastCheckerApp client:load />
-```
-
-All logic moves to React. The Astro file just mounts the island.
-
----
-
-## Step 16 — Add dark mode CSS for @uiw/react-color
-
-Add overrides to `src/styles/components.css` so the Sketch picker respects dark mode:
-
-```css
-/* @uiw/react-color dark mode */
-.dark .w-color-sketch { background: var(--color-canvas-soft) !important; }
-.dark .w-color-editable-input input {
-  background: var(--color-canvas-soft-2) !important;
-  color: var(--color-ink) !important;
-  border-color: var(--color-hairline) !important;
+```ts
+interface Palette {
+  id: string;
+  createdAt: number;
+  fg: string;
+  bg: string;
 }
 ```
 
+Generate IDs using:
+
+```ts
+crypto.randomUUID()
+```
+
 ---
 
-## Step 17 — Build and verify
+## Step 6 — Create src/hooks/useUrlSync.ts
+
+Extract URL responsibilities from useContrastState.
+
+Responsibilities:
+
+* Read `?fg=` and `?bg=` on startup
+* Validate values via `parseColor()`
+* Sync URL on color changes
+* Use `history.replaceState()`
+
+Example:
+
+```txt
+/?fg=111827&bg=FFFFFF
+```
+
+This hook should contain ALL URL-related logic.
+
+---
+
+## Step 7 — Update useContrastState.ts
+
+After extracting palettes and URL sync:
+
+Responsibilities become:
+
+* fgHex
+* bgHex
+* setFgHex
+* setBgHex
+* swapColors
+* activeBlindType
+* setActiveBlindType
+
+Computed via useMemo:
+
+* fgRgb
+* bgRgb
+* ratio
+* wcag
+* quality
+* meterColor
+* suggestions
+* tailwindClasses
+
+No localStorage logic.
+
+No URL logic.
+
+Keep the hook focused.
+
+---
+
+## Step 8 — Create ContrastRatioCard.tsx
+
+Props:
+
+```ts
+{
+  ratio: number;
+  quality: string;
+  meterColor: string;
+}
+```
+
+Features:
+
+* Large ratio number
+* Quality label
+* SVG ring meter
+* Smooth transitions
+
+Use React.memo.
+
+---
+
+## Step 9 — Create WCAGResultsCard.tsx
+
+Render results from:
+
+```ts
+const ROWS = [...]
+```
+
+No duplicated JSX.
+
+Props:
+
+```ts
+{
+  wcag: WCAGResults;
+}
+```
+
+Use React.memo.
+
+---
+
+## Step 10 — Create AutoFixSuggestions.tsx
+
+Props:
+
+```ts
+{
+  suggestions: Suggestion[];
+  onApply(hex: string): void;
+}
+```
+
+Behavior:
+
+* Hidden if suggestions empty
+* Show color preview
+* Show ratio
+* Apply button
+
+Use React.memo.
+
+---
+
+## Step 11 — Create LivePreview.tsx
+
+Props:
+
+```ts
+{
+  fgHex: string;
+  bgHex: string;
+}
+```
+
+Displays:
+
+* Heading
+* Paragraph
+* Button
+* Link
+
+Pure presentational component.
+
+Use React.memo.
+
+---
+
+## Step 12 — Create ColorBlindnessSimulator.tsx
+
+Props:
+
+```ts
+{
+  fgRgb: RGB;
+  bgRgb: RGB;
+  activeBlindType: BlindType;
+  onChangeBlindType(type: BlindType): void;
+}
+```
+
+Features:
+
+* Tabs
+* Simulated swatches
+* Uses simulate()
+
+No DOM manipulation.
+
+Use React.memo.
+
+---
+
+## Step 13 — Create SavedPalettes.tsx
+
+Props:
+
+```ts
+{
+  palettes: Palette[];
+  onSave(): void;
+  onLoad(id: string): void;
+  onDelete(id: string): void;
+}
+```
+
+Features:
+
+* Save button
+* Empty state
+* Palette list
+* Delete button
+
+Use React.memo.
+
+---
+
+## Step 14 — Create ColorFormatConverter.tsx
+
+Props:
+
+```ts
+{
+  fgRgb: RGB;
+  onCopy(text: string): void;
+}
+```
+
+Show:
+
+* HEX
+* RGB
+* HSL
+
+with copy buttons.
+
+IMPORTANT:
+
+Do NOT recreate the old fake format tabs.
+
+Show formats directly.
+
+---
+
+## Step 15 — Create DeveloperOutput.tsx
+
+Props:
+
+```ts
+{
+  fgRgb: RGB;
+  bgRgb: RGB;
+  tailwindClasses: string;
+  onCopy(text: string): void;
+}
+```
+
+Tabs:
+
+* CSS Variables
+* Tailwind Output
+
+Local component state only.
+
+Use React.memo.
+
+---
+
+## Step 16 — Create ContrastCheckerApp.tsx
+
+This becomes the orchestration layer.
+
+Hooks used:
+
+```ts
+useContrastState()
+usePalettes()
+useUrlSync()
+```
+
+Render:
+
+```txt
+LEFT
+ ├── Foreground Wheel Picker
+ ├── Swap Button
+ ├── Background Wheel Picker
+ ├── ContrastRatioCard
+ ├── WCAGResultsCard
+ └── AutoFixSuggestions
+
+RIGHT
+ ├── LivePreview
+ ├── ColorBlindnessSimulator
+ └── SavedPalettes
+
+BOTTOM
+ ├── ColorFormatConverter
+ └── DeveloperOutput
+```
+
+Important:
+
+Do NOT create ColorSelectorPanel.tsx.
+
+Render both ColorSelector components directly.
+
+---
+
+## Step 17 — Replace ContrastChecker.astro
+
+Replace:
+
+```astro
+<ContrastCheckerApp client:load />
+```
+
+with:
+
+```astro
+<ContrastCheckerApp client:visible />
+```
+
+Benefits:
+
+* Better performance
+* Better Lighthouse score
+* Delayed hydration
+
+---
+
+## Step 18 — Dark Mode Support
+
+Update CSS for Wheel picker.
+
+Replace old Sketch-specific CSS.
+
+Theme:
+
+```css
+.dark .w-color-wheel
+.dark .w-color-editable-input input
+```
+
+Requirements:
+
+* Respect existing design tokens
+* Match Vercel-inspired theme
+* No hardcoded colors
+
+---
+
+## Step 19 — Build Verification
+
+Run:
 
 ```bash
 npm run build
 ```
 
-Expected: zero errors, all features working, color picker opens on swatch click, URL updates on color change, palettes persist in localStorage.
+Verify:
+
+* No TypeScript errors
+* No hydration warnings
+* No React warnings
+* URL sync works
+* Wheel picker works
+* Palettes persist
+* Dark mode works
 
 ---
 
-## Bugs discovered in current code
+## Step 20 — Add Tests
 
-| # | Bug | Location | Fix |
-|---|-----|----------|-----|
-| 1 | `activeFormat` is set but never read — HEX/RGB/HSL tabs are cosmetic only | `ContrastChecker.astro:320` | Removed tabs (non-functional) |
-| 2 | `document.getElementById('cssOutput')` references element that doesn't exist | `ContrastChecker.astro:664` | Fixed to build CSS string from `cssColorFg` + `cssColorBg` |
-| 3 | `deletePalette()` called from `innerHTML` onclick — doesn't work in module scripts | `ContrastChecker.astro:531` | Fixed with event delegation |
-| 4 | Duplicate event listeners — both `input` and `change` listeners on color pickers | `ContrastChecker.astro:562–725` | Removed duplicates, keep only `input` |
-| 5 | `autofix.ts` binary search always searches toward lower lightness regardless of bg luminance | `autofix.ts:60` | Document as known limitation |
-| 6 | All `getElementById` calls typed as `HTMLElement` but access `.value` (TypeScript errors) | Throughout | Fixed by casting to `HTMLInputElement` at declaration |
+Install:
+
+```bash
+npm install -D vitest
+```
+
+Create:
+
+```txt
+tests/
+├── contrast.test.ts
+├── colors.test.ts
+└── autofix.test.ts
+```
+
+Test:
+
+* Black vs white = 21:1
+* WCAG thresholds
+* HEX parsing
+* RGB parsing
+* HSL parsing
+* Suggestion generation
 
 ---
 
-## File map — before vs after
+## Final File Structure
 
-| Before | After |
-|--------|-------|
-| `ContrastChecker.astro` (700 lines) | `ContrastChecker.astro` (5 lines) |
-| — | `ContrastCheckerApp.tsx` (~100 lines) |
-| — | `hooks/useContrastState.ts` (~120 lines) |
-| — | `contrast/ColorSelector.tsx` (~130 lines) |
-| — | `contrast/ColorSelectorPanel.tsx` (~60 lines) |
-| — | `contrast/ContrastRatioCard.tsx` (~50 lines) |
-| — | `contrast/WCAGResultsCard.tsx` (~60 lines) |
-| — | `contrast/AutoFixSuggestions.tsx` (~60 lines) |
-| — | `contrast/LivePreview.tsx` (~50 lines) |
-| — | `contrast/ColorBlindnessSimulator.tsx` (~70 lines) |
-| — | `contrast/SavedPalettes.tsx` (~80 lines) |
-| — | `contrast/ColorFormatConverter.tsx` (~70 lines) |
-| — | `contrast/DeveloperOutput.tsx` (~90 lines) |
-
-Total lines roughly the same, but split across 13 focused files — each under 150 lines and single-responsibility.
+```txt
+src/
+├── components/
+│   ├── ContrastCheckerApp.tsx
+│   └── contrast/
+│       ├── ColorSelector.tsx
+│       ├── ContrastRatioCard.tsx
+│       ├── WCAGResultsCard.tsx
+│       ├── AutoFixSuggestions.tsx
+│       ├── LivePreview.tsx
+│       ├── ColorBlindnessSimulator.tsx
+│       ├── SavedPalettes.tsx
+│       ├── ColorFormatConverter.tsx
+│       └── DeveloperOutput.tsx
+│
+├── hooks/
+│   ├── useContrastState.ts
+│   ├── usePalettes.ts
+│   └── useUrlSync.ts
+│
+├── lib/
+│   ├── colors.ts
+│   ├── contrast.ts
+│   ├── autofix.ts
+│   ├── colorblind.ts
+│   └── export.ts
+```

@@ -1,55 +1,45 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { Sketch } from '@uiw/react-color';
-import { parseColor, toHex } from '../../lib/colors';
-import { relativeLuminance } from '../../lib/contrast';
+import { useState, useEffect, useCallback } from 'react';
+import { Wheel, ShadeSlider, hexToHsva, hsvaToHex } from '@uiw/react-color';
+import type { ColorResult } from '@uiw/color-convert';
+import type { HsvaColor } from '@uiw/color-convert';
+import { parseColor, toHex, toRgb, toHsl } from '../../lib/colors';
 
 interface Props {
   label: string;
   color: string;
   onChange: (hex: string) => void;
-  alignRight?: boolean;
 }
 
-function getPencilColor(hex: string): string {
-  const rgb = parseColor(hex);
-  if (!rgb) return '#ffffff';
-  return relativeLuminance(rgb) > 0.4 ? '#000000' : '#ffffff';
-}
-
-export default function ColorSelector({ label, color, onChange, alignRight = false }: Props) {
-  const [open, setOpen] = useState(false);
+export default function ColorSelector({ label, color, onChange }: Props) {
+  const [hsva, setHsva] = useState<HsvaColor>(() => hexToHsva(color));
   const [inputVal, setInputVal] = useState(color);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [inputError, setInputError] = useState(false);
 
-  // Keep text input in sync when color changes externally
   useEffect(() => {
+    setHsva(hexToHsva(color));
     setInputVal(color);
   }, [color]);
 
-  // Close on outside click
-  useEffect(() => {
-    if (!open) return;
-    function handleClick(e: MouseEvent) {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
-  }, [open]);
-
-  const handleSwatchClick = useCallback(() => setOpen((v) => !v), []);
-
-  const handlePickerChange = useCallback(
-    (c: { hex: string }) => {
-      const hex = c.hex.toUpperCase();
-      onChange(hex);
+  const handleWheelChange = useCallback(
+    (result: ColorResult) => {
+      setHsva(result.hsva);
+      onChange(result.hex.toUpperCase());
     },
     [onChange]
   );
 
+  const handleShadeChange = useCallback(
+    (newShade: { v: number }) => {
+      const updated = { ...hsva, v: newShade.v };
+      setHsva(updated);
+      onChange(hsvaToHex(updated).toUpperCase());
+    },
+    [hsva, onChange]
+  );
+
   const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setInputVal(e.target.value);
+    setInputError(false);
   }, []);
 
   const handleInputCommit = useCallback(
@@ -57,73 +47,84 @@ export default function ColorSelector({ label, color, onChange, alignRight = fal
       if ('key' in e && e.key !== 'Enter') return;
       const parsed = parseColor(inputVal);
       if (parsed) {
-        const hex = toHex(parsed);
+        const hex = toHex(parsed).toUpperCase();
         onChange(hex);
         setInputVal(hex);
+        setInputError(false);
       } else {
-        setInputVal(color);
+        setInputError(true);
+        setTimeout(() => setInputError(false), 1500);
       }
     },
-    [inputVal, color, onChange]
+    [inputVal, onChange]
   );
 
-  const pencilColor = getPencilColor(color);
+  const rgb = parseColor(color);
 
   return (
-    <div ref={containerRef} style={{ position: 'relative', flex: 1, minWidth: 0 }}>
-      {/* Label */}
-      <p
-        style={{
-          fontSize: '0.75rem',
-          fontWeight: 600,
-          letterSpacing: '0.06em',
-          textTransform: 'uppercase',
-          color: 'var(--color-mute)',
-          marginBottom: '8px',
-        }}
-      >
-        {label}
-      </p>
-
-      {/* Swatch — click to open picker */}
-      <button
-        type="button"
-        aria-label={`Pick ${label} color, current: ${color}`}
-        onClick={handleSwatchClick}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%',
-          height: '160px',
-          borderRadius: '12px',
-          background: color,
-          border: '1px solid var(--color-hairline)',
-          cursor: 'pointer',
-          position: 'relative',
-          overflow: 'hidden',
-          transition: 'box-shadow 0.15s',
-          boxShadow: open ? '0 0 0 3px var(--color-violet)' : 'none',
-        }}
-      >
-        {/* Pencil icon */}
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke={pencilColor}
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          style={{ opacity: 0.75, pointerEvents: 'none' }}
+    <div style={{ flex: 1, minWidth: 0 }}>
+      {/* Label + color dot */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
+        <span
+          aria-hidden="true"
+          style={{
+            width: '14px',
+            height: '14px',
+            borderRadius: '50%',
+            background: color,
+            border: '2px solid var(--color-hairline-strong)',
+            flexShrink: 0,
+          }}
+        />
+        <span
+          style={{
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase' as const,
+            color: 'var(--color-mute)',
+          }}
         >
-          <path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-          <path d="m15 5 4 4" />
-        </svg>
-      </button>
+          {label}
+        </span>
+      </div>
 
-      {/* Hex text input */}
+      {/* Color wheel */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
+        <Wheel
+          color={hsva}
+          onChange={handleWheelChange}
+          width={200}
+          height={200}
+        />
+      </div>
+
+      {/* Brightness / shade slider */}
+      <ShadeSlider
+        hsva={hsva}
+        onChange={handleShadeChange}
+        style={{ height: '12px', borderRadius: '6px', marginBottom: '16px' }}
+      />
+
+      {/* HEX / RGB / HSL info */}
+      <div
+        style={{
+          padding: '10px 12px',
+          borderRadius: '8px',
+          background: 'var(--color-canvas-soft)',
+          border: '1px solid var(--color-hairline)',
+          marginBottom: '10px',
+          display: 'flex',
+          flexDirection: 'column' as const,
+          gap: '4px',
+        }}
+      >
+        <InfoRow label="HEX" value={color} />
+        <InfoRow label="RGB" value={rgb ? toRgb(rgb) : ''} />
+        <InfoRow label="HSL" value={rgb ? toHsl(rgb) : ''} />
+      </div>
+
+      {/* Manual text input */}
       <input
         type="text"
         value={inputVal}
@@ -131,45 +132,52 @@ export default function ColorSelector({ label, color, onChange, alignRight = fal
         onBlur={handleInputCommit}
         onKeyDown={handleInputCommit}
         spellCheck={false}
+        placeholder="#000000 or rgb(...) or hsl(...)"
+        aria-label={`${label} color value`}
         style={{
-          marginTop: '10px',
           width: '100%',
           padding: '8px 12px',
           borderRadius: '8px',
-          border: '1px solid var(--color-hairline)',
+          border: `1px solid ${inputError ? 'var(--color-error)' : 'var(--color-hairline)'}`,
           background: 'var(--color-canvas-soft)',
           color: 'var(--color-ink)',
-          fontSize: '0.875rem',
+          fontSize: '0.8125rem',
           fontFamily: 'var(--font-mono)',
           fontWeight: 500,
           outline: 'none',
-          boxSizing: 'border-box',
+          boxSizing: 'border-box' as const,
           transition: 'border-color 0.15s',
         }}
-        onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--color-violet)')}
-        onBlurCapture={(e) => (e.currentTarget.style.borderColor = 'var(--color-hairline)')}
       />
+    </div>
+  );
+}
 
-      {/* Picker popup */}
-      {open && (
-        <div
-          style={{
-            position: 'absolute',
-            top: 'calc(160px + 56px + 8px)',
-            ...(alignRight ? { right: 0 } : { left: 0 }),
-            zIndex: 100,
-            filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.18))',
-          }}
-        >
-          <Sketch
-            color={color}
-            onChange={handlePickerChange}
-            disableAlpha
-            presetColors={[]}
-            style={{ borderRadius: '12px' }}
-          />
-        </div>
-      )}
+function InfoRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div style={{ display: 'flex', gap: '10px', fontSize: '0.75rem' }}>
+      <span
+        style={{
+          fontFamily: 'var(--font-mono)',
+          color: 'var(--color-mute)',
+          width: '28px',
+          flexShrink: 0,
+          fontWeight: 600,
+        }}
+      >
+        {label}
+      </span>
+      <span
+        style={{
+          fontFamily: 'var(--font-mono)',
+          color: 'var(--color-ink)',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap' as const,
+        }}
+      >
+        {value}
+      </span>
     </div>
   );
 }

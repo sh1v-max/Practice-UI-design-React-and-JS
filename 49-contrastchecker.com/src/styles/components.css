@@ -862,4 +862,54 @@
       flex-direction: row;
     }
   }
+
+  /* @uiw/react-color Wheel — dark mode overrides */
+  .dark .w-color-wheel {
+    filter: brightness(0.92);
+  }
+
+  .dark .w-color-shade-slider,
+  .dark .w-color-alpha {
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .dark .w-color-editable-input input {
+    background: var(--color-canvas-soft-2) !important;
+    color: var(--color-ink) !important;
+    border-color: var(--color-hairline) !important;
+  }
+
+  .dark .w-color-editable-input label {
+    color: var(--color-mute) !important;
+  }
+
+  /* ContrastCheckerApp layout */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+
+  .checker-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .checker-bottom {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .checker-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .checker-bottom {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+  }
 }
