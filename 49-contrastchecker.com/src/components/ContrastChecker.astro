@@ -9,18 +9,20 @@
 			<div style="display: flex; gap: 24px; align-items: flex-start; margin-bottom: 32px; flex-wrap: wrap;">
 				<!-- Foreground Color Box -->
 				<div style="flex: 1; min-width: 160px;">
-					<input
-						type="color"
-						id="fgColorPicker"
-						style="-webkit-appearance: none; appearance: none; position: absolute; left: -9999px; top: -9999px; width: 0; height: 0; border: 0; padding: 0; margin: 0; opacity: 0; visibility: hidden; pointer-events: none; background: transparent;"
-					/>
 					<div
 						id="fgColorSwatch"
 						class="rounded-lg border-2 transition-all duration-300 cursor-pointer"
-						style="width: 100%; height: 180px; background-color: #111827; border-color: var(--color-hairline); position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;"
-						onclick="document.getElementById('fgColorPicker').click();"
+						style="width: 100%; height: 180px; background-color: #111827; border-color: var(--color-hairline); position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; overflow: hidden;"
 					>
-						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+						<!-- Invisible native color picker covering entire swatch -->
+						<input
+							type="color"
+							id="fgColorPicker"
+							value="#111827"
+							style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; border: none; padding: 0; margin: 0;"
+						/>
+						<!-- Pencil icon on top (pointer-events:none so clicks pass through to input) -->
+						<svg style="pointer-events: none; position: relative; z-index: 1;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
 					</div>
 					<label class="text-body-sm-strong" style="display: block; margin-bottom: 6px;">Foreground</label>
 					<input
@@ -34,25 +36,27 @@
 
 				<!-- Swap Button -->
 				<div style="display: flex; align-items: center; margin-top: 90px; flex: 0 0 auto;">
-					<button id="swapButton" style="background: none; border: none; cursor: pointer; padding: 12px; color: var(--color-body); transition: all 0.2s; border-radius: 6px; display: flex; align-items: center; justify-content: center; hover:bg-canvas-soft;" title="Swap colors">
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+					<button id="swapButton" style="background: none; border: none; cursor: pointer; padding: 12px; color: var(--color-body); transition: all 0.2s; border-radius: 6px; display: flex; align-items: center; justify-content: center;" title="Swap colors">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
 					</button>
 				</div>
 
 				<!-- Background Color Box -->
 				<div style="flex: 1; min-width: 160px;">
-					<input
-						type="color"
-						id="bgColorPicker"
-						style="-webkit-appearance: none; appearance: none; position: absolute; left: -9999px; top: -9999px; width: 0; height: 0; border: 0; padding: 0; margin: 0; opacity: 0; visibility: hidden; pointer-events: none; background: transparent;"
-					/>
 					<div
 						id="bgColorSwatch"
 						class="rounded-lg border-2 transition-all duration-300 cursor-pointer"
-						style="width: 100%; height: 180px; background-color: #ffffff; border-color: var(--color-hairline); position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;"
-						onclick="document.getElementById('bgColorPicker').click();"
+						style="width: 100%; height: 180px; background-color: #ffffff; border-color: var(--color-hairline); position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; overflow: hidden;"
 					>
-						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+						<!-- Invisible native color picker covering entire swatch -->
+						<input
+							type="color"
+							id="bgColorPicker"
+							value="#ffffff"
+							style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; border: none; padding: 0; margin: 0;"
+						/>
+						<!-- Pencil icon on top -->
+						<svg style="pointer-events: none; position: relative; z-index: 1;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
 					</div>
 					<label class="text-body-sm-strong" style="display: block; margin-bottom: 6px;">Background</label>
 					<input
@@ -199,7 +203,6 @@
 						style="background: rgba(0, 0, 0, 0.5); color: white; border: none; border-radius: 6px; padding: 6px 10px; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 4px; font-family: 'Geist Mono', monospace; transition: background 0.2s; white-space: nowrap;"
 						onmouseover="this.style.background = 'rgba(0, 0, 0, 0.7)'"
 						onmouseout="this.style.background = 'rgba(0, 0, 0, 0.5)'"
-						title="Copy HEX"
 					>
 						<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
 						Copy
@@ -215,7 +218,6 @@
 						style="background: rgba(0, 0, 0, 0.5); color: white; border: none; border-radius: 6px; padding: 6px 10px; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 4px; font-family: 'Geist Mono', monospace; transition: background 0.2s; white-space: nowrap;"
 						onmouseover="this.style.background = 'rgba(0, 0, 0, 0.7)'"
 						onmouseout="this.style.background = 'rgba(0, 0, 0, 0.5)'"
-						title="Copy RGB"
 					>
 						<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
 						Copy
@@ -231,7 +233,6 @@
 						style="background: rgba(0, 0, 0, 0.5); color: white; border: none; border-radius: 6px; padding: 6px 10px; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 4px; font-family: 'Geist Mono', monospace; transition: background 0.2s; white-space: nowrap;"
 						onmouseover="this.style.background = 'rgba(0, 0, 0, 0.7)'"
 						onmouseout="this.style.background = 'rgba(0, 0, 0, 0.5)'"
-						title="Copy HSL"
 					>
 						<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
 						Copy
@@ -255,18 +256,17 @@
 					style="position: absolute; top: 8px; right: 8px; background: rgba(0, 0, 0, 0.5); color: white; border: none; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: 'Geist Mono', monospace; transition: background 0.2s;"
 					onmouseover="this.style.background = 'rgba(0, 0, 0, 0.7)'"
 					onmouseout="this.style.background = 'rgba(0, 0, 0, 0.5)'"
-					title="Copy CSS"
 				>
 					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
 					Copy
 				</button>
 				<div class="p-lg">
-					<div class="flex items-center gap-md mb-md" style="font-family: 'Geist Mono', monospace; color: #171717; font-size: 14px;">
+					<div class="flex items-center gap-md mb-md" style="font-family: 'Geist Mono', monospace; font-size: 14px;">
 						<span style="color: #7928ca;">--foreground:</span>
 						<span id="cssColorFg" style="color: #0070f3;">#111827</span>
 						<div id="cssSwatchFg" style="width: 16px; height: 16px; border-radius: 4px; border: 1px solid #d1d5db; background-color: #111827;"></div>
 					</div>
-					<div class="flex items-center gap-md" style="font-family: 'Geist Mono', monospace; color: #171717; font-size: 14px;">
+					<div class="flex items-center gap-md" style="font-family: 'Geist Mono', monospace; font-size: 14px;">
 						<span style="color: #7928ca;">--background:</span>
 						<span id="cssColorBg" style="color: #0070f3;">#FFFFFF</span>
 						<div id="cssSwatchBg" style="width: 16px; height: 16px; border-radius: 4px; border: 1px solid #d1d5db; background-color: #FFFFFF;"></div>
@@ -281,21 +281,13 @@
 					style="position: absolute; top: 8px; right: 8px; background: rgba(0, 0, 0, 0.5); color: white; border: none; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: 'Geist Mono', monospace; transition: background 0.2s;"
 					onmouseover="this.style.background = 'rgba(0, 0, 0, 0.7)'"
 					onmouseout="this.style.background = 'rgba(0, 0, 0, 0.5)'"
-					title="Copy Classes"
 				>
 					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
 					Copy
 				</button>
 				<div class="p-lg">
-					<div style="font-family: 'Geist Mono', monospace; color: #171717; font-size: 14px; line-height: 1.8;">
-						<div class="flex items-center gap-md mb-md">
-							<span style="color: #7928ca;">text</span>
-							<span style="color: #171717;">-slate-</span>
-							<span style="color: #0070f3;" id="twFgClass">900</span>
-							<span style="color: #888888;"> / </span>
-							<span style="color: #7928ca;">bg</span>
-							<span style="color: #171717;">-white</span>
-						</div>
+					<div id="tailwindOutput" style="font-family: 'Geist Mono', monospace; font-size: 14px; line-height: 1.8; color: var(--color-ink);">
+						text-slate-900 bg-white
 					</div>
 				</div>
 			</div>
@@ -309,20 +301,25 @@
 </div>
 
 <script>
-	import { parseColor, toHex, toRgb, toHsl, rgbToHsl, hslToRgb, type RGB } from '../lib/colors';
+	import { parseColor, toHex, toRgb, toHsl, type RGB } from '../lib/colors';
 	import { contrastRatio, wcagResults, qualityLabel, qualityColor } from '../lib/contrast';
 	import { suggestFixes } from '../lib/autofix';
-	import { toCssVars, toTailwindClasses, toShareUrl } from '../lib/export';
+	import { toTailwindClasses, toShareUrl } from '../lib/export';
 	import { simulate } from '../lib/colorblind';
 
 	let fgColor: RGB = { r: 17, g: 24, b: 39 };
 	let bgColor: RGB = { r: 255, g: 255, b: 255 };
-	let activeFormat = 'hex';
-	let activeBlindType: 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia' | 'achromatopsia' =
-		'normal';
+	let activeBlindType: 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia' | 'achromatopsia' = 'normal';
 	let savedPalettes: Array<{ name: string; fg: RGB; bg: RGB }> = [];
 
+	// Typed element references
+	const fgPicker = document.getElementById('fgColorPicker') as HTMLInputElement;
+	const bgPicker = document.getElementById('bgColorPicker') as HTMLInputElement;
+	const fgInput  = document.getElementById('fgColorInput')  as HTMLInputElement;
+	const bgInput  = document.getElementById('bgColorInput')  as HTMLInputElement;
+
 	function updateAll() {
+		updateSwatches();
 		updateRatio();
 		updateWCAG();
 		updatePreview();
@@ -331,6 +328,24 @@
 		updateFormats();
 		updateDeveloperOutput();
 		updateUrl();
+	}
+
+	function updateSwatches() {
+		const fgHex = toHex(fgColor);
+		const bgHex = toHex(bgColor);
+		const fgSwatch = document.getElementById('fgColorSwatch');
+		const bgSwatch = document.getElementById('bgColorSwatch');
+		if (fgSwatch) fgSwatch.style.backgroundColor = fgHex;
+		if (bgSwatch) bgSwatch.style.backgroundColor = bgHex;
+		// Update pencil icon stroke color for contrast
+		const fgSvg = fgSwatch?.querySelector('svg');
+		const bgSvg = bgSwatch?.querySelector('svg');
+		if (fgSvg) fgSvg.setAttribute('stroke', 'white');
+		if (bgSvg) {
+			// Use dark icon on light backgrounds, light on dark
+			const lum = (fgColor.r * 299 + fgColor.g * 587 + fgColor.b * 114) / 1000;
+			bgSvg.setAttribute('stroke', lum > 128 ? '#111827' : 'white');
+		}
 	}
 
 	function updateRatio() {
@@ -343,75 +358,75 @@
 	function updateWCAG() {
 		const ratio = contrastRatio(fgColor, bgColor);
 		const results = wcagResults(ratio);
-		document.getElementById('aaSmall')!.textContent = results.aaSmall ? '✓ Pass' : '✗ Fail';
-		document.getElementById('aaSmall')!.style.color = results.aaSmall ? '#10b981' : '#ef4444';
-		document.getElementById('aaLarge')!.textContent = results.aaLarge ? '✓ Pass' : '✗ Fail';
-		document.getElementById('aaLarge')!.style.color = results.aaLarge ? '#10b981' : '#ef4444';
-		document.getElementById('aaaSmall')!.textContent = results.aaaSmall ? '✓ Pass' : '✗ Fail';
-		document.getElementById('aaaSmall')!.style.color = results.aaaSmall ? '#10b981' : '#ef4444';
-		document.getElementById('aaaLarge')!.textContent = results.aaaLarge ? '✓ Pass' : '✗ Fail';
-		document.getElementById('aaaLarge')!.style.color = results.aaaLarge ? '#10b981' : '#ef4444';
+		const set = (id: string, pass: boolean) => {
+			const el = document.getElementById(id);
+			if (el) {
+				el.textContent = pass ? '✓ Pass' : '✗ Fail';
+				el.style.color = pass ? '#10b981' : '#ef4444';
+			}
+		};
+		set('aaSmall', results.aaSmall);
+		set('aaLarge', results.aaLarge);
+		set('aaaSmall', results.aaaSmall);
+		set('aaaLarge', results.aaaLarge);
 	}
 
 	function updatePreview() {
-		const previewArea = document.getElementById('previewArea')!;
-		const blindSimulated = simulate(fgColor, activeBlindType);
+		const previewArea = document.getElementById('previewArea');
+		if (!previewArea) return;
+		const blindFg = simulate(fgColor, activeBlindType);
 		const blindBg = simulate(bgColor, activeBlindType);
-
 		previewArea.style.backgroundColor = toHex(blindBg);
-		previewArea.style.color = toHex(blindSimulated);
+		previewArea.style.color = toHex(blindFg);
 
-		const blindnessPreviews = document.getElementById('blindnessPreviews')!;
-		const children = blindnessPreviews.querySelectorAll('div');
-		if (children.length >= 2) {
-			children[0].style.backgroundColor = toHex(blindSimulated);
-			children[1].style.backgroundColor = toHex(blindBg);
+		const blindnessPreviews = document.getElementById('blindnessPreviews');
+		if (blindnessPreviews) {
+			const children = blindnessPreviews.querySelectorAll('div');
+			if (children.length >= 2) {
+				(children[0] as HTMLElement).style.backgroundColor = toHex(blindFg);
+				(children[1] as HTMLElement).style.backgroundColor = toHex(blindBg);
+			}
 		}
 	}
 
 	function updateMeter() {
 		const ratio = contrastRatio(fgColor, bgColor);
 		const color = qualityColor(ratio);
-		const meterArc = document.getElementById('meterArc')!;
-
-		const maxRatio = 21;
-		const percentage = Math.min(ratio / maxRatio, 1);
+		const meterArc = document.getElementById('meterArc');
+		if (!meterArc) return;
+		const percentage = Math.min(ratio / 21, 1);
 		const circumference = 251.2;
-		const offset = circumference * (1 - percentage);
-
 		meterArc.style.stroke = color;
-		meterArc.style.strokeDashoffset = offset.toString();
+		meterArc.style.strokeDashoffset = (circumference * (1 - percentage)).toString();
 	}
 
 	function updateAutoFix() {
 		const ratio = contrastRatio(fgColor, bgColor);
 		const results = wcagResults(ratio);
-		const autoFixSection = document.getElementById('autoFixSection')!;
+		const autoFixSection = document.getElementById('autoFixSection');
+		if (!autoFixSection) return;
 
 		if (!results.aaSmall || !results.aaLarge || !results.aaaSmall || !results.aaaLarge) {
 			autoFixSection.classList.remove('hidden');
-
 			const suggestions = suggestFixes(fgColor, bgColor);
-			const container = document.getElementById('suggestionsContainer')!;
-			container.innerHTML = suggestions
-				.map(
-					(s, idx) =>
-						`<div class="p-md bg-canvas-soft rounded-md flex items-center justify-between">
-			<div>
-				<div class="text-body-sm-strong">${s.hex}</div>
-				<div class="text-body-sm text-body">Ratio: ${s.ratio.toFixed(2)}:1</div>
-			</div>
-			<button class="btn-primary-sm apply-suggestion" data-index="${idx}">Apply</button>
-		</div>`
-				)
-				.join('');
+			const container = document.getElementById('suggestionsContainer');
+			if (!container) return;
+			container.innerHTML = suggestions.map((s, idx) =>
+				`<div class="p-md bg-canvas-soft rounded-md flex items-center justify-between">
+					<div>
+						<div class="text-body-sm-strong">${s.hex}</div>
+						<div class="text-body-sm text-body">Ratio: ${s.ratio.toFixed(2)}:1</div>
+					</div>
+					<button class="btn-primary-sm apply-suggestion" data-index="${idx}">Apply</button>
+				</div>`
+			).join('');
 
-			document.querySelectorAll('.apply-suggestion').forEach((btn) => {
+			container.querySelectorAll('.apply-suggestion').forEach((btn) => {
 				btn.addEventListener('click', (e) => {
 					const idx = parseInt((e.target as HTMLElement).getAttribute('data-index') || '0');
 					fgColor = suggestions[idx].rgb;
-					document.getElementById('fgColorPicker')!.value = toHex(fgColor);
-					document.getElementById('fgColorInput')!.value = toHex(fgColor);
+					fgPicker.value = toHex(fgColor);
+					fgInput.value = toHex(fgColor);
 					updateAll();
 				});
 			});
@@ -421,46 +436,38 @@
 	}
 
 	function updateFormats() {
-		const hex = toHex(fgColor);
-		const rgb = toRgb(fgColor);
-		const hsl = toHsl(fgColor);
-		document.getElementById('hexDisplay')!.value = hex;
-		document.getElementById('rgbDisplay')!.value = rgb;
-		document.getElementById('hslDisplay')!.value = hsl;
+		const hexEl = document.getElementById('hexDisplay') as HTMLInputElement | null;
+		const rgbEl = document.getElementById('rgbDisplay') as HTMLInputElement | null;
+		const hslEl = document.getElementById('hslDisplay') as HTMLInputElement | null;
+		if (hexEl) hexEl.value = toHex(fgColor);
+		if (rgbEl) rgbEl.value = toRgb(fgColor);
+		if (hslEl) hslEl.value = toHsl(fgColor);
 	}
 
 	function updateDeveloperOutput() {
 		const fgHex = toHex(fgColor);
 		const bgHex = toHex(bgColor);
-
-		// Update CSS Variables - only if elements exist
-		const cssColorFg = document.getElementById('cssColorFg');
-		const cssColorBg = document.getElementById('cssColorBg');
+		const cssColorFg  = document.getElementById('cssColorFg');
+		const cssColorBg  = document.getElementById('cssColorBg');
 		const cssSwatchFg = document.getElementById('cssSwatchFg');
 		const cssSwatchBg = document.getElementById('cssSwatchBg');
-		const tailwindOutput = document.getElementById('tailwindOutput');
-
-		if (cssColorFg) cssColorFg.textContent = fgHex;
-		if (cssColorBg) cssColorBg.textContent = bgHex;
+		const tailwindOut = document.getElementById('tailwindOutput');
+		if (cssColorFg)  cssColorFg.textContent = fgHex;
+		if (cssColorBg)  cssColorBg.textContent = bgHex;
 		if (cssSwatchFg) cssSwatchFg.style.backgroundColor = fgHex;
 		if (cssSwatchBg) cssSwatchBg.style.backgroundColor = bgHex;
-
-		// Update Tailwind Classes
-		if (tailwindOutput) {
-			const tailwind = toTailwindClasses(fgColor, bgColor);
-			tailwindOutput.textContent = tailwind;
-		}
+		if (tailwindOut) tailwindOut.textContent = toTailwindClasses(fgColor, bgColor);
 	}
 
 	function updateUrl() {
-		const url = toShareUrl(fgColor, bgColor);
-		window.history.replaceState({}, '', url);
+		window.history.replaceState({}, '', toShareUrl(fgColor, bgColor));
 	}
 
 	function showToast(message: string) {
-		const toast = document.getElementById('toast')!;
-		const toastMessage = document.getElementById('toastMessage')!;
-		toastMessage.textContent = message;
+		const toast = document.getElementById('toast');
+		const msg   = document.getElementById('toastMessage');
+		if (!toast || !msg) return;
+		msg.textContent = message;
 		toast.classList.remove('hidden');
 		setTimeout(() => toast.classList.add('hidden'), 2000);
 	}
@@ -469,86 +476,31 @@
 		const params = new URLSearchParams(window.location.search);
 		const fg = params.get('fg');
 		const bg = params.get('bg');
-
-		if (fg) {
-			const parsed = parseColor(`#${fg}`);
-			if (parsed) fgColor = parsed;
-		}
-		if (bg) {
-			const parsed = parseColor(`#${bg}`);
-			if (parsed) bgColor = parsed;
-		}
-
-		document.getElementById('fgColorPicker')!.value = toHex(fgColor);
-		document.getElementById('fgColorInput')!.value = toHex(fgColor);
-		document.getElementById('bgColorPicker')!.value = toHex(bgColor);
-		document.getElementById('bgColorInput')!.value = toHex(bgColor);
+		if (fg) { const p = parseColor(`#${fg}`); if (p) fgColor = p; }
+		if (bg) { const p = parseColor(`#${bg}`); if (p) bgColor = p; }
+		fgPicker.value = toHex(fgColor);
+		fgInput.value  = toHex(fgColor);
+		bgPicker.value = toHex(bgColor);
+		bgInput.value  = toHex(bgColor);
 	}
 
 	function loadPalettes() {
 		const stored = localStorage.getItem('contrastlab-palettes');
 		if (stored) {
-			try {
-				savedPalettes = JSON.parse(stored);
-				renderPalettes();
-			} catch {}
+			try { savedPalettes = JSON.parse(stored); renderPalettes(); } catch {}
 		}
 	}
 
 	function savePalette() {
 		const fgHex = toHex(fgColor);
 		const bgHex = toHex(bgColor);
-		const name = `${fgHex} / ${bgHex}`;
-
-		// Check if already exists
-		const exists = savedPalettes.some(p => toHex(p.fg) === fgHex && toHex(p.bg) === bgHex);
-		if (exists) {
-			showToast('Palette already saved!');
-			return;
+		if (savedPalettes.some(p => toHex(p.fg) === fgHex && toHex(p.bg) === bgHex)) {
+			showToast('Palette already saved!'); return;
 		}
-
-		savedPalettes.push({ name, fg: fgColor, bg: bgColor });
+		savedPalettes.push({ name: `${fgHex} / ${bgHex}`, fg: fgColor, bg: bgColor });
 		localStorage.setItem('contrastlab-palettes', JSON.stringify(savedPalettes));
 		renderPalettes();
 		showToast('Palette saved!');
-	}
-
-	function renderPalettes() {
-		const list = document.getElementById('palettesList')!;
-		list.innerHTML = savedPalettes
-			.map(
-				(p, idx) => {
-					const fgHex = toHex(p.fg);
-					const bgHex = toHex(p.bg);
-					return `<button class="load-palette p-sm bg-canvas-soft rounded-md text-left hover:bg-hairline transition-smooth flex items-center gap-md" data-index="${idx}" style="border: 1px solid #e5e5e5;">
-			<div class="flex gap-sm items-center flex-1">
-				<div style="width: 20px; height: 20px; border-radius: 4px; background-color: ${fgHex}; border: 1px solid #d1d5db;"></div>
-				<div style="width: 20px; height: 20px; border-radius: 4px; background-color: ${bgHex}; border: 1px solid #d1d5db;"></div>
-			</div>
-			<div>
-				<div class="text-body-sm-strong">${fgHex} / ${bgHex}</div>
-			</div>
-			<button class="delete-palette text-body hover:text-ink" data-index="${idx}" style="background: none; border: none; cursor: pointer; padding: 0; font-size: 18px;" onclick="event.stopPropagation(); deletePalette(${idx})">×</button>
-		</button>`
-				}
-			)
-			.join('');
-
-		document.querySelectorAll('.load-palette').forEach((btn) => {
-			btn.addEventListener('click', (e) => {
-				// Don't load if clicking the delete button
-				if ((e.target as HTMLElement).classList.contains('delete-palette')) return;
-
-				const idx = parseInt(btn.getAttribute('data-index') || '0');
-				fgColor = savedPalettes[idx].fg;
-				bgColor = savedPalettes[idx].bg;
-				document.getElementById('fgColorPicker')!.value = toHex(fgColor);
-				document.getElementById('fgColorInput')!.value = toHex(fgColor);
-				document.getElementById('bgColorPicker')!.value = toHex(bgColor);
-				document.getElementById('bgColorInput')!.value = toHex(bgColor);
-				updateAll();
-			});
-		});
 	}
 
 	function deletePalette(idx: number) {
@@ -558,68 +510,73 @@
 		showToast('Palette deleted!');
 	}
 
-	// Event listeners
-	document.getElementById('fgColorPicker')!.addEventListener('input', (e) => {
-		const val = (e.target as HTMLInputElement).value;
-		const parsed = parseColor(val);
-		if (parsed) {
-			fgColor = parsed;
-			document.getElementById('fgColorInput')!.value = toHex(fgColor);
-			updateAll();
-		}
+	function renderPalettes() {
+		const list = document.getElementById('palettesList');
+		if (!list) return;
+		list.innerHTML = savedPalettes.map((p, idx) => {
+			const fgHex = toHex(p.fg);
+			const bgHex = toHex(p.bg);
+			return `<div class="load-palette p-sm bg-canvas-soft rounded-md flex items-center gap-md" data-index="${idx}" style="border: 1px solid var(--color-hairline); cursor: pointer;">
+				<div class="flex gap-sm items-center flex-1">
+					<div style="width: 20px; height: 20px; border-radius: 4px; background-color: ${fgHex}; border: 1px solid #d1d5db;"></div>
+					<div style="width: 20px; height: 20px; border-radius: 4px; background-color: ${bgHex}; border: 1px solid #d1d5db;"></div>
+					<span class="text-body-sm-strong">${fgHex} / ${bgHex}</span>
+				</div>
+				<button class="delete-palette" data-index="${idx}" style="background: none; border: none; cursor: pointer; padding: 0 4px; font-size: 18px; color: var(--color-mute);">×</button>
+			</div>`;
+		}).join('');
+
+		list.querySelectorAll('.load-palette').forEach((row) => {
+			row.addEventListener('click', (e) => {
+				if ((e.target as HTMLElement).classList.contains('delete-palette')) return;
+				const idx = parseInt((row as HTMLElement).getAttribute('data-index') || '0');
+				fgColor = savedPalettes[idx].fg;
+				bgColor = savedPalettes[idx].bg;
+				fgPicker.value = toHex(fgColor);
+				fgInput.value  = toHex(fgColor);
+				bgPicker.value = toHex(bgColor);
+				bgInput.value  = toHex(bgColor);
+				updateAll();
+			});
+		});
+
+		list.querySelectorAll('.delete-palette').forEach((btn) => {
+			btn.addEventListener('click', (e) => {
+				e.stopPropagation();
+				const idx = parseInt((btn as HTMLElement).getAttribute('data-index') || '0');
+				deletePalette(idx);
+			});
+		});
+	}
+
+	// Color picker event listeners
+	fgPicker.addEventListener('input', () => {
+		const parsed = parseColor(fgPicker.value);
+		if (parsed) { fgColor = parsed; fgInput.value = fgPicker.value; updateAll(); }
 	});
 
-	document.getElementById('fgColorInput')!.addEventListener('input', (e) => {
-		const val = (e.target as HTMLInputElement).value;
-		const parsed = parseColor(val);
-		if (parsed) {
-			fgColor = parsed;
-			document.getElementById('fgColorPicker')!.value = toHex(fgColor);
-			updateAll();
-		}
+	bgPicker.addEventListener('input', () => {
+		const parsed = parseColor(bgPicker.value);
+		if (parsed) { bgColor = parsed; bgInput.value = bgPicker.value; updateAll(); }
 	});
 
-	document.getElementById('bgColorPicker')!.addEventListener('input', (e) => {
-		const val = (e.target as HTMLInputElement).value;
-		const parsed = parseColor(val);
-		if (parsed) {
-			bgColor = parsed;
-			document.getElementById('bgColorInput')!.value = toHex(bgColor);
-			updateAll();
-		}
+	fgInput.addEventListener('input', () => {
+		const parsed = parseColor(fgInput.value);
+		if (parsed) { fgColor = parsed; fgPicker.value = toHex(fgColor); updateAll(); }
 	});
 
-	document.getElementById('bgColorInput')!.addEventListener('input', (e) => {
-		const val = (e.target as HTMLInputElement).value;
-		const parsed = parseColor(val);
-		if (parsed) {
-			bgColor = parsed;
-			document.getElementById('bgColorPicker')!.value = toHex(bgColor);
-			updateAll();
-		}
+	bgInput.addEventListener('input', () => {
+		const parsed = parseColor(bgInput.value);
+		if (parsed) { bgColor = parsed; bgPicker.value = toHex(bgColor); updateAll(); }
 	});
 
 	document.getElementById('swapButton')!.addEventListener('click', () => {
 		[fgColor, bgColor] = [bgColor, fgColor];
-		document.getElementById('fgColorPicker')!.value = toHex(fgColor);
-		document.getElementById('fgColorInput')!.value = toHex(fgColor);
-		document.getElementById('bgColorPicker')!.value = toHex(bgColor);
-		document.getElementById('bgColorInput')!.value = toHex(bgColor);
+		fgPicker.value = toHex(fgColor);
+		fgInput.value  = toHex(fgColor);
+		bgPicker.value = toHex(bgColor);
+		bgInput.value  = toHex(bgColor);
 		updateAll();
-	});
-
-	// Format tabs
-	document.querySelectorAll('.tab-button').forEach((btn) => {
-		if (btn.parentElement?.id === undefined || btn.parentElement.classList.contains('tab-group')) {
-			btn.addEventListener('click', (e) => {
-				const format = (e.target as HTMLElement).getAttribute('data-format');
-				if (format) {
-					document.querySelectorAll('[data-format]').forEach((b) => b.classList.remove('active'));
-					(e.target as HTMLElement).classList.add('active');
-					activeFormat = format;
-				}
-			});
-		}
 	});
 
 	// Color blindness tabs
@@ -627,11 +584,9 @@
 		btn.addEventListener('click', (e) => {
 			const blind = (e.target as HTMLElement).getAttribute('data-blind');
 			if (blind) {
-				document
-					.querySelectorAll('[data-blind]')
-					.forEach((b) => b.classList.remove('active'));
+				document.querySelectorAll('[data-blind]').forEach((b) => b.classList.remove('active'));
 				(e.target as HTMLElement).classList.add('active');
-				activeBlindType = blind as any;
+				activeBlindType = blind as typeof activeBlindType;
 				updatePreview();
 			}
 		});
@@ -655,74 +610,22 @@
 	// Copy buttons
 	document.querySelectorAll('[data-copy]').forEach((btn) => {
 		btn.addEventListener('click', async (e) => {
-			const type = (e.target as HTMLElement).getAttribute('data-copy');
+			const type = (e.currentTarget as HTMLElement).getAttribute('data-copy');
 			let text = '';
-
-			if (type === 'hex') text = document.getElementById('hexDisplay')!.value;
-			if (type === 'rgb') text = document.getElementById('rgbDisplay')!.value;
-			if (type === 'hsl') text = document.getElementById('hslDisplay')!.value;
-			if (type === 'css') text = document.getElementById('cssOutput')!.textContent || '';
-			if (type === 'tailwind') text = document.getElementById('tailwindOutput')!.textContent || '';
-
-			if (text) {
-				await navigator.clipboard.writeText(text);
-				showToast('Copied to clipboard!');
+			if (type === 'hex') text = (document.getElementById('hexDisplay') as HTMLInputElement)?.value || '';
+			if (type === 'rgb') text = (document.getElementById('rgbDisplay') as HTMLInputElement)?.value || '';
+			if (type === 'hsl') text = (document.getElementById('hslDisplay') as HTMLInputElement)?.value || '';
+			if (type === 'css') {
+				const fg = document.getElementById('cssColorFg')?.textContent || '';
+				const bg = document.getElementById('cssColorBg')?.textContent || '';
+				text = `--foreground: ${fg};\n--background: ${bg};`;
 			}
+			if (type === 'tailwind') text = document.getElementById('tailwindOutput')?.textContent || '';
+			if (text) { await navigator.clipboard.writeText(text); showToast('Copied!'); }
 		});
 	});
 
-	// Save palette button
 	document.getElementById('savePaletteBtn')!.addEventListener('click', savePalette);
-
-	// Color picker changes
-	const fgPicker = document.getElementById('fgColorPicker') as HTMLInputElement | null;
-	const bgPicker = document.getElementById('bgColorPicker') as HTMLInputElement | null;
-	const fgInput = document.getElementById('fgColorInput') as HTMLInputElement | null;
-	const bgInput = document.getElementById('bgColorInput') as HTMLInputElement | null;
-
-	if (fgPicker) {
-		fgPicker.addEventListener('change', () => {
-			const parsed = parseColor(fgPicker.value);
-			if (parsed) {
-				fgColor = parsed;
-				if (fgInput) fgInput.value = fgPicker.value;
-				updateAll();
-			}
-		});
-	}
-
-	if (bgPicker) {
-		bgPicker.addEventListener('change', () => {
-			const parsed = parseColor(bgPicker.value);
-			if (parsed) {
-				bgColor = parsed;
-				if (bgInput) bgInput.value = bgPicker.value;
-				updateAll();
-			}
-		});
-	}
-
-	if (fgInput) {
-		fgInput.addEventListener('change', () => {
-			const parsed = parseColor(fgInput.value);
-			if (parsed) {
-				fgColor = parsed;
-				if (fgPicker) fgPicker.value = toHex(fgColor);
-				updateAll();
-			}
-		});
-	}
-
-	if (bgInput) {
-		bgInput.addEventListener('change', () => {
-			const parsed = parseColor(bgInput.value);
-			if (parsed) {
-				bgColor = parsed;
-				if (bgPicker) bgPicker.value = toHex(bgColor);
-				updateAll();
-			}
-		});
-	}
 
 	// Initialize
 	loadFromUrl();
