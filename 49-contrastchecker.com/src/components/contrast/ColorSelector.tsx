@@ -10,10 +10,13 @@ interface Props {
   onChange: (hex: string) => void;
 }
 
+const supportsEyeDropper = typeof window !== 'undefined' && 'EyeDropper' in window;
+
 export default function ColorSelector({ label, color, onChange }: Props) {
   const [hsva, setHsva] = useState<HsvaColor>(() => hexToHsva(color));
   const [inputVal, setInputVal] = useState(color);
   const [inputError, setInputError] = useState(false);
+  const [picking, setPicking] = useState(false);
 
   useEffect(() => {
     setHsva(hexToHsva(color));
@@ -59,11 +62,26 @@ export default function ColorSelector({ label, color, onChange }: Props) {
     [inputVal, onChange]
   );
 
+  const handleEyeDropper = useCallback(async () => {
+    if (!supportsEyeDropper) return;
+    try {
+      setPicking(true);
+      // @ts-expect-error — EyeDropper not yet in lib.dom.d.ts for all TS versions
+      const eyeDropper = new window.EyeDropper();
+      const result = await eyeDropper.open();
+      onChange(result.sRGBHex.toUpperCase());
+    } catch {
+      // user cancelled — no action needed
+    } finally {
+      setPicking(false);
+    }
+  }, [onChange]);
+
   const rgb = parseColor(color);
 
   return (
     <div style={{ flex: 1, minWidth: 0 }}>
-      {/* Label + color dot */}
+      {/* Label + color dot + eyedropper */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
         <span
           aria-hidden="true"
@@ -83,10 +101,57 @@ export default function ColorSelector({ label, color, onChange }: Props) {
             letterSpacing: '0.06em',
             textTransform: 'uppercase' as const,
             color: 'var(--color-mute)',
+            flex: 1,
           }}
         >
           {label}
         </span>
+
+        {/* Eyedropper — inline with label */}
+        {supportsEyeDropper ? (
+          <button
+            type="button"
+            onClick={handleEyeDropper}
+            disabled={picking}
+            aria-label={`Pick ${label} color from screen`}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '5px',
+              padding: '4px 9px',
+              borderRadius: '6px',
+              border: '1px solid var(--color-hairline)',
+              background: picking ? 'var(--color-canvas-soft-2)' : 'var(--color-canvas-soft)',
+              color: picking ? 'var(--color-violet)' : 'var(--color-mute)',
+              fontSize: '0.6875rem',
+              fontWeight: 600,
+              cursor: picking ? 'wait' : 'pointer',
+              flexShrink: 0,
+              transition: 'background 0.15s, color 0.15s',
+            }}
+            onMouseEnter={(e) => {
+              if (picking) return;
+              e.currentTarget.style.background = 'var(--color-canvas-soft-2)';
+              e.currentTarget.style.color = 'var(--color-ink)';
+            }}
+            onMouseLeave={(e) => {
+              if (picking) return;
+              e.currentTarget.style.background = 'var(--color-canvas-soft)';
+              e.currentTarget.style.color = 'var(--color-mute)';
+            }}
+          >
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m2 22 1-1h3l9-9" />
+              <path d="M3 21v-3l9-9" />
+              <path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8Z" />
+            </svg>
+            {picking ? 'Picking…' : 'Pick From Screen'}
+          </button>
+        ) : (
+          <span style={{ fontSize: '0.6875rem', color: 'var(--color-mute)', opacity: 0.5 }}>
+            No eyedropper
+          </span>
+        )}
       </div>
 
       {/* Color wheel */}
@@ -149,6 +214,7 @@ export default function ColorSelector({ label, color, onChange }: Props) {
           transition: 'border-color 0.15s',
         }}
       />
+
     </div>
   );
 }
