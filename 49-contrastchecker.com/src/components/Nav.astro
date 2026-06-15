@@ -8,12 +8,35 @@
 		</div>
 
 		<div class="hidden md:flex items-center gap-lg">
-			<a href="#checker" class="text-body-sm text-body hover:text-ink transition-colors">Checker</a>
-			<a href="#accessibility" class="text-body-sm text-body hover:text-ink transition-colors"
-				>Why A11y</a
-			>
-			<a href="#wcag" class="text-body-sm text-body hover:text-ink transition-colors">WCAG Guide</a>
-			<a href="#faq" class="text-body-sm text-body hover:text-ink transition-colors">FAQ</a>
+			<a href="/#checker" class="text-body-sm text-body hover:text-ink transition-colors">Checker</a>
+			<a href="/#accessibility" class="text-body-sm text-body hover:text-ink transition-colors">Why A11y</a>
+			<a href="/#wcag" class="text-body-sm text-body hover:text-ink transition-colors">WCAG Guide</a>
+			<a href="/#faq" class="text-body-sm text-body hover:text-ink transition-colors">FAQ</a>
+			<span style="width: 1px; height: 16px; background: var(--color-hairline); display: inline-block;"></span>
+			<!-- Company dropdown -->
+			<div id="companyDropdown" style="position: relative;">
+				<button
+					id="companyBtn"
+					class="text-body-sm text-body hover:text-ink transition-colors"
+					style="display: flex; align-items: center; gap: 4px; background: none; border: none; cursor: pointer; padding: 0; font-family: inherit;"
+					aria-haspopup="true"
+					aria-expanded="false"
+				>
+					Company
+					<svg id="companyChevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.2s;"><polyline points="6 9 12 15 18 9"/></svg>
+				</button>
+				<div
+					id="companyMenu"
+					style="display: none; position: absolute; top: calc(100% + 10px); right: 0; min-width: 180px; background: var(--color-canvas); border: 1px solid var(--color-hairline); border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); padding: 6px; z-index: 50;"
+					role="menu"
+				>
+					<a href="/about"   role="menuitem" style="display: block; padding: 8px 12px; border-radius: 6px; font-size: 0.875rem; color: var(--color-body); text-decoration: none;" class="dropdown-item">About</a>
+					<a href="/contact" role="menuitem" style="display: block; padding: 8px 12px; border-radius: 6px; font-size: 0.875rem; color: var(--color-body); text-decoration: none;" class="dropdown-item">Contact</a>
+					<div style="height: 1px; background: var(--color-hairline); margin: 4px 0;"></div>
+					<a href="/privacy" role="menuitem" style="display: block; padding: 8px 12px; border-radius: 6px; font-size: 0.875rem; color: var(--color-body); text-decoration: none;" class="dropdown-item">Privacy Policy</a>
+					<a href="/terms"   role="menuitem" style="display: block; padding: 8px 12px; border-radius: 6px; font-size: 0.875rem; color: var(--color-body); text-decoration: none;" class="dropdown-item">Terms of Use</a>
+				</div>
+			</div>
 		</div>
 
 		<div class="flex items-center gap-sm flex-shrink-0">
@@ -44,15 +67,15 @@
 	<!-- Mobile Menu -->
 	<div id="mobileMenu" class="hidden md:hidden bg-canvas border-t border-hairline" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
 		<div class="px-lg py-md flex flex-col gap-sm">
-			<a href="#checker" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">Checker</a>
-			<a href="#accessibility" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">Why A11y</a>
-			<a href="#wcag" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">WCAG Guide</a>
-			<a href="#faq" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">FAQ</a>
+			<a href="/#checker" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">Checker</a>
+			<a href="/#accessibility" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">Why A11y</a>
+			<a href="/#wcag" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">WCAG Guide</a>
+			<a href="/#faq" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">FAQ</a>
 			<hr style="border: none; border-top: 1px solid var(--color-hairline); margin: var(--spacing-sm) 0;">
-			<button class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft text-left bg-none border-none cursor-pointer">About</button>
-			<button class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft text-left bg-none border-none cursor-pointer">Contact</button>
-			<button class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft text-left bg-none border-none cursor-pointer">Privacy Policy</button>
-			<button class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft text-left bg-none border-none cursor-pointer">Terms & Conditions</button>
+			<a href="/about" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">About</a>
+			<a href="/contact" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">Contact</a>
+			<a href="/privacy" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">Privacy Policy</a>
+			<a href="/terms" class="text-body-sm text-body hover:text-ink transition-colors py-md px-md rounded-md hover:bg-canvas-soft">Terms of Use</a>
 		</div>
 	</div>
 </nav>
@@ -125,6 +148,53 @@
 					mobileMenu?.classList.add('hidden');
 				}, 300);
 			}
+		});
+	});
+
+	// Company dropdown
+	const companyBtn = document.getElementById('companyBtn') as HTMLButtonElement | null;
+	const companyMenu = document.getElementById('companyMenu') as HTMLElement | null;
+	const companyChevron = document.getElementById('companyChevron') as HTMLElement | null;
+
+	function openDropdown() {
+		if (!companyMenu || !companyChevron || !companyBtn) return;
+		companyMenu.style.display = 'block';
+		companyChevron.style.transform = 'rotate(180deg)';
+		companyBtn.setAttribute('aria-expanded', 'true');
+	}
+	function closeDropdown() {
+		if (!companyMenu || !companyChevron || !companyBtn) return;
+		companyMenu.style.display = 'none';
+		companyChevron.style.transform = 'rotate(0deg)';
+		companyBtn.setAttribute('aria-expanded', 'false');
+	}
+
+	companyBtn?.addEventListener('click', (e) => {
+		e.stopPropagation();
+		companyMenu?.style.display === 'block' ? closeDropdown() : openDropdown();
+	});
+
+	// Close when clicking outside
+	document.addEventListener('click', (e) => {
+		if (!document.getElementById('companyDropdown')?.contains(e.target as Node)) {
+			closeDropdown();
+		}
+	});
+
+	// Close on Escape
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') closeDropdown();
+	});
+
+	// Hover highlight for dropdown items
+	document.querySelectorAll('.dropdown-item').forEach(el => {
+		(el as HTMLElement).addEventListener('mouseenter', function() {
+			(this as HTMLElement).style.background = 'var(--color-canvas-soft)';
+			(this as HTMLElement).style.color = 'var(--color-ink)';
+		});
+		(el as HTMLElement).addEventListener('mouseleave', function() {
+			(this as HTMLElement).style.background = '';
+			(this as HTMLElement).style.color = 'var(--color-body)';
 		});
 	});
 </script>

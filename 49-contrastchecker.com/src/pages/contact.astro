@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Contact — ContrastLab"
+  description="Get in touch with ContrastLab. Report bugs, request features, or send accessibility feedback. We read every message."
+>
+  <Nav />
+
+  <main>
+    <!-- Hero -->
+    <section style="padding: 72px 24px 48px; text-align: center; border-bottom: 1px solid var(--color-hairline); background: var(--color-canvas-soft);">
+      <div style="max-width: 600px; margin: 0 auto;">
+        <p style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-violet); margin-bottom: 12px;">Contact</p>
+        <h1 style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; color: var(--color-ink); line-height: 1.2; margin-bottom: 16px;">
+          Get in touch
+        </h1>
+        <p style="font-size: 1rem; color: var(--color-body); line-height: 1.7;">
+          ContrastLab is independently maintained. We read every message we receive and aim to respond within <strong style="color: var(--color-ink);">2–3 business days</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Email highlight -->
+    <section style="padding: 48px 24px; max-width: 760px; margin: 0 auto; text-align: center;">
+      <p style="font-size: 0.8125rem; color: var(--color-mute); margin-bottom: 10px;">Reach us directly at</p>
+      <a
+        href="mailto:support@contrastlab.com"
+        style="font-size: 1.25rem; font-weight: 700; color: var(--color-link); text-decoration: none; border-bottom: 2px solid var(--color-link-bg-soft); padding-bottom: 2px;"
+      >
+        support@contrastlab.com
+      </a>
+    </section>
+
+    <!-- Contact cards -->
+    <section style="padding: 0 24px 72px; max-width: 960px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+
+        <!-- General support -->
+        <div style="padding: 28px; border-radius: 12px; border: 1px solid var(--color-hairline); background: var(--color-canvas-soft);">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(121, 40, 202, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h2 style="font-size: 1rem; font-weight: 700; color: var(--color-ink); margin-bottom: 8px;">General Support</h2>
+          <p style="font-size: 0.8125rem; color: var(--color-body); line-height: 1.65; margin-bottom: 16px;">
+            Something not working as expected? Please include your browser and OS, and paste the URL from your address bar — it contains your color values and helps us reproduce the issue quickly.
+          </p>
+          <a href="mailto:support@contrastlab.com?subject=Support" style="font-size: 0.8125rem; font-weight: 600; color: var(--color-link); text-decoration: none;">
+            support@contrastlab.com →
+          </a>
+        </div>
+
+        <!-- Bug reports -->
+        <div style="padding: 28px; border-radius: 12px; border: 1px solid var(--color-hairline); background: var(--color-canvas-soft);">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(238, 0, 0, 0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <h2 style="font-size: 1rem; font-weight: 700; color: var(--color-ink); margin-bottom: 8px;">Bug Reports</h2>
+          <p style="font-size: 0.8125rem; color: var(--color-body); line-height: 1.65; margin-bottom: 16px;">
+            Found a bug? Describe what you were trying to do and what happened instead. For contrast calculation errors, include the foreground and background values and the ratio you expected.
+          </p>
+          <a href="mailto:support@contrastlab.com?subject=Bug Report" style="font-size: 0.8125rem; font-weight: 600; color: var(--color-link); text-decoration: none;">
+            Send bug report →
+          </a>
+        </div>
+
+        <!-- Feature requests -->
+        <div style="padding: 28px; border-radius: 12px; border: 1px solid var(--color-hairline); background: var(--color-canvas-soft);">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(0, 112, 243, 0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-link)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h2 style="font-size: 1rem; font-weight: 700; color: var(--color-ink); margin-bottom: 8px;">Feature Requests</h2>
+          <p style="font-size: 0.8125rem; color: var(--color-body); line-height: 1.65; margin-bottom: 16px;">
+            Have an idea that would make ContrastLab more useful for your workflow? We can't commit to every request, but all feedback is read and considered when planning what to build next.
+          </p>
+          <a href="mailto:support@contrastlab.com?subject=Feature Request" style="font-size: 0.8125rem; font-weight: 600; color: var(--color-link); text-decoration: none;">
+            Send feature request →
+          </a>
+        </div>
+
+        <!-- Accessibility feedback -->
+        <div style="padding: 28px; border-radius: 12px; border: 1px solid var(--color-hairline); background: var(--color-canvas-soft);">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(80, 227, 194, 0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-cyan-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4l3 3"/>
+            </svg>
+          </div>
+          <h2 style="font-size: 1rem; font-weight: 700; color: var(--color-ink); margin-bottom: 8px;">Accessibility Feedback</h2>
+          <p style="font-size: 0.8125rem; color: var(--color-body); line-height: 1.65; margin-bottom: 16px;">
+            Found something in ContrastLab that's hard to use with a screen reader, keyboard, or other assistive technology? We treat these as high-priority bugs — fixes are prioritized above new features.
+          </p>
+          <a href="mailto:support@contrastlab.com?subject=Accessibility Issue" style="font-size: 0.8125rem; font-weight: 600; color: var(--color-link); text-decoration: none;">
+            Report accessibility issue →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Response time note -->
+    <section style="padding: 40px 24px 72px; max-width: 760px; margin: 0 auto; text-align: center; border-top: 1px solid var(--color-hairline);">
+      <p style="font-size: 0.875rem; color: var(--color-mute); line-height: 1.7;">
+        We aim to respond to all messages within <strong style="color: var(--color-ink);">2–3 business days</strong>. For calculation errors specifically, we verify all reports against the WCAG 2.2 specification before responding.
+      </p>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
