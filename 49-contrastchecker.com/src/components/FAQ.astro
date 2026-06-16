@@ -6,6 +6,67 @@
 		<h2 class="text-display-lg mb-12">Frequently Asked Questions</h2>
 
 		<div style="border-top: 1px solid rgb(235, 235, 235);">
+			<!-- FAQ Item: Is this tool safe to use? -->
+			<details class="group cursor-pointer" style="border-bottom: 1px solid rgb(235, 235, 235);">
+				<summary class="text-body-md-strong flex items-center justify-between py-4 hover:opacity-80 transition-colors">
+					Is this tool safe to use?
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.2s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+				</summary>
+				<div class="text-body-md text-body pb-4" style="color: rgb(77, 77, 77);">
+					<p style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px;">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><polyline points="20 6 9 17 4 12"/></svg>
+						Yes, ContrastLab is completely safe. All contrast calculations happen locally in your browser — no color data is ever sent to a server. The EyeDropper API (used for screen color picking) includes built-in browser-level protections:
+					</p>
+					<ul style="list-style: disc; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px;">
+						<li>The eyedropper can only activate in direct response to a user action (a button click) — it cannot be triggered silently in the background.</li>
+						<li>A pixel color is only captured after a second deliberate user action (clicking on a specific pixel), so no screen data is read without clear intent.</li>
+						<li>Browsers make the eyedropper mode visually obvious — the cursor changes to a magnifying glass so you always know when it's active.</li>
+						<li>You can cancel eyedropper mode at any time by pressing <kbd style="font-family: var(--font-mono); font-size: 0.75rem; padding: 1px 5px; border-radius: 4px; border: 1px solid currentColor; opacity: 0.7;">Escape</kbd>.</li>
+					</ul>
+					<p style="font-size: 0.8125rem; opacity: 0.6;">Source: EyeDropper API — MDN Web Docs</p>
+				</div>
+			</details>
+
+			<!-- FAQ Item: Which browsers support this tool? -->
+			<details class="group cursor-pointer" style="border-bottom: 1px solid rgb(235, 235, 235);">
+				<summary class="text-body-md-strong flex items-center justify-between py-4 hover:opacity-80 transition-colors">
+					Which browsers support this tool?
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.2s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+				</summary>
+				<div class="text-body-md text-body pb-4" style="color: rgb(77, 77, 77);">
+					<p style="margin-bottom: 14px;">The contrast checker works in any modern browser. The <strong>eyedropper</strong> (screen color picker) requires additional browser support and is available on:</p>
+
+					<p style="font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-bottom: 8px;">Supported</p>
+					<ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;">
+						{[
+							'Chrome 95+ (Desktop)',
+							'Edge 95+ (Desktop)',
+							'Opera 81+ (Desktop)',
+						].map(browser => (
+							<li style="display: flex; align-items: center; gap: 8px; font-size: 0.9375rem;">
+								<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+								{browser}
+							</li>
+						))}
+					</ul>
+
+					<p style="font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-bottom: 8px;">Eyedropper not available</p>
+					<ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px;">
+						{[
+							'Firefox (no EyeDropper API support yet)',
+							'Safari (no EyeDropper API support yet)',
+							'Mobile browsers — iOS & Android',
+						].map(browser => (
+							<li style="display: flex; align-items: center; gap: 8px; font-size: 0.9375rem;">
+								<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+								{browser}
+							</li>
+						))}
+					</ul>
+					<p style="font-size: 0.8125rem; opacity: 0.6;">The eyedropper button is hidden automatically when your browser doesn't support it — all other features work everywhere.</p>
+				</div>
+			</details>
+
 			<!-- FAQ Item 1 -->
 			<details class="group cursor-pointer" style="border-bottom: 1px solid rgb(235, 235, 235);">
 				<summary class="text-body-md-strong flex items-center justify-between py-4 hover:opacity-80 transition-colors">
@@ -92,67 +153,6 @@
 				<p class="text-body-md text-body pb-4" style="color: rgb(77, 77, 77);">
 					WCAG 3.0 is in development and will use APCA (Advanced Perceptual Contrast Algorithm), which is more accurate for modern displays. ContrastLab is built with future standards in mind. WCAG 2.2 remains the current legal standard.
 				</p>
-			</details>
-
-			<!-- FAQ Item 9 -->
-			<details class="group cursor-pointer" style="border-bottom: 1px solid rgb(235, 235, 235);">
-				<summary class="text-body-md-strong flex items-center justify-between py-4 hover:opacity-80 transition-colors">
-					Is this tool safe to use?
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.2s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
-				</summary>
-				<div class="text-body-md text-body pb-4" style="color: rgb(77, 77, 77);">
-					<p style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px;">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><polyline points="20 6 9 17 4 12"/></svg>
-						Yes, ContrastLab is completely safe. All contrast calculations happen locally in your browser — no color data is ever sent to a server. The EyeDropper API (used for screen color picking) includes built-in browser-level protections:
-					</p>
-					<ul style="list-style: disc; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px;">
-						<li>The eyedropper can only activate in direct response to a user action (a button click) — it cannot be triggered silently in the background.</li>
-						<li>A pixel color is only captured after a second deliberate user action (clicking on a specific pixel), so no screen data is read without clear intent.</li>
-						<li>Browsers make the eyedropper mode visually obvious — the cursor changes to a magnifying glass so you always know when it's active.</li>
-						<li>You can cancel eyedropper mode at any time by pressing <kbd style="font-family: var(--font-mono); font-size: 0.75rem; padding: 1px 5px; border-radius: 4px; border: 1px solid currentColor; opacity: 0.7;">Escape</kbd>.</li>
-					</ul>
-					<p style="font-size: 0.8125rem; opacity: 0.6;">Source: EyeDropper API — MDN Web Docs</p>
-				</div>
-			</details>
-
-			<!-- FAQ Item 10 -->
-			<details class="group cursor-pointer" style="border-bottom: 1px solid rgb(235, 235, 235);">
-				<summary class="text-body-md-strong flex items-center justify-between py-4 hover:opacity-80 transition-colors">
-					Which browsers support this tool?
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.2s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
-				</summary>
-				<div class="text-body-md text-body pb-4" style="color: rgb(77, 77, 77);">
-					<p style="margin-bottom: 14px;">The contrast checker works in any modern browser. The <strong>eyedropper</strong> (screen color picker) requires additional browser support and is available on:</p>
-
-					<p style="font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-bottom: 8px;">Supported</p>
-					<ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;">
-						{[
-							'Chrome 95+ (Desktop)',
-							'Edge 95+ (Desktop)',
-							'Opera 81+ (Desktop)',
-						].map(browser => (
-							<li style="display: flex; align-items: center; gap: 8px; font-size: 0.9375rem;">
-								<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-								{browser}
-							</li>
-						))}
-					</ul>
-
-					<p style="font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-bottom: 8px;">Eyedropper not available</p>
-					<ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px;">
-						{[
-							'Firefox (no EyeDropper API support yet)',
-							'Safari (no EyeDropper API support yet)',
-							'Mobile browsers — iOS & Android',
-						].map(browser => (
-							<li style="display: flex; align-items: center; gap: 8px; font-size: 0.9375rem;">
-								<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-								{browser}
-							</li>
-						))}
-					</ul>
-					<p style="font-size: 0.8125rem; opacity: 0.6;">The eyedropper button is hidden automatically when your browser doesn't support it — all other features work everywhere.</p>
-				</div>
 			</details>
 		</div>
 	</div>
